@@ -31,17 +31,21 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteForm));
 			this.editPanel = new System.Windows.Forms.Panel();
+			this.pinkBtn = new System.Windows.Forms.Button();
+			this.blueBtn = new System.Windows.Forms.Button();
+			this.greenBtn = new System.Windows.Forms.Button();
+			this.yellowBtn = new System.Windows.Forms.Button();
 			this.deleteBtn = new System.Windows.Forms.Button();
 			this.modifiedTextBox = new System.Windows.Forms.TextBox();
 			this.modifiedLabel = new System.Windows.Forms.Label();
-			this.saveBtn = new System.Windows.Forms.Button();
 			this.editTitleLabel = new System.Windows.Forms.Label();
 			this.titleTextBox = new System.Windows.Forms.TextBox();
 			this.titlePanel = new System.Windows.Forms.Panel();
+			this.notesListBtn = new System.Windows.Forms.Button();
 			this.newNoteBtn = new System.Windows.Forms.Button();
-			this.titleLabel = new System.Windows.Forms.Label();
 			this.editBtn = new System.Windows.Forms.Button();
 			this.closeBtn = new System.Windows.Forms.Button();
+			this.titleLabel = new System.Windows.Forms.Label();
 			this.secondTitleLabel = new System.Windows.Forms.Label();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.rmbContext = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -66,6 +70,7 @@
 			this.rightAlignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resizeBtn = new System.Windows.Forms.Button();
 			this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.colorLabel = new System.Windows.Forms.Label();
 			this.editPanel.SuspendLayout();
 			this.titlePanel.SuspendLayout();
 			this.rmbContext.SuspendLayout();
@@ -77,10 +82,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.editPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(173)))), ((int)(((byte)(96)))));
+			this.editPanel.Controls.Add(this.colorLabel);
+			this.editPanel.Controls.Add(this.pinkBtn);
+			this.editPanel.Controls.Add(this.blueBtn);
+			this.editPanel.Controls.Add(this.greenBtn);
+			this.editPanel.Controls.Add(this.yellowBtn);
 			this.editPanel.Controls.Add(this.deleteBtn);
 			this.editPanel.Controls.Add(this.modifiedTextBox);
 			this.editPanel.Controls.Add(this.modifiedLabel);
-			this.editPanel.Controls.Add(this.saveBtn);
 			this.editPanel.Controls.Add(this.editTitleLabel);
 			this.editPanel.Controls.Add(this.titleTextBox);
 			this.editPanel.Location = new System.Drawing.Point(0, 30);
@@ -90,11 +99,67 @@
 			this.editPanel.TabIndex = 1;
 			this.editPanel.Visible = false;
 			// 
+			// pinkBtn
+			// 
+			this.pinkBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(209)))));
+			this.pinkBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+			this.pinkBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.pinkBtn.Location = new System.Drawing.Point(163, 43);
+			this.pinkBtn.Margin = new System.Windows.Forms.Padding(9, 9, 0, 0);
+			this.pinkBtn.Name = "pinkBtn";
+			this.pinkBtn.Size = new System.Drawing.Size(25, 25);
+			this.pinkBtn.TabIndex = 10;
+			this.pinkBtn.Text = "P";
+			this.pinkBtn.UseVisualStyleBackColor = false;
+			this.pinkBtn.Click += new System.EventHandler(this.pinkBtn_Click);
+			// 
+			// blueBtn
+			// 
+			this.blueBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+			this.blueBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+			this.blueBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.blueBtn.Location = new System.Drawing.Point(129, 43);
+			this.blueBtn.Margin = new System.Windows.Forms.Padding(9, 9, 0, 0);
+			this.blueBtn.Name = "blueBtn";
+			this.blueBtn.Size = new System.Drawing.Size(25, 25);
+			this.blueBtn.TabIndex = 9;
+			this.blueBtn.Text = "B";
+			this.blueBtn.UseVisualStyleBackColor = false;
+			this.blueBtn.Click += new System.EventHandler(this.blueBtn_Click);
+			// 
+			// greenBtn
+			// 
+			this.greenBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(219)))), ((int)(((byte)(193)))));
+			this.greenBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+			this.greenBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.greenBtn.Location = new System.Drawing.Point(95, 43);
+			this.greenBtn.Margin = new System.Windows.Forms.Padding(9, 9, 0, 0);
+			this.greenBtn.Name = "greenBtn";
+			this.greenBtn.Size = new System.Drawing.Size(25, 25);
+			this.greenBtn.TabIndex = 8;
+			this.greenBtn.Text = "G";
+			this.greenBtn.UseVisualStyleBackColor = false;
+			this.greenBtn.Click += new System.EventHandler(this.greenBtn_Click);
+			// 
+			// yellowBtn
+			// 
+			this.yellowBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(128)))));
+			this.yellowBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+			this.yellowBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.yellowBtn.Location = new System.Drawing.Point(61, 43);
+			this.yellowBtn.Margin = new System.Windows.Forms.Padding(9, 9, 0, 0);
+			this.yellowBtn.Name = "yellowBtn";
+			this.yellowBtn.Size = new System.Drawing.Size(25, 25);
+			this.yellowBtn.TabIndex = 7;
+			this.yellowBtn.Text = "Y";
+			this.yellowBtn.UseVisualStyleBackColor = false;
+			this.yellowBtn.Click += new System.EventHandler(this.yellowBtn_Click);
+			// 
 			// deleteBtn
 			// 
 			this.deleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.deleteBtn.BackColor = System.Drawing.SystemColors.Window;
+			this.deleteBtn.BackColor = System.Drawing.Color.White;
 			this.deleteBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
 			this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.deleteBtn.Location = new System.Drawing.Point(9, 192);
@@ -102,54 +167,41 @@
 			this.deleteBtn.Name = "deleteBtn";
 			this.deleteBtn.Size = new System.Drawing.Size(238, 25);
 			this.deleteBtn.TabIndex = 6;
-			this.deleteBtn.Text = "Move to trash";
+			this.deleteBtn.Text = "Delete note";
 			this.deleteBtn.UseVisualStyleBackColor = false;
 			this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
 			// 
 			// modifiedTextBox
 			// 
-			this.modifiedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.modifiedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.modifiedTextBox.BackColor = System.Drawing.Color.White;
 			this.modifiedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.modifiedTextBox.Location = new System.Drawing.Point(9, 97);
-			this.modifiedTextBox.Margin = new System.Windows.Forms.Padding(0, 9, 0, 0);
+			this.modifiedTextBox.Location = new System.Drawing.Point(82, 158);
+			this.modifiedTextBox.Margin = new System.Windows.Forms.Padding(0, 9, 9, 9);
 			this.modifiedTextBox.Name = "modifiedTextBox";
 			this.modifiedTextBox.ReadOnly = true;
-			this.modifiedTextBox.Size = new System.Drawing.Size(238, 25);
+			this.modifiedTextBox.Size = new System.Drawing.Size(165, 25);
 			this.modifiedTextBox.TabIndex = 5;
 			// 
 			// modifiedLabel
 			// 
+			this.modifiedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.modifiedLabel.AutoSize = true;
 			this.modifiedLabel.ForeColor = System.Drawing.Color.White;
-			this.modifiedLabel.Location = new System.Drawing.Point(6, 71);
-			this.modifiedLabel.Margin = new System.Windows.Forms.Padding(0, 9, 0, 0);
+			this.modifiedLabel.Location = new System.Drawing.Point(9, 160);
+			this.modifiedLabel.Margin = new System.Windows.Forms.Padding(0, 9, 9, 0);
 			this.modifiedLabel.Name = "modifiedLabel";
-			this.modifiedLabel.Size = new System.Drawing.Size(90, 17);
+			this.modifiedLabel.Size = new System.Drawing.Size(64, 17);
 			this.modifiedLabel.TabIndex = 4;
-			this.modifiedLabel.Text = "Last modified:";
-			// 
-			// saveBtn
-			// 
-			this.saveBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.saveBtn.BackColor = System.Drawing.SystemColors.Window;
-			this.saveBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-			this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.saveBtn.Location = new System.Drawing.Point(189, 37);
-			this.saveBtn.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
-			this.saveBtn.Name = "saveBtn";
-			this.saveBtn.Size = new System.Drawing.Size(58, 25);
-			this.saveBtn.TabIndex = 2;
-			this.saveBtn.Text = "Save";
-			this.saveBtn.UseVisualStyleBackColor = false;
-			this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+			this.modifiedLabel.Text = "Modified:";
 			// 
 			// editTitleLabel
 			// 
 			this.editTitleLabel.AutoSize = true;
 			this.editTitleLabel.ForeColor = System.Drawing.Color.White;
 			this.editTitleLabel.Location = new System.Drawing.Point(9, 11);
-			this.editTitleLabel.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+			this.editTitleLabel.Margin = new System.Windows.Forms.Padding(0, 0, 9, 0);
 			this.editTitleLabel.Name = "editTitleLabel";
 			this.editTitleLabel.Size = new System.Drawing.Size(35, 17);
 			this.editTitleLabel.TabIndex = 1;
@@ -159,29 +211,47 @@
 			// 
 			this.titleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.titleTextBox.BackColor = System.Drawing.Color.White;
 			this.titleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.titleTextBox.Location = new System.Drawing.Point(9, 37);
-			this.titleTextBox.Margin = new System.Windows.Forms.Padding(0, 9, 0, 0);
+			this.titleTextBox.Location = new System.Drawing.Point(53, 9);
+			this.titleTextBox.Margin = new System.Windows.Forms.Padding(0, 9, 9, 0);
 			this.titleTextBox.Name = "titleTextBox";
-			this.titleTextBox.Size = new System.Drawing.Size(171, 25);
+			this.titleTextBox.Size = new System.Drawing.Size(194, 25);
 			this.titleTextBox.TabIndex = 0;
 			this.titleTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.titleTextBox_KeyDown);
+			this.titleTextBox.Leave += new System.EventHandler(this.titleTextBox_Leave);
 			// 
 			// titlePanel
 			// 
 			this.titlePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
+			this.titlePanel.Controls.Add(this.notesListBtn);
 			this.titlePanel.Controls.Add(this.newNoteBtn);
-			this.titlePanel.Controls.Add(this.titleLabel);
 			this.titlePanel.Controls.Add(this.editBtn);
 			this.titlePanel.Controls.Add(this.closeBtn);
+			this.titlePanel.Controls.Add(this.titleLabel);
 			this.titlePanel.Location = new System.Drawing.Point(0, 0);
 			this.titlePanel.Margin = new System.Windows.Forms.Padding(0);
 			this.titlePanel.Name = "titlePanel";
 			this.titlePanel.Size = new System.Drawing.Size(256, 30);
 			this.titlePanel.TabIndex = 6;
 			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
+			// 
+			// notesListBtn
+			// 
+			this.notesListBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.notesListBtn.FlatAppearance.BorderSize = 0;
+			this.notesListBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.notesListBtn.Image = ((System.Drawing.Image)(resources.GetObject("notesListBtn.Image")));
+			this.notesListBtn.Location = new System.Drawing.Point(196, 0);
+			this.notesListBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.notesListBtn.Name = "notesListBtn";
+			this.notesListBtn.Size = new System.Drawing.Size(30, 30);
+			this.notesListBtn.TabIndex = 10;
+			this.infoToolTip.SetToolTip(this.notesListBtn, "Edit note (Ctrl+Shift+E)");
+			this.notesListBtn.UseVisualStyleBackColor = true;
+			this.notesListBtn.Click += new System.EventHandler(this.notesListBtn_Click);
 			// 
 			// newNoteBtn
 			// 
@@ -197,26 +267,13 @@
 			this.newNoteBtn.UseVisualStyleBackColor = true;
 			this.newNoteBtn.Click += new System.EventHandler(this.newNoteBtn_Click);
 			// 
-			// titleLabel
-			// 
-			this.titleLabel.AutoSize = true;
-			this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.titleLabel.ForeColor = System.Drawing.Color.White;
-			this.titleLabel.Location = new System.Drawing.Point(30, 6);
-			this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
-			this.titleLabel.Name = "titleLabel";
-			this.titleLabel.Size = new System.Drawing.Size(32, 17);
-			this.titleLabel.TabIndex = 8;
-			this.titleLabel.Text = "Title";
-			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
-			// 
 			// editBtn
 			// 
 			this.editBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.editBtn.FlatAppearance.BorderSize = 0;
 			this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
-			this.editBtn.Location = new System.Drawing.Point(196, 0);
+			this.editBtn.Location = new System.Drawing.Point(166, 0);
 			this.editBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.editBtn.Name = "editBtn";
 			this.editBtn.Size = new System.Drawing.Size(30, 30);
@@ -239,6 +296,19 @@
 			this.infoToolTip.SetToolTip(this.closeBtn, "Hide note (Ctrl+Q)");
 			this.closeBtn.UseVisualStyleBackColor = true;
 			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+			// 
+			// titleLabel
+			// 
+			this.titleLabel.AutoSize = true;
+			this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.titleLabel.ForeColor = System.Drawing.Color.White;
+			this.titleLabel.Location = new System.Drawing.Point(30, 6);
+			this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.titleLabel.Name = "titleLabel";
+			this.titleLabel.Size = new System.Drawing.Size(32, 17);
+			this.titleLabel.TabIndex = 8;
+			this.titleLabel.Text = "Title";
+			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
 			// 
 			// secondTitleLabel
 			// 
@@ -467,8 +537,6 @@
 			this.resizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.resizeBtn.Cursor = System.Windows.Forms.Cursors.SizeNWSE;
 			this.resizeBtn.FlatAppearance.BorderSize = 0;
-			this.resizeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(128)))));
-			this.resizeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(128)))));
 			this.resizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.resizeBtn.Image = ((System.Drawing.Image)(resources.GetObject("resizeBtn.Image")));
 			this.resizeBtn.Location = new System.Drawing.Point(239, 239);
@@ -482,6 +550,17 @@
 			this.resizeBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.resizeBtn_MouseDown);
 			this.resizeBtn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.resizeBtn_MouseUp);
 			// 
+			// colorLabel
+			// 
+			this.colorLabel.AutoSize = true;
+			this.colorLabel.ForeColor = System.Drawing.Color.White;
+			this.colorLabel.Location = new System.Drawing.Point(9, 47);
+			this.colorLabel.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
+			this.colorLabel.Name = "colorLabel";
+			this.colorLabel.Size = new System.Drawing.Size(43, 17);
+			this.colorLabel.TabIndex = 11;
+			this.colorLabel.Text = "Color:";
+			// 
 			// NoteForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -491,8 +570,8 @@
 			this.Controls.Add(this.editPanel);
 			this.Controls.Add(this.secondTitleLabel);
 			this.Controls.Add(this.titlePanel);
-			this.Controls.Add(this.richTextBox1);
 			this.Controls.Add(this.resizeBtn);
+			this.Controls.Add(this.richTextBox1);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.KeyPreview = true;
@@ -522,7 +601,6 @@
 		#endregion
 		private System.Windows.Forms.Panel editPanel;
 		private System.Windows.Forms.TextBox titleTextBox;
-		private System.Windows.Forms.Button saveBtn;
 		private System.Windows.Forms.Label modifiedLabel;
 		private System.Windows.Forms.TextBox modifiedTextBox;
 		private System.Windows.Forms.Panel titlePanel;
@@ -556,5 +634,11 @@
 		private System.Windows.Forms.ToolStripMenuItem subscriptToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 		private System.Windows.Forms.ToolStripMenuItem pasteAsPlainTextToolStripMenuItem;
+		private System.Windows.Forms.Button notesListBtn;
+		private System.Windows.Forms.Button yellowBtn;
+		private System.Windows.Forms.Button greenBtn;
+		private System.Windows.Forms.Button pinkBtn;
+		private System.Windows.Forms.Button blueBtn;
+		private System.Windows.Forms.Label colorLabel;
 	}
 }

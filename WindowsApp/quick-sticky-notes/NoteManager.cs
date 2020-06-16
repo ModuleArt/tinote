@@ -18,10 +18,9 @@ namespace quick_sticky_notes
 
 		public void NewNote(string colorStr = "yellow")
 		{
-			Note note = new Note(noteCounter++);
+			Note note = new Note(noteCounter++, colorStr);
 			notes.Add(note);
 			note.Show();
-			note.SetColor(colorStr);
 
 			NoteAddedEventArgs args = new NoteAddedEventArgs()
 			{

@@ -29,14 +29,7 @@ namespace quick_sticky_notes
             //gSyncManager.Authorize();
 
             FirebaseManager fm = new FirebaseManager();
-            fm.Authorize();
-        }
-
-        private void GSyncManager_SyncDone(object sender, EventArgs e)
-        {
-            lastSyncLabel.Invoke((MethodInvoker)(() => {
-                lastSyncLabel.Text = "Last sync: " + DateTime.Now.ToString();
-            }));
+            fm.Init();
         }
 
         private void NoteManager_NoteAdded(object sender, NoteAddedEventArgs e)
@@ -49,11 +42,17 @@ namespace quick_sticky_notes
             e.Note.PerformNewNote += Note_PerformNewNote;
             e.Note.PerformDelete += Note_PerformDelete;
             e.Note.PerformSync += Note_PerformSync;
+            e.Note.ShowNotesList += Note_ShowNotesList;
 
             if (e.Note.visible)
             {
                 e.Note.Show();
             }
+        }
+
+        private void Note_ShowNotesList(object sender, EventArgs e)
+        {
+            this.Show();
         }
 
         private void Note_PerformSync(object sender, EventArgs e)
@@ -114,27 +113,7 @@ namespace quick_sticky_notes
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            syncPanel.Visible = !syncPanel.Visible;
-            //if (gSyncManager.IsAuthorized())
-            //{
-            //    syncBtn.Text = "Switch Google account";
-            //    profileLabel.Text = "Signed with Google Drive";
-
-            //    if (Properties.Settings.Default.LastSync == null)
-            //    {
-            //        lastSyncLabel.Text = "Last sync: Never";
-            //    }
-            //    else
-            //    {
-            //        lastSyncLabel.Text = "Last sync: " + Properties.Settings.Default.LastSync.ToString();
-            //    }
-            //}
-            //else
-            //{
-            //    syncBtn.Text = "Sign in to Google";
-            //    profileLabel.Text = "Sync is not available";
-            //    lastSyncLabel.Text = "Unauthorized, please log in";
-            //}
+            
         }
 
         private void notesListBox_DoubleClick_1(object sender, EventArgs e)
@@ -225,24 +204,27 @@ namespace quick_sticky_notes
             this.Close();
         }
 
-        private void syncButton_Click(object sender, EventArgs e)
-        {
-            //if (gSyncManager.IsAuthorized())
-            //{
-            //    gSyncManager.Unauthorize();
-            //}
-            //else
-            //{
-            //    gSyncManager.Authorize();
-            //}
-        }
-
         private void trayIcon_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 this.Show();
             }
+        }
+
+        private void titlePanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Cursor.Current = Cursors.SizeAll;
+                ShellManager.ReleaseCapture();
+                ShellManager.SendMessage(Handle, 0xA1, 0x2, 0);
+            }
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

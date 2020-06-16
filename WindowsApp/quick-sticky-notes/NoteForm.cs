@@ -10,30 +10,17 @@ namespace quick_sticky_notes
 		private DateTime dateModified;
 		private string colorStr;
 
-		public const int WM_NCLBUTTONDOWN = 0xA1;
-		public const int HT_CAPTION = 0x2;
-
-		[System.Runtime.InteropServices.DllImport("user32.dll")]
-		public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-		[System.Runtime.InteropServices.DllImport("user32.dll")]
-		public static extern bool ReleaseCapture();
-
-		[System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
-		static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
-
-		[System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
-		static extern IntPtr FindWindowEx(IntPtr hP, IntPtr hC, string sC, string sW);
-
 		private System.Timers.Timer resizeTimer = new System.Timers.Timer();
 
 		private Point startPos;
 		private Size curSize;
 
-		public NoteForm(string title, string content, DateTime dateModified)
+		public NoteForm(string title, string content, DateTime dateModified, string colorStr)
 		{
 			InitializeComponent();
 
 			this.Text = title;
+			this.colorStr = colorStr;
 			this.dateModified = dateModified;
 
 			try
@@ -47,6 +34,8 @@ namespace quick_sticky_notes
 
 			resizeTimer.Elapsed += new ElapsedEventHandler(resizeTimer_Elapsed);
 			resizeTimer.Interval = 50;
+
+			SetColor(colorStr);
 		}
 
 		private void resizeTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -70,6 +59,35 @@ namespace quick_sticky_notes
 				titlePanel.BackColor = Color.FromArgb(127, 115, 64);
 				richTextBox1.ForeColor = Color.FromArgb(127, 115, 64);
 				richTextBox1.BackColor = Color.FromArgb(255, 231, 128);
+				editPanel.BackColor = Color.FromArgb(191, 173, 96);
+				secondTitleLabel.ForeColor = Color.FromArgb(191, 173, 96);
+			}
+			else if (colorStr == "green")
+			{
+				this.BackColor = Color.FromArgb(132, 219, 193);
+				titlePanel.BackColor = Color.FromArgb(66, 109, 96);
+				richTextBox1.ForeColor = Color.FromArgb(66, 109, 96);
+				richTextBox1.BackColor = Color.FromArgb(132, 219, 193);
+				editPanel.BackColor = Color.FromArgb(99, 164, 145);
+				secondTitleLabel.ForeColor = Color.FromArgb(99, 164, 145);
+			}
+			else if (colorStr == "blue")
+			{
+				this.BackColor = Color.FromArgb(128, 194, 255);
+				titlePanel.BackColor = Color.FromArgb(64, 97, 127);
+				richTextBox1.ForeColor = Color.FromArgb(64, 97, 127);
+				richTextBox1.BackColor = Color.FromArgb(128, 194, 255);
+				editPanel.BackColor = Color.FromArgb(96, 145, 191);
+				secondTitleLabel.ForeColor = Color.FromArgb(96, 145, 191);
+			}
+			else if (colorStr == "pink")
+			{
+				this.BackColor = Color.FromArgb(255, 163, 209);
+				titlePanel.BackColor = Color.FromArgb(127, 81, 104);
+				richTextBox1.ForeColor = Color.FromArgb(127, 81, 104);
+				richTextBox1.BackColor = Color.FromArgb(255, 163, 209);
+				editPanel.BackColor = Color.FromArgb(191, 122, 157);
+				secondTitleLabel.ForeColor = Color.FromArgb(191, 122, 157);
 			}
 		}
 
@@ -109,23 +127,16 @@ namespace quick_sticky_notes
 		}
 		public event EventHandler<TitleChangedEventArgs> TitleChanged;
 
-		private void saveBtn_Click(object sender, EventArgs e)
+		protected virtual void OnColorChanged(ColorChangedEventArgs e)
 		{
-			dateModified = DateTime.Now;
-			editPanel.Visible = false;
-			this.Text = titleTextBox.Text;
-			TitleChangedEventArgs args = new TitleChangedEventArgs()
-			{
-				Title = titleTextBox.Text
-			};
-			OnTitleChanged(args);
+			ColorChanged?.Invoke(this, e);
 		}
+		public event EventHandler<ColorChangedEventArgs> ColorChanged;
 
 		private void NoteForm_Activated(object sender, EventArgs e)
 		{
 			ShowTitlebar(true);
 			richTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical;
-			//richTextBox1.Height = this.Height - 82;
 			resizeBtn.Visible = true;
 		}
 
@@ -133,7 +144,6 @@ namespace quick_sticky_notes
 		{
 			ShowTitlebar(false);
 			richTextBox1.ScrollBars = RichTextBoxScrollBars.None;
-			//richTextBox1.Height = this.Height - 52;
 			resizeBtn.Visible = false;
 
 			OnPerformSync(e);
@@ -144,8 +154,8 @@ namespace quick_sticky_notes
 			if (e.Button == MouseButtons.Left)
 			{
 				Cursor.Current = Cursors.SizeAll;
-				ReleaseCapture();
-				SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+				ShellManager.ReleaseCapture();
+				ShellManager.SendMessage(Handle, 0xA1, 0x2, 0);
 			}
 		}
 
@@ -167,9 +177,9 @@ namespace quick_sticky_notes
 
 		private void NoteForm_Load(object sender, EventArgs e)
 		{
-			IntPtr nWinHandle = FindWindowEx(IntPtr.Zero, IntPtr.Zero, "Progman", null);
-			nWinHandle = FindWindowEx(nWinHandle, IntPtr.Zero, "SHELLDLL_DefView", null);
-			SetParent(Handle, nWinHandle);
+			IntPtr nWinHandle = ShellManager.FindWindowEx(IntPtr.Zero, IntPtr.Zero, "Progman", null);
+			nWinHandle = ShellManager.FindWindowEx(nWinHandle, IntPtr.Zero, "SHELLDLL_DefView", null);
+			ShellManager.SetParent(Handle, nWinHandle);
 		}
 
 		private void editBtn_Click(object sender, EventArgs e)
@@ -191,6 +201,7 @@ namespace quick_sticky_notes
 				editBtn.Visible = true;
 				closeBtn.Visible = true;
 				newNoteBtn.Visible = true;
+				notesListBtn.Visible = true;
 
 				titleLabel.Visible = true;
 				titlePanel.Height = 30;
@@ -204,20 +215,13 @@ namespace quick_sticky_notes
 					editBtn.Visible = false;
 					closeBtn.Visible = false;
 					newNoteBtn.Visible = false;
+					notesListBtn.Visible = false;
 
 					titleLabel.Visible = false;
 					titlePanel.Height = 8;
 
 					secondTitleLabel.Visible = true;
 				}
-			}
-		}
-
-		private void titleTextBox_KeyDown(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Enter)
-			{
-				saveBtn.PerformClick();
 			}
 		}
 
@@ -281,23 +285,8 @@ namespace quick_sticky_notes
 			}
 		}
 
-		private void NoteForm_MouseDown(object sender, MouseEventArgs e)
-		{
-			
-			if (e.Button == MouseButtons.Left)
-			{
-				
-			}
-		}
-
-		private void NoteForm_MouseUp(object sender, MouseEventArgs e)
-		{
-			
-		}
-
 		private void resizeBtn_MouseDown(object sender, MouseEventArgs e)
 		{
-			Console.WriteLine("md");
 			Point downPos = this.PointToClient(Cursor.Position);
 			if (e.Button == MouseButtons.Left)
 			{
@@ -312,6 +301,7 @@ namespace quick_sticky_notes
 		{
 			resizeTimer.Stop();
 			Cursor.Current = Cursors.Default;
+			OnResizeEnd(e);
 		}
 
 		private void NoteForm_KeyDown(object sender, KeyEventArgs e)
@@ -422,7 +412,6 @@ namespace quick_sticky_notes
 		private void toggleBulletsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			SelectCurLine();
-			//richTextBox1.SelectionFont = new Font(richTextBox1.Font, FontStyle.Regular);
 			if (richTextBox1.SelectedText[0] == '○')
 			{
 				richTextBox1.SelectedText = "●" + richTextBox1.SelectedText.Substring(1, richTextBox1.SelectedText.Length - 1);
@@ -538,6 +527,88 @@ namespace quick_sticky_notes
 		{
 			richTextBox1.SelectionAlignment = HorizontalAlignment.Center;
 		}
+
+		private void notesListBtn_Click(object sender, EventArgs e)
+		{
+			OnShowNotesList(e);
+		}
+
+		protected virtual void OnShowNotesList(EventArgs e)
+		{
+			ShowNotesList?.Invoke(this, e);
+		}
+		public event EventHandler<EventArgs> ShowNotesList;
+
+		private void titleTextBox_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				editBtn.Focus();
+			}
+		}
+
+		private void titleTextBox_Leave(object sender, EventArgs e)
+		{
+			if (titleTextBox.Text.Length > 0 && this.Text != titleTextBox.Text)
+			{
+				dateModified = DateTime.Now;
+				editPanel.Visible = false;
+				this.Text = titleTextBox.Text;
+				TitleChangedEventArgs args = new TitleChangedEventArgs()
+				{
+					Title = titleTextBox.Text
+				};
+				OnTitleChanged(args);
+			}
+		}
+
+		private void yellowBtn_Click(object sender, EventArgs e)
+		{
+			SetColor("yellow");
+
+			dateModified = DateTime.Now;
+			ColorChangedEventArgs args = new ColorChangedEventArgs()
+			{
+				ColorStr = "yellow"
+			};
+			OnColorChanged(args);
+		}
+
+		private void greenBtn_Click(object sender, EventArgs e)
+		{
+			SetColor("green");
+
+			dateModified = DateTime.Now;
+			ColorChangedEventArgs args = new ColorChangedEventArgs()
+			{
+				ColorStr = "green"
+			};
+			OnColorChanged(args);
+		}
+
+		private void blueBtn_Click(object sender, EventArgs e)
+		{
+			SetColor("blue");
+
+			dateModified = DateTime.Now;
+			ColorChangedEventArgs args = new ColorChangedEventArgs()
+			{
+				ColorStr = "blue"
+			};
+			OnColorChanged(args);
+		}
+
+		private void pinkBtn_Click(object sender, EventArgs e)
+		{
+			SetColor("pink");
+
+			dateModified = DateTime.Now;
+			ColorChangedEventArgs args = new ColorChangedEventArgs()
+			{
+				ColorStr = "pink"
+			};
+			OnColorChanged(args);
+		}
 	}
 
 	public class ContentChangedEventArgs : EventArgs
@@ -552,6 +623,11 @@ namespace quick_sticky_notes
 	}
 
 	public class PerformNewNoteEventArgs : EventArgs
+	{
+		public string ColorStr { get; set; }
+	}
+
+	public class ColorChangedEventArgs : EventArgs
 	{
 		public string ColorStr { get; set; }
 	}

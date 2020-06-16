@@ -7,24 +7,21 @@ namespace quick_sticky_notes
 		public int id;
 		public string title = "New note";
 		public string contentRtf = "Take a note...";
-		public string contentText = "Teke a note...";
+		public string contentText = "Take a note...";
 		public bool visible = false;
 		public DateTime dateModified;
 		public int x = -1;
 		public int y = -1;
 		public int width = -1;
 		public int height = -1;
+		public string colorStr = "yellow";
 		private NoteForm noteForm;
 
-		public Note(int id)
+		public Note(int id, string colorStr)
 		{
 			this.id = id;
+			this.colorStr = colorStr;
 			this.dateModified = DateTime.Now;
-		}
-
-		public void SetColor(string colorStr)
-		{
-			noteForm.SetColor(colorStr);
 		}
 
 		public void Focus()
@@ -36,7 +33,7 @@ namespace quick_sticky_notes
 		{
 			if (noteForm == null || noteForm.IsDisposed)
 			{
-				noteForm = new NoteForm(title, contentRtf, dateModified);
+				noteForm = new NoteForm(title, contentRtf, dateModified, colorStr);
 				noteForm.ContentChanged += NoteForm_ContentChanged;
 				noteForm.TitleChanged += NoteForm_TitleChanged;
 				noteForm.FormClosing += NoteForm_FormClosing;
@@ -44,6 +41,8 @@ namespace quick_sticky_notes
 				noteForm.PerformNewNote += NoteForm_PerformNewNote;
 				noteForm.PerformDelete += NoteForm_PerformDelete;
 				noteForm.PerformSync += NoteForm_PerformSync;
+				noteForm.ShowNotesList += NoteForm_ShowNotesList;
+				noteForm.ColorChanged += NoteForm_ColorChanged;
 			}
 
 			visible = true;
@@ -62,6 +61,16 @@ namespace quick_sticky_notes
 			{
 				noteForm.Size = new System.Drawing.Size(width, height);
 			}
+		}
+
+		private void NoteForm_ColorChanged(object sender, ColorChangedEventArgs e)
+		{
+			this.colorStr = e.ColorStr;
+		}
+
+		private void NoteForm_ShowNotesList(object sender, EventArgs e)
+		{
+			OnShowNotesList(e);
 		}
 
 		private void NoteForm_PerformSync(object sender, EventArgs e)
@@ -207,6 +216,18 @@ namespace quick_sticky_notes
 			PerformSync?.Invoke(this, e);
 		}
 		public event EventHandler<EventArgs> PerformSync;
+
+		protected virtual void OnShowNotesList(EventArgs e)
+		{
+			ShowNotesList?.Invoke(this, e);
+		}
+		public event EventHandler<EventArgs> ShowNotesList;
+
+		protected virtual void OnColorChanged(ColorChangedEventArgs e)
+		{
+			ColorChanged?.Invoke(this, e);
+		}
+		public event EventHandler<ColorChangedEventArgs> ColorChanged;
 	}
 
 	public class VisibleChangedEventArgs : EventArgs

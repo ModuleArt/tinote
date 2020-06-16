@@ -9,6 +9,8 @@ namespace quick_sticky_notes
 		private FirebaseApp firebaseApp;
 		private FirebaseAuth firebaseAuth;
 
+		private UserRecord userRecord;
+
 		private LoginForm loginForm;
 
 		public FirebaseManager()
@@ -16,7 +18,7 @@ namespace quick_sticky_notes
 
 		}
 
-		public async void Authorize()
+		public async void Init()
 		{
 			firebaseApp = FirebaseApp.Create(new AppOptions()
 			{
@@ -24,23 +26,11 @@ namespace quick_sticky_notes
 			});
 
 			firebaseAuth = FirebaseAuth.GetAuth(firebaseApp);
+		}
 
-			//List<UserIdentifier> users = new List<UserIdentifier>();
-			//users.Add("vkxYnftsTQa2NxDggPNKhKzQemI2" as UserIdentifier);
-
-			//ReadOnlyCollection<UserIdentifier> readOnlyDinosaurs = new ReadOnlyCollection<UserIdentifier>(users);
-
-			//IReadOnlyCollection<UserIdentifier> irocUsers = new List<UserIdentifier>(1);
-			//var x = await firebaseAuth.GetUsersAsync(irocUsers);
-
-			//Console.WriteLine();
-
-			
-
-			//var x = await firebaseAuth.CreateUserAsync(new UserRecordArgs { 
-			//	Email = "aaaaaa@gmail.com", 
-			//	Password = "aaaaaa" 
-			//});
+		public bool IsLogin()
+		{
+			return false;
 		}
 
 		public void ShowLoginForm()
@@ -52,11 +42,14 @@ namespace quick_sticky_notes
 
 		private async void LoginForm_PerformRegistration(object sender, PerformRegistrationEventArgs e)
 		{
-			var x = await firebaseAuth.CreateUserAsync(new UserRecordArgs
+			userRecord = await firebaseAuth.CreateUserAsync(new UserRecordArgs
 			{
 				Email = e.Email,
 				Password = e.Password
 			});
+
+			loginForm.Close();
+			loginForm.Dispose();
 		}
 	}
 }

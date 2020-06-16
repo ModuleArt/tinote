@@ -126,6 +126,13 @@
         Bjhijp/JKTtU/eqzFHt0/epL8qs9HaPJAWsd471Q1jFaBU8dC5Jzb3RCHVuN4rPDAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="newNoteBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAACdJREFUOE9joDX4D6XJBqMGkGAASCGpmChAtEJcYNQAKhhAa8DAAADSKhjohJAL
+        5QAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="notesListItemContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -1268,6 +1275,14 @@
         /////////6gAAr6FAAABH//////////UAAV/0CAAAl//////////ygAS//gKAAS//////////+SAJf//
         oUARf//////////6Lov///QXRP///////////IAv///+ABP////////////h//////h/////////////
         //////////////////////////////////8=
+</value>
+  </data>
+  <data name="closeBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAIRJREFUOE/N
+        kl0KgCAQhL1W9VAE9dLPBeuGdYjm03wQRBQf6oOBXd0ZVtD8ilOaXJlklg5XhgzSJaVCuGOmt12ERmJg
+        t10IZ9wxk6SVGNxs58g2ewi5JUIQZs6KGCWMiLqYqgDW5gms3b31KmXBIAaMnuyQmNnjQxbbRaj+SNVf
+        +QuMeQB5NR9VOH73IwAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
