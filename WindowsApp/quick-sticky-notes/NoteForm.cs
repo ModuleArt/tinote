@@ -14,7 +14,7 @@ namespace quick_sticky_notes
 
 		private Point startPos;
 		private Size curSize;
-
+		
 		public NoteForm(string title, string content, DateTime dateModified, string colorStr)
 		{
 			InitializeComponent();
@@ -313,6 +313,10 @@ namespace quick_sticky_notes
 					if (e.KeyCode == Keys.E)
 					{
 						editBtn.PerformClick();
+					}
+					else if (e.KeyCode == Keys.N)
+					{
+						notesListBtn.PerformClick();
 					}
 				}
 				else

@@ -34,16 +34,20 @@
 			this.newNoteBtn = new System.Windows.Forms.Button();
 			this.notesListBox = new System.Windows.Forms.ListBox();
 			this.notesListItemContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.notesListEmptyContext = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.addNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.trayIcon = new System.Windows.Forms.NotifyIcon(this.components);
 			this.trayContext = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.notesListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.newNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.titlePanel = new System.Windows.Forms.Panel();
+			this.titleLabel = new System.Windows.Forms.Label();
 			this.closeBtn = new System.Windows.Forms.Button();
 			this.notesListItemContext.SuspendLayout();
 			this.notesListEmptyContext.SuspendLayout();
@@ -95,20 +99,37 @@
 			// notesListItemContext
 			// 
 			this.notesListItemContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showToolStripMenuItem,
             this.renameToolStripMenuItem,
+            this.toolStripSeparator2,
             this.deleteToolStripMenuItem});
 			this.notesListItemContext.Name = "notesListContext";
-			this.notesListItemContext.Size = new System.Drawing.Size(108, 48);
+			this.notesListItemContext.Size = new System.Drawing.Size(108, 76);
+			// 
+			// showToolStripMenuItem
+			// 
+			this.showToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showToolStripMenuItem.Image")));
+			this.showToolStripMenuItem.Name = "showToolStripMenuItem";
+			this.showToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.showToolStripMenuItem.Text = "Show";
+			this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
 			// 
 			// renameToolStripMenuItem
 			// 
+			this.renameToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("renameToolStripMenuItem.Image")));
 			this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
 			this.renameToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
 			this.renameToolStripMenuItem.Text = "Edit";
 			this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
 			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
+			// 
 			// deleteToolStripMenuItem
 			// 
+			this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
 			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
 			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
 			this.deleteToolStripMenuItem.Text = "Delete";
@@ -123,6 +144,7 @@
 			// 
 			// addNoteToolStripMenuItem
 			// 
+			this.addNoteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addNoteToolStripMenuItem.Image")));
 			this.addNoteToolStripMenuItem.Name = "addNoteToolStripMenuItem";
 			this.addNoteToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
 			this.addNoteToolStripMenuItem.Text = "Add note";
@@ -140,33 +162,45 @@
 			// 
 			this.trayContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.notesListToolStripMenuItem,
+            this.newNoteToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
 			this.trayContext.Name = "notesListContext";
-			this.trayContext.Size = new System.Drawing.Size(124, 54);
+			this.trayContext.Size = new System.Drawing.Size(181, 98);
 			// 
 			// notesListToolStripMenuItem
 			// 
+			this.notesListToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("notesListToolStripMenuItem.Image")));
 			this.notesListToolStripMenuItem.Name = "notesListToolStripMenuItem";
-			this.notesListToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.notesListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.notesListToolStripMenuItem.Text = "Notes list";
 			this.notesListToolStripMenuItem.Click += new System.EventHandler(this.notesListToolStripMenuItem_Click);
+			// 
+			// newNoteToolStripMenuItem
+			// 
+			this.newNoteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newNoteToolStripMenuItem.Image")));
+			this.newNoteToolStripMenuItem.Name = "newNoteToolStripMenuItem";
+			this.newNoteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.newNoteToolStripMenuItem.Text = "New note";
+			this.newNoteToolStripMenuItem.Click += new System.EventHandler(this.newNoteToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(120, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
 			// 
 			// exitToolStripMenuItem
 			// 
+			this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-			this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
 			// titlePanel
 			// 
 			this.titlePanel.BackColor = System.Drawing.Color.White;
+			this.titlePanel.Controls.Add(this.titleLabel);
 			this.titlePanel.Controls.Add(this.closeBtn);
 			this.titlePanel.Controls.Add(this.newNoteBtn);
 			this.titlePanel.Controls.Add(this.profileBtn);
@@ -176,6 +210,19 @@
 			this.titlePanel.Size = new System.Drawing.Size(256, 30);
 			this.titlePanel.TabIndex = 3;
 			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
+			// 
+			// titleLabel
+			// 
+			this.titleLabel.AutoSize = true;
+			this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.titleLabel.ForeColor = System.Drawing.Color.Black;
+			this.titleLabel.Location = new System.Drawing.Point(30, 6);
+			this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.titleLabel.Name = "titleLabel";
+			this.titleLabel.Size = new System.Drawing.Size(44, 17);
+			this.titleLabel.TabIndex = 9;
+			this.titleLabel.Text = "Tinote";
+			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
 			// 
 			// closeBtn
 			// 
@@ -206,7 +253,7 @@
 			this.MinimizeBox = false;
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Quick Sticky Notes";
+			this.Text = "Tinote";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.Shown += new System.EventHandler(this.MainForm_Shown);
@@ -214,6 +261,7 @@
 			this.notesListEmptyContext.ResumeLayout(false);
 			this.trayContext.ResumeLayout(false);
 			this.titlePanel.ResumeLayout(false);
+			this.titlePanel.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -234,6 +282,10 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.Panel titlePanel;
 		private System.Windows.Forms.Button closeBtn;
+		private System.Windows.Forms.Label titleLabel;
+		private System.Windows.Forms.ToolStripMenuItem newNoteToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 	}
 }
 

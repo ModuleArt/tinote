@@ -66,6 +66,12 @@ namespace quick_sticky_notes
 		private void NoteForm_ColorChanged(object sender, ColorChangedEventArgs e)
 		{
 			this.colorStr = e.ColorStr;
+
+			ColorChangedEventArgs args = new ColorChangedEventArgs()
+			{
+				ColorStr = e.ColorStr
+			};
+			OnColorChanged(args);
 		}
 
 		private void NoteForm_ShowNotesList(object sender, EventArgs e)

@@ -87,4 +87,3 @@ D:\Projects\tinote\WindowsApp\quick-sticky-notes\obj\Debug\quick-sticky-notes.cs
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\obj\Debug\quick-sticky-notes.csproj.CopyComplete
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\obj\Debug\quick-sticky-notes.exe
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\obj\Debug\quick-sticky-notes.pdb
-D:\Projects\tinote\WindowsApp\quick-sticky-notes\obj\Debug\quick_sticky_notes.NotePanel.resources

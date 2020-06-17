@@ -115,12 +115,6 @@
       <DependentUpon>NoteForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NoteManager.cs" />
-    <Compile Include="NotePanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NotePanel.Designer.cs">
-      <DependentUpon>NotePanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShellManager.cs" />
@@ -132,9 +126,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NoteForm.resx">
       <DependentUpon>NoteForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NotePanel.resx">
-      <DependentUpon>NotePanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -43,11 +43,17 @@ namespace quick_sticky_notes
             e.Note.PerformDelete += Note_PerformDelete;
             e.Note.PerformSync += Note_PerformSync;
             e.Note.ShowNotesList += Note_ShowNotesList;
+            e.Note.ColorChanged += Note_ColorChanged;
 
             if (e.Note.visible)
             {
                 e.Note.Show();
             }
+        }
+
+        private void Note_ColorChanged(object sender, ColorChangedEventArgs e)
+        {
+            noteManager.SaveToDisk();
         }
 
         private void Note_ShowNotesList(object sender, EventArgs e)
@@ -225,6 +231,25 @@ namespace quick_sticky_notes
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void titleLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.titlePanel_MouseDown(sender, e);
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
+            {
+                Note note = notesListBox.SelectedItem as Note;
+                note.Show();
+            }
+        }
+
+        private void newNoteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            noteManager.NewNote();
         }
     }
 }

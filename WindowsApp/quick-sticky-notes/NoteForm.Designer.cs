@@ -31,6 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteForm));
 			this.editPanel = new System.Windows.Forms.Panel();
+			this.colorLabel = new System.Windows.Forms.Label();
 			this.pinkBtn = new System.Windows.Forms.Button();
 			this.blueBtn = new System.Windows.Forms.Button();
 			this.greenBtn = new System.Windows.Forms.Button();
@@ -65,12 +66,12 @@
 			this.superscriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.subscriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.leftAlignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.centerAlignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.rightAlignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.resizeBtn = new System.Windows.Forms.Button();
 			this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.colorLabel = new System.Windows.Forms.Label();
+			this.textAlignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.rightAlignToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.centerAlignToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.leftAlignToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.editPanel.SuspendLayout();
 			this.titlePanel.SuspendLayout();
 			this.rmbContext.SuspendLayout();
@@ -98,6 +99,17 @@
 			this.editPanel.Size = new System.Drawing.Size(256, 226);
 			this.editPanel.TabIndex = 1;
 			this.editPanel.Visible = false;
+			// 
+			// colorLabel
+			// 
+			this.colorLabel.AutoSize = true;
+			this.colorLabel.ForeColor = System.Drawing.Color.White;
+			this.colorLabel.Location = new System.Drawing.Point(9, 47);
+			this.colorLabel.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
+			this.colorLabel.Name = "colorLabel";
+			this.colorLabel.Size = new System.Drawing.Size(43, 17);
+			this.colorLabel.TabIndex = 11;
+			this.colorLabel.Text = "Color:";
 			// 
 			// pinkBtn
 			// 
@@ -162,12 +174,15 @@
 			this.deleteBtn.BackColor = System.Drawing.Color.White;
 			this.deleteBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
 			this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
 			this.deleteBtn.Location = new System.Drawing.Point(9, 192);
 			this.deleteBtn.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
 			this.deleteBtn.Name = "deleteBtn";
 			this.deleteBtn.Size = new System.Drawing.Size(238, 25);
 			this.deleteBtn.TabIndex = 6;
 			this.deleteBtn.Text = "Delete note";
+			this.deleteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.deleteBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.deleteBtn.UseVisualStyleBackColor = false;
 			this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
 			// 
@@ -249,7 +264,7 @@
 			this.notesListBtn.Name = "notesListBtn";
 			this.notesListBtn.Size = new System.Drawing.Size(30, 30);
 			this.notesListBtn.TabIndex = 10;
-			this.infoToolTip.SetToolTip(this.notesListBtn, "Edit note (Ctrl+Shift+E)");
+			this.infoToolTip.SetToolTip(this.notesListBtn, "Show notes list (Ctrl+Shift+N)");
 			this.notesListBtn.UseVisualStyleBackColor = true;
 			this.notesListBtn.Click += new System.EventHandler(this.notesListBtn_Click);
 			// 
@@ -363,11 +378,9 @@
             this.superscriptToolStripMenuItem,
             this.subscriptToolStripMenuItem,
             this.toolStripSeparator2,
-            this.leftAlignToolStripMenuItem,
-            this.centerAlignToolStripMenuItem,
-            this.rightAlignToolStripMenuItem});
+            this.textAlignToolStripMenuItem});
 			this.rmbContext.Name = "rmbContext";
-			this.rmbContext.Size = new System.Drawing.Size(248, 374);
+			this.rmbContext.Size = new System.Drawing.Size(248, 352);
 			// 
 			// cutToolStripMenuItem
 			// 
@@ -505,33 +518,6 @@
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(244, 6);
 			// 
-			// leftAlignToolStripMenuItem
-			// 
-			this.leftAlignToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("leftAlignToolStripMenuItem.Image")));
-			this.leftAlignToolStripMenuItem.Name = "leftAlignToolStripMenuItem";
-			this.leftAlignToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-			this.leftAlignToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-			this.leftAlignToolStripMenuItem.Text = "Left align";
-			this.leftAlignToolStripMenuItem.Click += new System.EventHandler(this.leftAlignToolStripMenuItem_Click);
-			// 
-			// centerAlignToolStripMenuItem
-			// 
-			this.centerAlignToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("centerAlignToolStripMenuItem.Image")));
-			this.centerAlignToolStripMenuItem.Name = "centerAlignToolStripMenuItem";
-			this.centerAlignToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-			this.centerAlignToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-			this.centerAlignToolStripMenuItem.Text = "Center align";
-			this.centerAlignToolStripMenuItem.Click += new System.EventHandler(this.centerAlignToolStripMenuItem_Click);
-			// 
-			// rightAlignToolStripMenuItem
-			// 
-			this.rightAlignToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("rightAlignToolStripMenuItem.Image")));
-			this.rightAlignToolStripMenuItem.Name = "rightAlignToolStripMenuItem";
-			this.rightAlignToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-			this.rightAlignToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-			this.rightAlignToolStripMenuItem.Text = "Right align";
-			this.rightAlignToolStripMenuItem.Click += new System.EventHandler(this.rightAlignToolStripMenuItem_Click);
-			// 
 			// resizeBtn
 			// 
 			this.resizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -550,16 +536,43 @@
 			this.resizeBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.resizeBtn_MouseDown);
 			this.resizeBtn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.resizeBtn_MouseUp);
 			// 
-			// colorLabel
+			// textAlignToolStripMenuItem
 			// 
-			this.colorLabel.AutoSize = true;
-			this.colorLabel.ForeColor = System.Drawing.Color.White;
-			this.colorLabel.Location = new System.Drawing.Point(9, 47);
-			this.colorLabel.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
-			this.colorLabel.Name = "colorLabel";
-			this.colorLabel.Size = new System.Drawing.Size(43, 17);
-			this.colorLabel.TabIndex = 11;
-			this.colorLabel.Text = "Color:";
+			this.textAlignToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.leftAlignToolStripMenuItem1,
+            this.centerAlignToolStripMenuItem1,
+            this.rightAlignToolStripMenuItem1});
+			this.textAlignToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("textAlignToolStripMenuItem.Image")));
+			this.textAlignToolStripMenuItem.Name = "textAlignToolStripMenuItem";
+			this.textAlignToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.textAlignToolStripMenuItem.Text = "Text align";
+			// 
+			// rightAlignToolStripMenuItem1
+			// 
+			this.rightAlignToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("rightAlignToolStripMenuItem1.Image")));
+			this.rightAlignToolStripMenuItem1.Name = "rightAlignToolStripMenuItem1";
+			this.rightAlignToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+			this.rightAlignToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.rightAlignToolStripMenuItem1.Text = "Right align";
+			this.rightAlignToolStripMenuItem1.Click += new System.EventHandler(this.rightAlignToolStripMenuItem_Click);
+			// 
+			// centerAlignToolStripMenuItem1
+			// 
+			this.centerAlignToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("centerAlignToolStripMenuItem1.Image")));
+			this.centerAlignToolStripMenuItem1.Name = "centerAlignToolStripMenuItem1";
+			this.centerAlignToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+			this.centerAlignToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.centerAlignToolStripMenuItem1.Text = "Center align";
+			this.centerAlignToolStripMenuItem1.Click += new System.EventHandler(this.centerAlignToolStripMenuItem_Click);
+			// 
+			// leftAlignToolStripMenuItem1
+			// 
+			this.leftAlignToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("leftAlignToolStripMenuItem1.Image")));
+			this.leftAlignToolStripMenuItem1.Name = "leftAlignToolStripMenuItem1";
+			this.leftAlignToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+			this.leftAlignToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+			this.leftAlignToolStripMenuItem1.Text = "Left align";
+			this.leftAlignToolStripMenuItem1.Click += new System.EventHandler(this.leftAlignToolStripMenuItem_Click);
 			// 
 			// NoteForm
 			// 
@@ -626,9 +639,6 @@
 		private System.Windows.Forms.ToolStripMenuItem strikethroughToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem toggleBulletsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-		private System.Windows.Forms.ToolStripMenuItem leftAlignToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem centerAlignToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem rightAlignToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem capitalizeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem superscriptToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem subscriptToolStripMenuItem;
@@ -640,5 +650,9 @@
 		private System.Windows.Forms.Button pinkBtn;
 		private System.Windows.Forms.Button blueBtn;
 		private System.Windows.Forms.Label colorLabel;
+		private System.Windows.Forms.ToolStripMenuItem textAlignToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem leftAlignToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem centerAlignToolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem rightAlignToolStripMenuItem1;
 	}
 }
