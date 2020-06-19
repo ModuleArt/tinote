@@ -53,42 +53,13 @@ namespace quick_sticky_notes
 		public void SetColor(string colorStr)
 		{
 			this.colorStr = colorStr;
-			if (colorStr == "yellow")
-			{
-				this.BackColor = Color.FromArgb(255, 231, 128);
-				titlePanel.BackColor = Color.FromArgb(127, 115, 64);
-				richTextBox1.ForeColor = Color.FromArgb(127, 115, 64);
-				richTextBox1.BackColor = Color.FromArgb(255, 231, 128);
-				editPanel.BackColor = Color.FromArgb(191, 173, 96);
-				secondTitleLabel.ForeColor = Color.FromArgb(191, 173, 96);
-			}
-			else if (colorStr == "green")
-			{
-				this.BackColor = Color.FromArgb(132, 219, 193);
-				titlePanel.BackColor = Color.FromArgb(66, 109, 96);
-				richTextBox1.ForeColor = Color.FromArgb(66, 109, 96);
-				richTextBox1.BackColor = Color.FromArgb(132, 219, 193);
-				editPanel.BackColor = Color.FromArgb(99, 164, 145);
-				secondTitleLabel.ForeColor = Color.FromArgb(99, 164, 145);
-			}
-			else if (colorStr == "blue")
-			{
-				this.BackColor = Color.FromArgb(128, 194, 255);
-				titlePanel.BackColor = Color.FromArgb(64, 97, 127);
-				richTextBox1.ForeColor = Color.FromArgb(64, 97, 127);
-				richTextBox1.BackColor = Color.FromArgb(128, 194, 255);
-				editPanel.BackColor = Color.FromArgb(96, 145, 191);
-				secondTitleLabel.ForeColor = Color.FromArgb(96, 145, 191);
-			}
-			else if (colorStr == "pink")
-			{
-				this.BackColor = Color.FromArgb(255, 163, 209);
-				titlePanel.BackColor = Color.FromArgb(127, 81, 104);
-				richTextBox1.ForeColor = Color.FromArgb(127, 81, 104);
-				richTextBox1.BackColor = Color.FromArgb(255, 163, 209);
-				editPanel.BackColor = Color.FromArgb(191, 122, 157);
-				secondTitleLabel.ForeColor = Color.FromArgb(191, 122, 157);
-			}
+
+			this.BackColor = ColorManager.GetNoteColor(colorStr);
+			titlePanel.BackColor = ColorManager.GetDarkColor(colorStr);
+			richTextBox1.ForeColor = ColorManager.GetDarkColor(colorStr);
+			richTextBox1.BackColor = ColorManager.GetNoteColor(colorStr);
+			editPanel.BackColor = ColorManager.GetMiddleColor(colorStr);
+			secondTitleLabel.ForeColor = ColorManager.GetMiddleColor(colorStr);
 		}
 
 		public void Edit()

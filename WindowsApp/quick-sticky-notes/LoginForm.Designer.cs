@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
 			this.tabControl1 = new System.Windows.Forms.TabControl();
 			this.registrationPage = new System.Windows.Forms.TabPage();
 			this.registerBtn = new System.Windows.Forms.Button();
@@ -156,6 +157,7 @@
 			this.ClientSize = new System.Drawing.Size(240, 281);
 			this.Controls.Add(this.tabControl1);
 			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "LoginForm";

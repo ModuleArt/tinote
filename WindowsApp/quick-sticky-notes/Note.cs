@@ -168,7 +168,7 @@ namespace quick_sticky_notes
 		{
 			if (contentText.Length > 0)
 			{
-				return title + " | " + contentText;
+				return title + " " + contentText;
 			}
 			else
 			{

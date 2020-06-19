@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using FirebaseAdmin;
 using FirebaseAdmin.Auth;
@@ -85,6 +87,7 @@ namespace quick_sticky_notes
 
         private void Note_VisibleChanged(object sender, VisibleChangedEventArgs e)
         {
+            notesListBox.Refresh();
             noteManager.SaveToDisk();
         }
 
@@ -250,6 +253,138 @@ namespace quick_sticky_notes
         private void newNoteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             noteManager.NewNote();
+        }
+
+        private void searchTextBox_Enter(object sender, EventArgs e)
+        {
+            if (searchTextBox.Text == "Search your notes...")
+            {
+                searchTextBox.Text = "";
+                searchTextBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void searchTextBox_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(searchTextBox.Text))
+            {
+                searchTextBox.Text = "Search your notes...";
+                searchTextBox.ForeColor = Color.FromArgb(100, 100, 100);
+            }   
+        }
+
+        private void notesListBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index != -1)
+            {
+                Note note = notesListBox.Items[e.Index] as Note;
+
+                Brush darkBrush = new SolidBrush(ColorManager.GetDarkColor(note.colorStr));
+                Brush middleBrush = new SolidBrush(ColorManager.GetMiddleColor(note.colorStr));
+                Brush noteBrush = new SolidBrush(ColorManager.GetNoteColor(note.colorStr));
+                Brush backBrush = new SolidBrush(this.BackColor);
+
+                e.Graphics.FillRectangle(darkBrush, new RectangleF(
+                    e.Bounds.X + 9,
+                    e.Bounds.Y + 9,
+                    e.Bounds.Width - 18,
+                    8
+                ));
+                e.Graphics.FillRectangle(noteBrush, new RectangleF(
+                    e.Bounds.X + 9, 
+                    e.Bounds.Y + 17,
+                    e.Bounds.Width - 18,
+                    e.Bounds.Height - 17
+                ));
+
+                e.Graphics.DrawString(note.title, e.Font, darkBrush, e.Bounds.X + 16, e.Bounds.Y + 21);
+                e.Graphics.DrawString(Regex.Replace(note.contentText, @"\t|\n|\r", " "), e.Font, middleBrush, e.Bounds.X + 16, e.Bounds.Y + 39);
+
+                e.Graphics.FillRectangle(backBrush, new RectangleF(
+                    e.Bounds.X + e.Bounds.Width - 9,
+                    e.Bounds.Y,
+                    9,
+                    e.Bounds.Height
+                ));
+
+                // right side gradient
+                var rc = new Rectangle(
+                    e.Bounds.X + e.Bounds.Width - 39,
+                    e.Bounds.Y + 17, 
+                    20,
+                    e.Bounds.Height - 17
+                );
+                using (var brush = new System.Drawing.Drawing2D.LinearGradientBrush(
+                    rc,
+                    Color.FromArgb(0, ColorManager.GetNoteColor(note.colorStr)),
+                    Color.FromArgb(255, ColorManager.GetNoteColor(note.colorStr)),
+                    0f
+                )) {
+                    e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
+                    e.Graphics.FillRectangle(brush, rc);
+                }
+
+                e.Graphics.FillRectangle(noteBrush, new RectangleF(
+                    e.Bounds.X + e.Bounds.Width - 21,
+                    e.Bounds.Y + 17,
+                    12,
+                    e.Bounds.Height - 17
+                ));
+
+                // bottom right corner
+                if (note.visible)
+                {
+                    PointF[] outerNoteTriangle =
+                    {
+                         new PointF(e.Bounds.X + e.Bounds.Width - 9, e.Bounds.Y + e.Bounds.Height - 12),
+                         new PointF(e.Bounds.X + e.Bounds.Width - 21, e.Bounds.Y + e.Bounds.Height),
+                         new PointF(e.Bounds.X + e.Bounds.Width - 9, e.Bounds.Y + e.Bounds.Height)
+                    };
+                    e.Graphics.FillPolygon(backBrush, outerNoteTriangle);
+
+                    PointF[] innerNoteTriangle =
+                    {
+                         new PointF(e.Bounds.X + e.Bounds.Width - 9, e.Bounds.Y + e.Bounds.Height - 12),
+                         new PointF(e.Bounds.X + e.Bounds.Width - 21, e.Bounds.Y + e.Bounds.Height),
+                         new PointF(e.Bounds.X + e.Bounds.Width - 21, e.Bounds.Y + e.Bounds.Height - 12)
+                    };
+                    e.Graphics.FillPolygon(middleBrush, innerNoteTriangle);
+                }
+            }
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (searchTextBox.Text.Length > 0)
+            {
+                
+
+                for (int i = 0; i < notesListBox.Items.Count; i++)
+                {
+                    if (notesListBox.Items[i].ToString().ToLower().Contains(searchTextBox.Text.ToLower()))
+                    {
+                        //notesListBox.Items[i]
+                    }
+                    else
+                    {
+
+                    }
+                }
+            } 
+            else
+            {
+
+            }
+        }
+
+        private void closeBtn_MouseLeave(object sender, EventArgs e)
+        {
+            closeBtn.Image = Properties.Resources.black_close;
+        }
+
+        private void closeBtn_MouseEnter(object sender, EventArgs e)
+        {
+            closeBtn.Image = Properties.Resources.white_close;
         }
     }
 }
