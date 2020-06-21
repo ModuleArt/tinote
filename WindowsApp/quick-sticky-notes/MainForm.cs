@@ -1,22 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using FirebaseAdmin;
-using FirebaseAdmin.Auth;
-using Google.Apis.Auth.OAuth2;
 
 namespace quick_sticky_notes
 {
 	public partial class MainForm : Form
 	{
-        private FirebaseApp firebaseApp;
-        private FirebaseAuth firebaseAuth;
+        private FirebaseManager fm;
 
         private NoteManager noteManager;
-        //private GSyncManager gSyncManager;
         private bool quitApp = false;
 
         public MainForm()
@@ -30,8 +23,7 @@ namespace quick_sticky_notes
             //gSyncManager.SyncDone += GSyncManager_SyncDone;
             //gSyncManager.Authorize();
 
-            FirebaseManager fm = new FirebaseManager();
-            fm.Init();
+            fm = new FirebaseManager();
         }
 
         private void NoteManager_NoteAdded(object sender, NoteAddedEventArgs e)
@@ -61,6 +53,7 @@ namespace quick_sticky_notes
         private void Note_ShowNotesList(object sender, EventArgs e)
         {
             this.Show();
+            this.BringToFront();
         }
 
         private void Note_PerformSync(object sender, EventArgs e)
@@ -122,7 +115,14 @@ namespace quick_sticky_notes
 
         private void profileBtn_Click(object sender, EventArgs e)
         {
-            
+            if (fm.IsLoggedIn())
+            {
+                fm.ShowProfileForm();
+            }
+            else
+            {
+                fm.ShowLoginForm();
+            }
         }
 
         private void notesListBox_DoubleClick_1(object sender, EventArgs e)
@@ -205,6 +205,7 @@ namespace quick_sticky_notes
         private void notesListToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Show();
+            this.BringToFront();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -218,6 +219,7 @@ namespace quick_sticky_notes
             if (e.Button == MouseButtons.Left)
             {
                 this.Show();
+                this.BringToFront();
             }
         }
 
@@ -226,8 +228,8 @@ namespace quick_sticky_notes
             if (e.Button == MouseButtons.Left)
             {
                 Cursor.Current = Cursors.SizeAll;
-                ShellManager.ReleaseCapture();
-                ShellManager.SendMessage(Handle, 0xA1, 0x2, 0);
+                NativeMethodsManager.ReleaseCapture();
+                NativeMethodsManager.SendMessage(Handle, 0xA1, 0x2, 0);
             }
         }
 
@@ -246,7 +248,14 @@ namespace quick_sticky_notes
             if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
             {
                 Note note = notesListBox.SelectedItem as Note;
-                note.Show();
+                if (note.visible)
+                {
+                    note.Focus();
+                }
+                else
+                {
+                    note.Show();
+                }
             }
         }
 
@@ -385,6 +394,37 @@ namespace quick_sticky_notes
         private void closeBtn_MouseEnter(object sender, EventArgs e)
         {
             closeBtn.Image = Properties.Resources.white_close;
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control)
+            {
+                if (e.KeyCode == Keys.N)
+                {
+                    newNoteBtn.PerformClick();
+                }
+                else if (e.KeyCode == Keys.Q)
+                {
+                    closeBtn.PerformClick();
+                }
+                else if (e.KeyCode == Keys.P)
+                {
+                    profileBtn.PerformClick();
+                }
+                else if (e.KeyCode == Keys.F)
+                {
+                    searchTextBox.Focus();
+                }
+            }
+        }
+
+        private void searchTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                notesListBox.Focus();
+            }
         }
     }
 }

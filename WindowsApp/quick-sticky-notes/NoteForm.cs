@@ -125,8 +125,8 @@ namespace quick_sticky_notes
 			if (e.Button == MouseButtons.Left)
 			{
 				Cursor.Current = Cursors.SizeAll;
-				ShellManager.ReleaseCapture();
-				ShellManager.SendMessage(Handle, 0xA1, 0x2, 0);
+				NativeMethodsManager.ReleaseCapture();
+				NativeMethodsManager.SendMessage(Handle, 0xA1, 0x2, 0);
 			}
 		}
 
@@ -148,9 +148,11 @@ namespace quick_sticky_notes
 
 		private void NoteForm_Load(object sender, EventArgs e)
 		{
-			IntPtr nWinHandle = ShellManager.FindWindowEx(IntPtr.Zero, IntPtr.Zero, "Progman", null);
-			nWinHandle = ShellManager.FindWindowEx(nWinHandle, IntPtr.Zero, "SHELLDLL_DefView", null);
-			ShellManager.SetParent(Handle, nWinHandle);
+			IntPtr hprog = NativeMethodsManager.FindWindowEx(
+				NativeMethodsManager.FindWindowEx(NativeMethodsManager.FindWindow("Progman", "Program Manager"), IntPtr.Zero, "SHELLDLL_DefView", ""),
+				IntPtr.Zero, "SysListView32", "FolderView");
+
+			NativeMethodsManager.SetWindowLong(this.Handle, NativeMethodsManager.GWL_HWNDPARENT, hprog);
 		}
 
 		private void editBtn_Click(object sender, EventArgs e)

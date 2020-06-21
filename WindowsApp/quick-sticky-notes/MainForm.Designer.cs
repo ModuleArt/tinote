@@ -100,7 +100,7 @@
 			this.notesListBox.Location = new System.Drawing.Point(0, 60);
 			this.notesListBox.Margin = new System.Windows.Forms.Padding(0);
 			this.notesListBox.Name = "notesListBox";
-			this.notesListBox.Size = new System.Drawing.Size(256, 300);
+			this.notesListBox.Size = new System.Drawing.Size(256, 329);
 			this.notesListBox.TabIndex = 2;
 			this.notesListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.notesListBox_DrawItem);
 			this.notesListBox.DoubleClick += new System.EventHandler(this.notesListBox_DoubleClick_1);
@@ -267,6 +267,7 @@
 			this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
 			this.searchTextBox.Enter += new System.EventHandler(this.searchTextBox_Enter);
+			this.searchTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchTextBox_KeyDown);
 			this.searchTextBox.Leave += new System.EventHandler(this.searchTextBox_Leave);
 			// 
 			// searchPanel
@@ -298,21 +299,24 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(256, 360);
+			this.ClientSize = new System.Drawing.Size(256, 389);
 			this.Controls.Add(this.searchPanel);
 			this.Controls.Add(this.titlePanel);
 			this.Controls.Add(this.notesListBox);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.KeyPreview = true;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "MainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Tinote";
+			this.TopMost = true;
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.Shown += new System.EventHandler(this.MainForm_Shown);
+			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
 			this.notesListItemContext.ResumeLayout(false);
 			this.notesListEmptyContext.ResumeLayout(false);
 			this.trayContext.ResumeLayout(false);

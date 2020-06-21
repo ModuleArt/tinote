@@ -302,7 +302,7 @@
 			this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.closeBtn.FlatAppearance.BorderSize = 0;
 			this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.closeBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeBtn.Image")));
+			this.closeBtn.Image = global::quick_sticky_notes.Properties.Resources.white_close;
 			this.closeBtn.Location = new System.Drawing.Point(226, 0);
 			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.closeBtn.Name = "closeBtn";

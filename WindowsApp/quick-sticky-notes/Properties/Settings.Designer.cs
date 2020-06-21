@@ -25,12 +25,13 @@ namespace quick_sticky_notes.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.DateTime LastSync {
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool LoggedIn {
             get {
-                return ((global::System.DateTime)(this["LastSync"]));
+                return ((bool)(this["LoggedIn"]));
             }
             set {
-                this["LastSync"] = value;
+                this["LoggedIn"] = value;
             }
         }
     }

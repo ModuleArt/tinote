@@ -152,15 +152,6 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="closeBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAJNJREFUOE/NkksKgzAURbMtdVAR6kTtBusO7R7ivXBMEWoIZFAPPDD38zCQcB9i
-        jKvmyfESZUbNm+MXib1myy2xR+aBdEZGQ+CFlLCG1yD9RoGW4IJUXj5Q0Es+moVxucUuQ4WBomdALqdq
-        gQr+bV/BV+n4nrHzOEihQ7JWtsQBgql8YA1vQjojo+4hSax7yn8ihB1poN6VB9XXcAAAAABJRU5ErkJg
-        gg==
-</value>
-  </data>
   <metadata name="rmbContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>130, 17</value>
   </metadata>
