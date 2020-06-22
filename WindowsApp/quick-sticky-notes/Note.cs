@@ -4,12 +4,12 @@ namespace quick_sticky_notes
 {
 	public class Note
 	{
-		public int id;
+		public string uniqueId;
 		public string title = "New note";
 		public string contentRtf = "Take a note...";
 		public string contentText = "Take a note...";
 		public bool visible = false;
-		public DateTime dateModified;
+		public DateTime dateCreated;
 		public int x = -1;
 		public int y = -1;
 		public int width = -1;
@@ -17,11 +17,38 @@ namespace quick_sticky_notes
 		public string colorStr = "yellow";
 		private NoteForm noteForm;
 
-		public Note(int id, string colorStr)
+		public Note(string uniqueId, string colorStr)
 		{
-			this.id = id;
+			this.uniqueId = uniqueId;
 			this.colorStr = colorStr;
-			this.dateModified = DateTime.Now;
+			this.dateCreated = DateTime.Now;
+		}
+
+		public void SetTitle(string title)
+		{
+			this.title = title;
+			if (noteForm != null && !noteForm.IsDisposed)
+			{
+				noteForm.SetTitle(title);
+			}
+		}
+
+		public void SetContent(string rtf)
+		{
+			this.contentRtf = rtf;
+			if (noteForm != null && !noteForm.IsDisposed)
+			{
+				noteForm.SetContent(rtf);
+			}	
+		}
+
+		public void SetColor(string colorStr)
+		{
+			this.colorStr = colorStr;
+			if (noteForm != null && !noteForm.IsDisposed)
+			{
+				noteForm.SetColor(colorStr);
+			}
 		}
 
 		public void Focus()
@@ -33,7 +60,7 @@ namespace quick_sticky_notes
 		{
 			if (noteForm == null || noteForm.IsDisposed)
 			{
-				noteForm = new NoteForm(title, contentRtf, dateModified, colorStr);
+				noteForm = new NoteForm(title, contentRtf, colorStr);
 				noteForm.ContentChanged += NoteForm_ContentChanged;
 				noteForm.TitleChanged += NoteForm_TitleChanged;
 				noteForm.FormClosing += NoteForm_FormClosing;
@@ -143,7 +170,6 @@ namespace quick_sticky_notes
 		private void NoteForm_TitleChanged(object sender, TitleChangedEventArgs e)
 		{
 			title = e.Title;
-			this.dateModified = DateTime.Now;
 			TitleChangedEventArgs args = new TitleChangedEventArgs()
 			{
 				Title = title
@@ -153,7 +179,6 @@ namespace quick_sticky_notes
 
 		private void NoteForm_ContentChanged(object sender, ContentChangedEventArgs e)
 		{
-			this.dateModified = DateTime.Now;
 			this.contentText = e.Text;
 			this.contentRtf = e.Rtf;
 			ContentChangedEventArgs args = new ContentChangedEventArgs()

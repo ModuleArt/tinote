@@ -8,17 +8,15 @@ namespace quick_sticky_notes
 	public class NoteManager
 	{
 		private List<Note> notes = new List<Note>();
-		private int noteCounter = 0;
-		private string filePath = "QuickStickyNotes.json";
 
 		public NoteManager()
 		{
 
 		}
 
-		public void NewNote(string colorStr = "yellow")
+		public void NewNote(string uniqueId, string colorStr = "yellow")
 		{
-			Note note = new Note(noteCounter++, colorStr);
+			Note note = new Note(uniqueId, colorStr);
 			notes.Add(note);
 			note.Show();
 
@@ -28,7 +26,7 @@ namespace quick_sticky_notes
 			};
 			OnNoteAdded(args);
 
-			SaveToDisk();
+			SaveNoteToDisk(note);
 		}
 
 		public void RemoveNote(Note note)
@@ -37,14 +35,19 @@ namespace quick_sticky_notes
 			notes.Remove(note);
 		}
 
-		public void SaveToDisk()
+		public void SaveNoteToDisk(Note note)
 		{
 			try
 			{
-				string text = "QuickStickyNotes-v1.0.0" + Environment.NewLine;
-				text += noteCounter + Environment.NewLine;
-				text += JsonConvert.SerializeObject(notes) + Environment.NewLine;
-				File.WriteAllText(filePath, text);
+				string notesFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tinote", "notes");
+				DirectoryInfo di = new DirectoryInfo(notesFolder);
+
+				if (!di.Exists)
+				{
+					di.Create();
+				}
+
+				File.WriteAllText(Path.Combine(notesFolder, note.uniqueId), JsonConvert.SerializeObject(note));
 			}
 			catch (Exception ex)
 			{
@@ -52,32 +55,75 @@ namespace quick_sticky_notes
 			}
 		}
 
-		public void LoadFromDisk()
+		public void UpdateNote(NoteData data)
+		{
+			bool noteExists = false;
+			for (int i = 0; i < notes.Count; i++)
+			{
+				if (notes[i].uniqueId == data.i)
+				{
+					notes[i].SetTitle(data.l);
+					notes[i].SetColor(data.c);
+					notes[i].SetContent(data.t);
+
+					noteExists = true;
+				}
+			}
+
+			if (!noteExists)
+			{
+				Note note = new Note(data.i, data.c);
+				note.SetContent(data.t);
+				note.SetTitle(data.l);
+
+				notes.Add(note);
+
+				NoteAddedEventArgs args = new NoteAddedEventArgs()
+				{
+					Note = note
+				};
+				OnNoteAdded(args);
+			}
+		}
+
+		public void LoadNotesFromDisk()
 		{
 			try
 			{
-				if (File.Exists(filePath))
+				string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tinote", "notes");
+				DirectoryInfo di = new DirectoryInfo(appDataFolder);
+
+				if (!di.Exists)
 				{
-					string[] lines = File.ReadAllLines(filePath);
-					if (lines.Length == 3)
+					di.Create();
+				}
+
+				string[] filePaths = Directory.GetFiles(appDataFolder);
+
+				notes = new List<Note>();
+
+				for (int i = 0; i < filePaths.Length; i++)
+				{
+					string[] lines = File.ReadAllLines(filePaths[i]);
+					Note note = JsonConvert.DeserializeObject<Note>(lines[0]);
+					notes.Add(note);
+
+					NoteAddedEventArgs args = new NoteAddedEventArgs()
 					{
-						int.TryParse(lines[1], out noteCounter);
-						notes = JsonConvert.DeserializeObject<List<Note>>(lines[2]);
-						for (int i = 0; i < notes.Count; i++)
-						{
-							NoteAddedEventArgs args = new NoteAddedEventArgs()
-							{
-								Note = notes[i]
-							};
-							OnNoteAdded(args);
-						}
-					}
+						Note = note
+					};
+					OnNoteAdded(args);
 				}
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex);
 			}
+		}
+
+		public void LoadNotesFromServer()
+		{
+
 		}
 
 		protected virtual void OnNoteAdded(NoteAddedEventArgs e)

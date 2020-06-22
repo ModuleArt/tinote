@@ -2,6 +2,10 @@
 using Firebase.Database;
 using System;
 using Firebase.Database.Query;
+using Newtonsoft.Json;
+using System.IO;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace quick_sticky_notes
 {
@@ -33,7 +37,6 @@ namespace quick_sticky_notes
 				profileForm = new ProfileForm(curUser.DisplayName, curUser.Email);
 				profileForm.Show();
 
-				profileForm.PerformSync += ProfileForm_PerformSync;
 				profileForm.PerformSignOut += ProfileForm_PerformSignOut;
 			}
 		}
@@ -41,11 +44,6 @@ namespace quick_sticky_notes
 		private void ProfileForm_PerformSignOut(object sender, EventArgs e)
 		{
 			SignOut();
-		}
-
-		private void ProfileForm_PerformSync(object sender, EventArgs e)
-		{
-			Sync(0, "text 2");
 		}
 
 		public void ShowLoginForm()
@@ -73,6 +71,7 @@ namespace quick_sticky_notes
 		private void SignOut()
 		{
 			curUser = null;
+			SaveUserToDisk();
 
 			profileForm.Close();
 			profileForm.Dispose();
@@ -82,7 +81,7 @@ namespace quick_sticky_notes
 		{
 			FirebaseAuthLink fal = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(email, password, displayName);
 			curUser = fal.User;
-
+			SaveUserToDisk();
 
 			loginForm.Close();
 			loginForm.Dispose();
@@ -94,6 +93,7 @@ namespace quick_sticky_notes
 		{
 			FirebaseAuthLink fal = await firebaseAuth.SignInWithEmailAndPasswordAsync(email, password);
 			curUser = fal.User;
+			SaveUserToDisk();
 
 			loginForm.Close();
 			loginForm.Dispose();
@@ -101,36 +101,141 @@ namespace quick_sticky_notes
 			ShowProfileForm();
 		}
 
-		public async void Sync(int noteId, string noteText)
+		public async void SyncNote(Note note)
 		{
-			var data = new Data
+			try
 			{
-				u = curUser.Email,
-				t = noteText,
-				d = DateTime.Now.ToString()
-			};
+				var data = new NoteData
+				{
+					i = note.uniqueId,
+					u = curUser.Email,
+					l = note.title,
+					t = note.contentRtf,
+					s = DateTime.Now.ToBinary().ToString(),
+					c = note.colorStr,
+					d = note.dateCreated.ToBinary().ToString()
+				};
 
-			//var response = await firebaseClient.Child(noteId.ToString()).OnceAsync<Data>();
-			
-			//if (response.Count > 0)
-			//{
-				await firebaseClient.Child(noteId.ToString()).PutAsync<Data>(data);
-			//}
-			//else
-			//{
-			//	var responce2 = await firebaseClient.Child(noteId.ToString()).PostAsync(data);
-			//}
-
-			//SetResponse response = await ifclient.SetAsync("notes/note-1", data);
-			//Data result = response.ResultAs<Data>();
+				await firebaseClient.Child("notes").Child(note.uniqueId.ToString()).PutAsync<NoteData>(data);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
 		}
+
+		public string GenerateUniqueID()
+		{
+			Random r = new Random();
+			string res;
+
+			if (IsLoggedIn())
+			{
+				res = curUser.Email.Replace('@', '-').Replace('.', '-');
+			}
+			else
+			{
+				res = "unknown" + r.Next(0, int.MaxValue).ToString();
+			}
+
+			res += "_" + DateTime.Now.ToBinary();
+			res += "_" + r.Next(int.MinValue, int.MaxValue).ToString();
+
+			return res;
+		}
+
+		public void SaveUserToDisk()
+		{
+			try
+			{
+				string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tinote");
+				DirectoryInfo di = new DirectoryInfo(appDataFolder);
+
+				if (!di.Exists)
+				{
+					di.Create();
+				}
+
+				string curUserPath = Path.Combine(appDataFolder, "curuser.json");
+
+				if (curUser == null)
+				{
+					if (File.Exists(curUserPath))
+					{
+						File.Delete(curUserPath);
+					}
+				}
+				else
+				{
+					string text = JsonConvert.SerializeObject(curUser);
+					File.WriteAllText(curUserPath, text);
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
+		}
+
+		public void LoadUserFromDisk()
+		{
+			try
+			{
+				string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tinote");
+				DirectoryInfo di = new DirectoryInfo(appDataFolder);
+
+				if (!di.Exists)
+				{
+					di.Create();
+				}
+
+				string curUserPath = Path.Combine(appDataFolder, "curuser.json");
+
+				if (File.Exists(curUserPath))
+				{
+					string[] lines = File.ReadAllLines(curUserPath);
+					if (lines.Length >= 1)
+					{
+						curUser = JsonConvert.DeserializeObject<User>(lines[0]);
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
+		}
+
+		public async void LoadNotesFromServer()
+		{
+			var notes = await firebaseClient.Child("notes").OrderByValue().StartAt(curUser.Email).OnceAsync<NoteData>();
+
+			Console.WriteLine(notes.Count);
+
+			if (notes.Count > 0)
+			{
+				foreach (var item in notes)
+				{
+					Console.WriteLine(item.Object.c);
+
+					UpdateNoteEventArgs args = new UpdateNoteEventArgs 
+					{
+						Data = item.Object
+					};
+					OnUpdateNote(args);
+				}
+			}
+		}
+
+		protected virtual void OnUpdateNote(UpdateNoteEventArgs e)
+		{
+			UpdateNote?.Invoke(this, e);
+		}
+		public event EventHandler<UpdateNoteEventArgs> UpdateNote;
 	}
 
-	internal class Data
+	public class UpdateNoteEventArgs : EventArgs
 	{
-		public string u { get; set; }
-		public string t { get; set; }
-		public string d { get; set; }
-		public string[] a { get; set; }
+		public NoteData Data { get; set; }
 	}
 }

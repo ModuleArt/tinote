@@ -120,11 +120,11 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="logoutBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAADRSURBVDhPzdI/CwFxHMfxG7AImeRPeSKKR4MHYDDZzRbsBmWyKHkAFk/AIAwMZDeI9+d3p+vc
-        5bhS3vXqft+ifve7n/WLqpjghAs2GKGGt8UwwBp1FJFFHk0csEIcgQ0xR9JM/srQjqZmeknb1lZTZorQ
-        GNr2J7Wdp6cjSvYytDu69tLtioS9NOlHYTxfRSesU/8k/bllL92+OYOO8/RUgb5C2kwR62GBjJn86UKd
-        MTNTQLphfezQQAEqh+dNXEI39m26VLr7W9ywd2a95t9lWQ/YrixR/qMdbQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAANFJREFUOE/N
+        0j8LAXEcx/EbsAiZ5E95IopHgwdgMNnNFuwGZbIoeQAWT8AgDAxkN4j353en69zluFLe9ep+36J+97uf
+        9YuqmOCECzYYoYa3xTDAGnUUkUUeTRywQhyBDTFH0kz+ytCOpmZ6SdvWVlNmitAY2vYntZ2npyNK9jK0
+        O7r20u2KhL006UdhPF9FJ6xT/yT9uWUv3b45g47z9FSBvkLaTBHrYYGMmfzpQp0xM1NAumF97NBAASqH
+        501cQjf2bbpUuvtb3LB3Zr3m32VZD9iuLFH+ox1tAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -205,16 +205,6 @@
         F45BU1L6jpibueDu1A2196dtv/L4ulMewx+TUQfD5lddufEfBd/2S0qb//OnUn7O3y4YzuIX4f+8deic
         T+eNeDXDcOtrOfV3vKu/cO8n25t+vWJ387jsgzb4YzNr4c6lu5pHf7ClafhbJRd+OXdl3cA5y8v7JyxO
         7R365ij+csEIRjCCEYxgBCMYwQhGMIIRAKFQ/B9g/R0w+CVUuQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="syncBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAADiSURBVDhPpZJLagJBFEV7YlCCSqa6lkQRXIsO4kCd+FlBXIsjEV2C4A91IaKSQWZ6bj8l9q8i
-        5sChbtHdRVX19R6gcx2f5oxfFh/jBeu4wD1qAVnCPyniGof4jm+oj1soPrFgMUoat9j2Z7/c30EfN5jy
-        ZyGaOLLoZILaSYQlflh0UsWZxSDf+GrRSR4PFoMcMWfRSRZPFoNoWxWLTsoYe4QGji060SWqJxFUoB32
-        /JnRvY439Ew90buxqCTaiRigSpRB/Z0prjCxSPfonLcK/+AcaxhboCRUXy3wL8J3EMLzLrzaJ10tc4NH
-        AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

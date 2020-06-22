@@ -37,8 +37,6 @@
 			this.greenBtn = new System.Windows.Forms.Button();
 			this.yellowBtn = new System.Windows.Forms.Button();
 			this.deleteBtn = new System.Windows.Forms.Button();
-			this.modifiedTextBox = new System.Windows.Forms.TextBox();
-			this.modifiedLabel = new System.Windows.Forms.Label();
 			this.editTitleLabel = new System.Windows.Forms.Label();
 			this.titleTextBox = new System.Windows.Forms.TextBox();
 			this.titlePanel = new System.Windows.Forms.Panel();
@@ -72,6 +70,7 @@
 			this.rightAlignToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.resizeBtn = new System.Windows.Forms.Button();
 			this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.syncBtn = new System.Windows.Forms.Button();
 			this.editPanel.SuspendLayout();
 			this.titlePanel.SuspendLayout();
 			this.rmbContext.SuspendLayout();
@@ -89,8 +88,6 @@
 			this.editPanel.Controls.Add(this.greenBtn);
 			this.editPanel.Controls.Add(this.yellowBtn);
 			this.editPanel.Controls.Add(this.deleteBtn);
-			this.editPanel.Controls.Add(this.modifiedTextBox);
-			this.editPanel.Controls.Add(this.modifiedLabel);
 			this.editPanel.Controls.Add(this.editTitleLabel);
 			this.editPanel.Controls.Add(this.titleTextBox);
 			this.editPanel.Location = new System.Drawing.Point(0, 30);
@@ -186,31 +183,6 @@
 			this.deleteBtn.UseVisualStyleBackColor = false;
 			this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
 			// 
-			// modifiedTextBox
-			// 
-			this.modifiedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.modifiedTextBox.BackColor = System.Drawing.Color.White;
-			this.modifiedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.modifiedTextBox.Location = new System.Drawing.Point(82, 158);
-			this.modifiedTextBox.Margin = new System.Windows.Forms.Padding(0, 9, 9, 9);
-			this.modifiedTextBox.Name = "modifiedTextBox";
-			this.modifiedTextBox.ReadOnly = true;
-			this.modifiedTextBox.Size = new System.Drawing.Size(165, 25);
-			this.modifiedTextBox.TabIndex = 5;
-			// 
-			// modifiedLabel
-			// 
-			this.modifiedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.modifiedLabel.AutoSize = true;
-			this.modifiedLabel.ForeColor = System.Drawing.Color.White;
-			this.modifiedLabel.Location = new System.Drawing.Point(9, 160);
-			this.modifiedLabel.Margin = new System.Windows.Forms.Padding(0, 9, 9, 0);
-			this.modifiedLabel.Name = "modifiedLabel";
-			this.modifiedLabel.Size = new System.Drawing.Size(64, 17);
-			this.modifiedLabel.TabIndex = 4;
-			this.modifiedLabel.Text = "Modified:";
-			// 
 			// editTitleLabel
 			// 
 			this.editTitleLabel.AutoSize = true;
@@ -241,6 +213,7 @@
 			this.titlePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
+			this.titlePanel.Controls.Add(this.syncBtn);
 			this.titlePanel.Controls.Add(this.notesListBtn);
 			this.titlePanel.Controls.Add(this.newNoteBtn);
 			this.titlePanel.Controls.Add(this.editBtn);
@@ -574,6 +547,21 @@
 			this.resizeBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.resizeBtn_MouseDown);
 			this.resizeBtn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.resizeBtn_MouseUp);
 			// 
+			// syncBtn
+			// 
+			this.syncBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.syncBtn.FlatAppearance.BorderSize = 0;
+			this.syncBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.syncBtn.Image = ((System.Drawing.Image)(resources.GetObject("syncBtn.Image")));
+			this.syncBtn.Location = new System.Drawing.Point(136, 0);
+			this.syncBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.syncBtn.Name = "syncBtn";
+			this.syncBtn.Size = new System.Drawing.Size(30, 30);
+			this.syncBtn.TabIndex = 11;
+			this.infoToolTip.SetToolTip(this.syncBtn, "Sync note (Ctrl+S)");
+			this.syncBtn.UseVisualStyleBackColor = true;
+			this.syncBtn.Click += new System.EventHandler(this.syncBtn_Click);
+			// 
 			// NoteForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -615,8 +603,6 @@
 		#endregion
 		private System.Windows.Forms.Panel editPanel;
 		private System.Windows.Forms.TextBox titleTextBox;
-		private System.Windows.Forms.Label modifiedLabel;
-		private System.Windows.Forms.TextBox modifiedTextBox;
 		private System.Windows.Forms.Panel titlePanel;
 		private System.Windows.Forms.Button closeBtn;
 		private System.Windows.Forms.Button editBtn;
@@ -655,5 +641,6 @@
 		private System.Windows.Forms.ToolStripMenuItem leftAlignToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem centerAlignToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem rightAlignToolStripMenuItem1;
+		private System.Windows.Forms.Button syncBtn;
 	}
 }

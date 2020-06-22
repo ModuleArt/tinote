@@ -244,6 +244,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Note.cs" />
+    <Compile Include="NoteData.cs" />
     <Compile Include="NoteForm.cs">
       <SubType>Form</SubType>
     </Compile>

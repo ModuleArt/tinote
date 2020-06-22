@@ -7,7 +7,6 @@ namespace quick_sticky_notes
 {
 	public partial class NoteForm : Form
 	{
-		private DateTime dateModified;
 		private string colorStr;
 
 		private System.Timers.Timer resizeTimer = new System.Timers.Timer();
@@ -15,17 +14,16 @@ namespace quick_sticky_notes
 		private Point startPos;
 		private Size curSize;
 		
-		public NoteForm(string title, string content, DateTime dateModified, string colorStr)
+		public NoteForm(string title, string content, string colorStr)
 		{
 			InitializeComponent();
 
-			this.Text = title;
+			SetTitle(title);
 			this.colorStr = colorStr;
-			this.dateModified = dateModified;
 
 			try
 			{
-				richTextBox1.Rtf = content;
+				SetContent(content);
 			}
 			catch
 			{
@@ -50,6 +48,16 @@ namespace quick_sticky_notes
 			}));
 		}
 
+		public void SetTitle(string title)
+		{
+			this.Text = title;
+		}
+
+		public void SetContent(string rtf)
+		{
+			richTextBox1.Rtf = rtf;
+		}
+
 		public void SetColor(string colorStr)
 		{
 			this.colorStr = colorStr;
@@ -66,7 +74,6 @@ namespace quick_sticky_notes
 		{
 			this.BringToFront();
 			titleTextBox.Text = this.Text;
-			modifiedTextBox.Text = dateModified.ToString();
 			editPanel.Visible = true;
 			ShowTitlebar(true);
 
@@ -77,7 +84,6 @@ namespace quick_sticky_notes
 
 		private void richTextBox1_TextChanged(object sender, System.EventArgs e)
 		{
-			dateModified = DateTime.Now;
 			ContentChangedEventArgs args = new ContentChangedEventArgs()
 			{
 				Rtf = richTextBox1.Rtf,
@@ -294,7 +300,11 @@ namespace quick_sticky_notes
 				}
 				else
 				{
-					if (e.KeyCode == Keys.N)
+					if (e.KeyCode == Keys.S)
+					{
+						syncBtn.PerformClick();
+					}
+					else if (e.KeyCode == Keys.N)
 					{
 						newNoteBtn.PerformClick();
 					} 
@@ -528,9 +538,8 @@ namespace quick_sticky_notes
 		{
 			if (titleTextBox.Text.Length > 0 && this.Text != titleTextBox.Text)
 			{
-				dateModified = DateTime.Now;
 				editPanel.Visible = false;
-				this.Text = titleTextBox.Text;
+				SetTitle(titleTextBox.Text);
 				TitleChangedEventArgs args = new TitleChangedEventArgs()
 				{
 					Title = titleTextBox.Text
@@ -543,7 +552,6 @@ namespace quick_sticky_notes
 		{
 			SetColor("yellow");
 
-			dateModified = DateTime.Now;
 			ColorChangedEventArgs args = new ColorChangedEventArgs()
 			{
 				ColorStr = "yellow"
@@ -555,7 +563,6 @@ namespace quick_sticky_notes
 		{
 			SetColor("green");
 
-			dateModified = DateTime.Now;
 			ColorChangedEventArgs args = new ColorChangedEventArgs()
 			{
 				ColorStr = "green"
@@ -567,7 +574,6 @@ namespace quick_sticky_notes
 		{
 			SetColor("blue");
 
-			dateModified = DateTime.Now;
 			ColorChangedEventArgs args = new ColorChangedEventArgs()
 			{
 				ColorStr = "blue"
@@ -579,12 +585,16 @@ namespace quick_sticky_notes
 		{
 			SetColor("pink");
 
-			dateModified = DateTime.Now;
 			ColorChangedEventArgs args = new ColorChangedEventArgs()
 			{
 				ColorStr = "pink"
 			};
 			OnColorChanged(args);
+		}
+
+		private void syncBtn_Click(object sender, EventArgs e)
+		{
+			OnPerformSync(e);
 		}
 	}
 

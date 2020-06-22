@@ -60,7 +60,7 @@
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.Padding = new System.Drawing.Point(0, 0);
 			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(222, 303);
+			this.tabControl1.Size = new System.Drawing.Size(306, 323);
 			this.tabControl1.TabIndex = 0;
 			// 
 			// loginPage
@@ -70,10 +70,10 @@
 			this.loginPage.Controls.Add(this.loginPassLabel);
 			this.loginPage.Controls.Add(this.loginMailLabel);
 			this.loginPage.Controls.Add(this.loginMailTextBox);
-			this.loginPage.Location = new System.Drawing.Point(4, 24);
+			this.loginPage.Location = new System.Drawing.Point(4, 26);
 			this.loginPage.Margin = new System.Windows.Forms.Padding(0);
 			this.loginPage.Name = "loginPage";
-			this.loginPage.Size = new System.Drawing.Size(214, 275);
+			this.loginPage.Size = new System.Drawing.Size(298, 293);
 			this.loginPage.TabIndex = 1;
 			this.loginPage.Text = "Login";
 			this.loginPage.UseVisualStyleBackColor = true;
@@ -81,14 +81,17 @@
 			// loginBtn
 			// 
 			this.loginBtn.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.loginBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+			this.loginBtn.FlatAppearance.BorderSize = 0;
 			this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.loginBtn.Location = new System.Drawing.Point(9, 239);
+			this.loginBtn.Image = ((System.Drawing.Image)(resources.GetObject("loginBtn.Image")));
+			this.loginBtn.Location = new System.Drawing.Point(193, 257);
 			this.loginBtn.Margin = new System.Windows.Forms.Padding(9);
 			this.loginBtn.Name = "loginBtn";
-			this.loginBtn.Size = new System.Drawing.Size(196, 27);
+			this.loginBtn.Size = new System.Drawing.Size(96, 27);
 			this.loginBtn.TabIndex = 11;
 			this.loginBtn.Text = "Sign in";
+			this.loginBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.loginBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.loginBtn.UseVisualStyleBackColor = false;
 			this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
 			// 
@@ -97,7 +100,7 @@
 			this.loginPassTextBox.Location = new System.Drawing.Point(9, 89);
 			this.loginPassTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.loginPassTextBox.Name = "loginPassTextBox";
-			this.loginPassTextBox.Size = new System.Drawing.Size(196, 23);
+			this.loginPassTextBox.Size = new System.Drawing.Size(280, 25);
 			this.loginPassTextBox.TabIndex = 10;
 			// 
 			// loginPassLabel
@@ -106,7 +109,7 @@
 			this.loginPassLabel.Location = new System.Drawing.Point(9, 65);
 			this.loginPassLabel.Margin = new System.Windows.Forms.Padding(9);
 			this.loginPassLabel.Name = "loginPassLabel";
-			this.loginPassLabel.Size = new System.Drawing.Size(60, 15);
+			this.loginPassLabel.Size = new System.Drawing.Size(67, 17);
 			this.loginPassLabel.TabIndex = 9;
 			this.loginPassLabel.Text = "Password:";
 			// 
@@ -116,7 +119,7 @@
 			this.loginMailLabel.Location = new System.Drawing.Point(9, 9);
 			this.loginMailLabel.Margin = new System.Windows.Forms.Padding(9);
 			this.loginMailLabel.Name = "loginMailLabel";
-			this.loginMailLabel.Size = new System.Drawing.Size(39, 15);
+			this.loginMailLabel.Size = new System.Drawing.Size(42, 17);
 			this.loginMailLabel.TabIndex = 8;
 			this.loginMailLabel.Text = "Email:";
 			// 
@@ -125,7 +128,7 @@
 			this.loginMailTextBox.Location = new System.Drawing.Point(9, 33);
 			this.loginMailTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.loginMailTextBox.Name = "loginMailTextBox";
-			this.loginMailTextBox.Size = new System.Drawing.Size(196, 23);
+			this.loginMailTextBox.Size = new System.Drawing.Size(280, 25);
 			this.loginMailTextBox.TabIndex = 7;
 			// 
 			// registrationPage
@@ -139,10 +142,10 @@
 			this.registrationPage.Controls.Add(this.regPassLabel);
 			this.registrationPage.Controls.Add(this.regMailLabel);
 			this.registrationPage.Controls.Add(this.regMailTextBox);
-			this.registrationPage.Location = new System.Drawing.Point(4, 24);
+			this.registrationPage.Location = new System.Drawing.Point(4, 26);
 			this.registrationPage.Margin = new System.Windows.Forms.Padding(0);
 			this.registrationPage.Name = "registrationPage";
-			this.registrationPage.Size = new System.Drawing.Size(214, 275);
+			this.registrationPage.Size = new System.Drawing.Size(298, 293);
 			this.registrationPage.TabIndex = 0;
 			this.registrationPage.Text = "Register";
 			this.registrationPage.UseVisualStyleBackColor = true;
@@ -152,7 +155,7 @@
 			this.regNameTextBox.Location = new System.Drawing.Point(9, 33);
 			this.regNameTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.regNameTextBox.Name = "regNameTextBox";
-			this.regNameTextBox.Size = new System.Drawing.Size(196, 23);
+			this.regNameTextBox.Size = new System.Drawing.Size(280, 25);
 			this.regNameTextBox.TabIndex = 8;
 			// 
 			// regNameLabel
@@ -161,21 +164,24 @@
 			this.regNameLabel.Location = new System.Drawing.Point(9, 9);
 			this.regNameLabel.Margin = new System.Windows.Forms.Padding(9);
 			this.regNameLabel.Name = "regNameLabel";
-			this.regNameLabel.Size = new System.Drawing.Size(42, 15);
+			this.regNameLabel.Size = new System.Drawing.Size(46, 17);
 			this.regNameLabel.TabIndex = 7;
 			this.regNameLabel.Text = "Name:";
 			// 
 			// registerBtn
 			// 
 			this.registerBtn.BackColor = System.Drawing.SystemColors.ControlLight;
-			this.registerBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+			this.registerBtn.FlatAppearance.BorderSize = 0;
 			this.registerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.registerBtn.Location = new System.Drawing.Point(9, 239);
+			this.registerBtn.Image = ((System.Drawing.Image)(resources.GetObject("registerBtn.Image")));
+			this.registerBtn.Location = new System.Drawing.Point(193, 257);
 			this.registerBtn.Margin = new System.Windows.Forms.Padding(9);
 			this.registerBtn.Name = "registerBtn";
-			this.registerBtn.Size = new System.Drawing.Size(196, 27);
+			this.registerBtn.Size = new System.Drawing.Size(96, 27);
 			this.registerBtn.TabIndex = 6;
 			this.registerBtn.Text = "Sign up";
+			this.registerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.registerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.registerBtn.UseVisualStyleBackColor = false;
 			this.registerBtn.Click += new System.EventHandler(this.registerBtn_Click);
 			// 
@@ -184,7 +190,7 @@
 			this.regCpassTextBox.Location = new System.Drawing.Point(9, 201);
 			this.regCpassTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.regCpassTextBox.Name = "regCpassTextBox";
-			this.regCpassTextBox.Size = new System.Drawing.Size(196, 23);
+			this.regCpassTextBox.Size = new System.Drawing.Size(280, 25);
 			this.regCpassTextBox.TabIndex = 5;
 			// 
 			// regCpassLabel
@@ -193,7 +199,7 @@
 			this.regCpassLabel.Location = new System.Drawing.Point(9, 177);
 			this.regCpassLabel.Margin = new System.Windows.Forms.Padding(9);
 			this.regCpassLabel.Name = "regCpassLabel";
-			this.regCpassLabel.Size = new System.Drawing.Size(107, 15);
+			this.regCpassLabel.Size = new System.Drawing.Size(118, 17);
 			this.regCpassLabel.TabIndex = 4;
 			this.regCpassLabel.Text = "Confirm password:";
 			// 
@@ -202,7 +208,7 @@
 			this.regPassTextBox.Location = new System.Drawing.Point(12, 145);
 			this.regPassTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.regPassTextBox.Name = "regPassTextBox";
-			this.regPassTextBox.Size = new System.Drawing.Size(196, 23);
+			this.regPassTextBox.Size = new System.Drawing.Size(277, 25);
 			this.regPassTextBox.TabIndex = 3;
 			// 
 			// regPassLabel
@@ -211,7 +217,7 @@
 			this.regPassLabel.Location = new System.Drawing.Point(9, 121);
 			this.regPassLabel.Margin = new System.Windows.Forms.Padding(9);
 			this.regPassLabel.Name = "regPassLabel";
-			this.regPassLabel.Size = new System.Drawing.Size(60, 15);
+			this.regPassLabel.Size = new System.Drawing.Size(67, 17);
 			this.regPassLabel.TabIndex = 2;
 			this.regPassLabel.Text = "Password:";
 			// 
@@ -221,7 +227,7 @@
 			this.regMailLabel.Location = new System.Drawing.Point(9, 65);
 			this.regMailLabel.Margin = new System.Windows.Forms.Padding(9);
 			this.regMailLabel.Name = "regMailLabel";
-			this.regMailLabel.Size = new System.Drawing.Size(39, 15);
+			this.regMailLabel.Size = new System.Drawing.Size(42, 17);
 			this.regMailLabel.TabIndex = 1;
 			this.regMailLabel.Text = "Email:";
 			// 
@@ -230,7 +236,7 @@
 			this.regMailTextBox.Location = new System.Drawing.Point(9, 89);
 			this.regMailTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.regMailTextBox.Name = "regMailTextBox";
-			this.regMailTextBox.Size = new System.Drawing.Size(196, 23);
+			this.regMailTextBox.Size = new System.Drawing.Size(280, 25);
 			this.regMailTextBox.TabIndex = 0;
 			// 
 			// LoginForm
@@ -238,9 +244,9 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(240, 321);
+			this.ClientSize = new System.Drawing.Size(324, 341);
 			this.Controls.Add(this.tabControl1);
-			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;

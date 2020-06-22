@@ -18,17 +18,6 @@ namespace quick_sticky_notes
 			OnPerformSignOut(e);
 		}
 
-		private void syncBtn_Click(object sender, EventArgs e)
-		{
-			OnPerformSync(e);
-		}
-
-		protected virtual void OnPerformSync(EventArgs e)
-		{
-			PerformSync?.Invoke(this, e);
-		}
-		public event EventHandler<EventArgs> PerformSync;
-
 		protected virtual void OnPerformSignOut(EventArgs e)
 		{
 			PerformSignOut?.Invoke(this, e);
