@@ -200,6 +200,7 @@ namespace quick_sticky_notes
 					if (lines.Length >= 1)
 					{
 						curUser = JsonConvert.DeserializeObject<User>(lines[0]);
+						OnSignStatusChanged(EventArgs.Empty);
 					}
 				}
 			}
@@ -213,14 +214,10 @@ namespace quick_sticky_notes
 		{
 			var notes = await firebaseClient.Child("notes").OrderByValue().StartAt(curUser.Email).OnceAsync<NoteData>();
 
-			Console.WriteLine(notes.Count);
-
 			if (notes.Count > 0)
 			{
 				foreach (var item in notes)
 				{
-					Console.WriteLine(item.Object.c);
-
 					UpdateNoteEventArgs args = new UpdateNoteEventArgs 
 					{
 						Data = item.Object

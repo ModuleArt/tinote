@@ -37,6 +37,7 @@ namespace quick_sticky_notes
         private void NoteManager_NoteAdded(object sender, NoteAddedEventArgs e)
         {
             notesListBox.Items.Add(e.Note);
+
             e.Note.ContentChanged += Note_ContentChanged;
             e.Note.TitleChanged += Note_TitleChanged;
             e.Note.VisibleChanged += Note_VisibleChanged;
@@ -186,8 +187,6 @@ namespace quick_sticky_notes
             if (fm.IsLoggedIn())
             {
                 fm.LoadNotesFromServer();
-
-                profileBtn.Visible = true;
             }
         }
 

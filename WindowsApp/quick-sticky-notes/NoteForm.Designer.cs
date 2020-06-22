@@ -31,6 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteForm));
 			this.editPanel = new System.Windows.Forms.Panel();
+			this.createdLabel = new System.Windows.Forms.Label();
 			this.colorLabel = new System.Windows.Forms.Label();
 			this.pinkBtn = new System.Windows.Forms.Button();
 			this.blueBtn = new System.Windows.Forms.Button();
@@ -70,7 +71,6 @@
 			this.rightAlignToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.resizeBtn = new System.Windows.Forms.Button();
 			this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.createdLabel = new System.Windows.Forms.Label();
 			this.editPanel.SuspendLayout();
 			this.titlePanel.SuspendLayout();
 			this.rmbContext.SuspendLayout();
@@ -98,6 +98,18 @@
 			this.editPanel.TabIndex = 1;
 			this.editPanel.Visible = false;
 			// 
+			// createdLabel
+			// 
+			this.createdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.createdLabel.AutoSize = true;
+			this.createdLabel.ForeColor = System.Drawing.Color.White;
+			this.createdLabel.Location = new System.Drawing.Point(9, 161);
+			this.createdLabel.Margin = new System.Windows.Forms.Padding(9, 0, 0, 9);
+			this.createdLabel.Name = "createdLabel";
+			this.createdLabel.Size = new System.Drawing.Size(57, 17);
+			this.createdLabel.TabIndex = 12;
+			this.createdLabel.Text = "Created:";
+			// 
 			// colorLabel
 			// 
 			this.colorLabel.AutoSize = true;
@@ -114,12 +126,11 @@
 			this.pinkBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(209)))));
 			this.pinkBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
 			this.pinkBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.pinkBtn.Location = new System.Drawing.Point(163, 43);
-			this.pinkBtn.Margin = new System.Windows.Forms.Padding(9, 9, 0, 0);
+			this.pinkBtn.Location = new System.Drawing.Point(148, 43);
+			this.pinkBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.pinkBtn.Name = "pinkBtn";
-			this.pinkBtn.Size = new System.Drawing.Size(25, 25);
+			this.pinkBtn.Size = new System.Drawing.Size(30, 30);
 			this.pinkBtn.TabIndex = 10;
-			this.pinkBtn.Text = "P";
 			this.pinkBtn.UseVisualStyleBackColor = false;
 			this.pinkBtn.Click += new System.EventHandler(this.pinkBtn_Click);
 			// 
@@ -128,12 +139,11 @@
 			this.blueBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
 			this.blueBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
 			this.blueBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.blueBtn.Location = new System.Drawing.Point(129, 43);
-			this.blueBtn.Margin = new System.Windows.Forms.Padding(9, 9, 0, 0);
+			this.blueBtn.Location = new System.Drawing.Point(119, 43);
+			this.blueBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.blueBtn.Name = "blueBtn";
-			this.blueBtn.Size = new System.Drawing.Size(25, 25);
+			this.blueBtn.Size = new System.Drawing.Size(30, 30);
 			this.blueBtn.TabIndex = 9;
-			this.blueBtn.Text = "B";
 			this.blueBtn.UseVisualStyleBackColor = false;
 			this.blueBtn.Click += new System.EventHandler(this.blueBtn_Click);
 			// 
@@ -142,12 +152,11 @@
 			this.greenBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(219)))), ((int)(((byte)(193)))));
 			this.greenBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
 			this.greenBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.greenBtn.Location = new System.Drawing.Point(95, 43);
-			this.greenBtn.Margin = new System.Windows.Forms.Padding(9, 9, 0, 0);
+			this.greenBtn.Location = new System.Drawing.Point(90, 43);
+			this.greenBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.greenBtn.Name = "greenBtn";
-			this.greenBtn.Size = new System.Drawing.Size(25, 25);
+			this.greenBtn.Size = new System.Drawing.Size(30, 30);
 			this.greenBtn.TabIndex = 8;
-			this.greenBtn.Text = "G";
 			this.greenBtn.UseVisualStyleBackColor = false;
 			this.greenBtn.Click += new System.EventHandler(this.greenBtn_Click);
 			// 
@@ -157,11 +166,10 @@
 			this.yellowBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
 			this.yellowBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.yellowBtn.Location = new System.Drawing.Point(61, 43);
-			this.yellowBtn.Margin = new System.Windows.Forms.Padding(9, 9, 0, 0);
+			this.yellowBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.yellowBtn.Name = "yellowBtn";
-			this.yellowBtn.Size = new System.Drawing.Size(25, 25);
+			this.yellowBtn.Size = new System.Drawing.Size(30, 30);
 			this.yellowBtn.TabIndex = 7;
-			this.yellowBtn.Text = "Y";
 			this.yellowBtn.UseVisualStyleBackColor = false;
 			this.yellowBtn.Click += new System.EventHandler(this.yellowBtn_Click);
 			// 
@@ -173,10 +181,10 @@
 			this.deleteBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
 			this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
-			this.deleteBtn.Location = new System.Drawing.Point(9, 192);
+			this.deleteBtn.Location = new System.Drawing.Point(9, 187);
 			this.deleteBtn.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
 			this.deleteBtn.Name = "deleteBtn";
-			this.deleteBtn.Size = new System.Drawing.Size(238, 25);
+			this.deleteBtn.Size = new System.Drawing.Size(238, 30);
 			this.deleteBtn.TabIndex = 6;
 			this.deleteBtn.Text = "Delete note";
 			this.deleteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -188,7 +196,7 @@
 			// 
 			this.editTitleLabel.AutoSize = true;
 			this.editTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.editTitleLabel.Location = new System.Drawing.Point(9, 11);
+			this.editTitleLabel.Location = new System.Drawing.Point(17, 11);
 			this.editTitleLabel.Margin = new System.Windows.Forms.Padding(0, 0, 9, 0);
 			this.editTitleLabel.Name = "editTitleLabel";
 			this.editTitleLabel.Size = new System.Drawing.Size(35, 17);
@@ -201,10 +209,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.titleTextBox.BackColor = System.Drawing.Color.White;
 			this.titleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.titleTextBox.Location = new System.Drawing.Point(53, 9);
+			this.titleTextBox.Location = new System.Drawing.Point(61, 9);
 			this.titleTextBox.Margin = new System.Windows.Forms.Padding(0, 9, 9, 0);
 			this.titleTextBox.Name = "titleTextBox";
-			this.titleTextBox.Size = new System.Drawing.Size(194, 25);
+			this.titleTextBox.Size = new System.Drawing.Size(186, 25);
 			this.titleTextBox.TabIndex = 0;
 			this.titleTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.titleTextBox_KeyDown);
 			this.titleTextBox.Leave += new System.EventHandler(this.titleTextBox_Leave);
@@ -321,7 +329,6 @@
 			this.richTextBox1.ContextMenuStrip = this.rmbContext;
 			this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
-			this.richTextBox1.HideSelection = false;
 			this.richTextBox1.Location = new System.Drawing.Point(11, 41);
 			this.richTextBox1.Margin = new System.Windows.Forms.Padding(11);
 			this.richTextBox1.Name = "richTextBox1";
@@ -329,6 +336,7 @@
 			this.richTextBox1.Size = new System.Drawing.Size(234, 206);
 			this.richTextBox1.TabIndex = 0;
 			this.richTextBox1.Text = "";
+			this.richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox1_LinkClicked);
 			this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
 			this.richTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.richTextBox1_KeyUp);
 			// 
@@ -546,18 +554,6 @@
 			this.resizeBtn.UseVisualStyleBackColor = false;
 			this.resizeBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.resizeBtn_MouseDown);
 			this.resizeBtn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.resizeBtn_MouseUp);
-			// 
-			// createdLabel
-			// 
-			this.createdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.createdLabel.AutoSize = true;
-			this.createdLabel.ForeColor = System.Drawing.Color.White;
-			this.createdLabel.Location = new System.Drawing.Point(9, 166);
-			this.createdLabel.Margin = new System.Windows.Forms.Padding(9, 0, 0, 9);
-			this.createdLabel.Name = "createdLabel";
-			this.createdLabel.Size = new System.Drawing.Size(57, 17);
-			this.createdLabel.TabIndex = 12;
-			this.createdLabel.Text = "Created:";
 			// 
 			// NoteForm
 			// 

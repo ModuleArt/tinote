@@ -16,7 +16,7 @@ namespace quick_sticky_notes
 
 		public void NewNote(string uniqueId, string colorStr = "yellow")
 		{
-			Note note = new Note(uniqueId, colorStr);
+			Note note = new Note(uniqueId, colorStr, DateTime.Now);
 			notes.Add(note);
 			note.Show();
 
@@ -72,7 +72,7 @@ namespace quick_sticky_notes
 
 			if (!noteExists)
 			{
-				Note note = new Note(data.i, data.c);
+				Note note = new Note(data.i, data.c, DateTime.FromBinary(long.Parse(data.d)));
 				note.SetContent(data.t);
 				note.SetTitle(data.l);
 

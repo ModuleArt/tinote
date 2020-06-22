@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Timers;
 using System.Windows.Forms;
@@ -252,17 +253,24 @@ namespace quick_sticky_notes
 
 		private void richTextBox1_KeyUp(object sender, KeyEventArgs e)
 		{
-			if (e.KeyCode == Keys.Enter)
+			try
 			{
-				int firstCharIndex = richTextBox1.GetFirstCharIndexOfCurrentLine();
-				int prevLine = richTextBox1.GetLineFromCharIndex(firstCharIndex) - 1;
-				if (richTextBox1.Lines[prevLine].Length > 0)
+				if (e.KeyCode == Keys.Enter)
 				{
-					if (richTextBox1.Lines[prevLine][0] == '○' || richTextBox1.Lines[prevLine][0] == '●')
+					int firstCharIndex = richTextBox1.GetFirstCharIndexOfCurrentLine();
+					int prevLine = richTextBox1.GetLineFromCharIndex(firstCharIndex) - 1;
+					if (richTextBox1.Lines[prevLine].Length > 0)
 					{
-						richTextBox1.SelectedText = "○ ";
+						if (richTextBox1.Lines[prevLine][0] == '○' || richTextBox1.Lines[prevLine][0] == '●')
+						{
+							richTextBox1.SelectedText = "○ ";
+						}
 					}
 				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
 			}
 		}
 
@@ -588,6 +596,11 @@ namespace quick_sticky_notes
 				ColorStr = "pink"
 			};
 			OnColorChanged(args);
+		}
+
+		private void richTextBox1_LinkClicked(object sender, LinkClickedEventArgs e)
+		{
+			Process.Start(e.LinkText);
 		}
 	}
 

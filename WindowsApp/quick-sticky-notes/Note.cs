@@ -17,11 +17,11 @@ namespace quick_sticky_notes
 		public string colorStr = "yellow";
 		private NoteForm noteForm;
 
-		public Note(string uniqueId, string colorStr)
+		public Note(string uniqueId, string colorStr, DateTime created)
 		{
 			this.uniqueId = uniqueId;
 			this.colorStr = colorStr;
-			this.dateCreated = DateTime.Now;
+			this.dateCreated = created;
 		}
 
 		public void SetTitle(string title)

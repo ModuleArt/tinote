@@ -50,12 +50,10 @@ D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\quick-sticky-notes.pd
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\Firebase.dll
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\LiteDB.dll
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\Newtonsoft.Json.dll
-D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Interactive.Async.dll
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Reactive.dll
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\Firebase.xml
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\LiteDB.xml
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\Newtonsoft.Json.xml
-D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Interactive.Async.xml
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Reactive.xml
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\obj\Debug\quick-sticky-notes.csprojAssemblyReference.cache
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\obj\Debug\quick_sticky_notes.LoginForm.resources
@@ -72,7 +70,6 @@ D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Diagnostics.Di
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Buffers.dll
-D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Linq.Async.dll
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Memory.dll
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Numerics.Vectors.dll
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
@@ -80,7 +77,6 @@ D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Threading.Task
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.ValueTuple.dll
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Buffers.xml
-D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Linq.Async.xml
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Memory.xml
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Numerics.Vectors.xml
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
