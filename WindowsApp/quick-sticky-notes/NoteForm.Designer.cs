@@ -70,7 +70,7 @@
 			this.rightAlignToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.resizeBtn = new System.Windows.Forms.Button();
 			this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.syncBtn = new System.Windows.Forms.Button();
+			this.createdLabel = new System.Windows.Forms.Label();
 			this.editPanel.SuspendLayout();
 			this.titlePanel.SuspendLayout();
 			this.rmbContext.SuspendLayout();
@@ -82,6 +82,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.editPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(173)))), ((int)(((byte)(96)))));
+			this.editPanel.Controls.Add(this.createdLabel);
 			this.editPanel.Controls.Add(this.colorLabel);
 			this.editPanel.Controls.Add(this.pinkBtn);
 			this.editPanel.Controls.Add(this.blueBtn);
@@ -213,7 +214,6 @@
 			this.titlePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
-			this.titlePanel.Controls.Add(this.syncBtn);
 			this.titlePanel.Controls.Add(this.notesListBtn);
 			this.titlePanel.Controls.Add(this.newNoteBtn);
 			this.titlePanel.Controls.Add(this.editBtn);
@@ -547,20 +547,17 @@
 			this.resizeBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.resizeBtn_MouseDown);
 			this.resizeBtn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.resizeBtn_MouseUp);
 			// 
-			// syncBtn
+			// createdLabel
 			// 
-			this.syncBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.syncBtn.FlatAppearance.BorderSize = 0;
-			this.syncBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.syncBtn.Image = ((System.Drawing.Image)(resources.GetObject("syncBtn.Image")));
-			this.syncBtn.Location = new System.Drawing.Point(136, 0);
-			this.syncBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.syncBtn.Name = "syncBtn";
-			this.syncBtn.Size = new System.Drawing.Size(30, 30);
-			this.syncBtn.TabIndex = 11;
-			this.infoToolTip.SetToolTip(this.syncBtn, "Sync note (Ctrl+S)");
-			this.syncBtn.UseVisualStyleBackColor = true;
-			this.syncBtn.Click += new System.EventHandler(this.syncBtn_Click);
+			this.createdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.createdLabel.AutoSize = true;
+			this.createdLabel.ForeColor = System.Drawing.Color.White;
+			this.createdLabel.Location = new System.Drawing.Point(9, 166);
+			this.createdLabel.Margin = new System.Windows.Forms.Padding(9, 0, 0, 9);
+			this.createdLabel.Name = "createdLabel";
+			this.createdLabel.Size = new System.Drawing.Size(57, 17);
+			this.createdLabel.TabIndex = 12;
+			this.createdLabel.Text = "Created:";
 			// 
 			// NoteForm
 			// 
@@ -641,6 +638,6 @@
 		private System.Windows.Forms.ToolStripMenuItem leftAlignToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem centerAlignToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem rightAlignToolStripMenuItem1;
-		private System.Windows.Forms.Button syncBtn;
+		private System.Windows.Forms.Label createdLabel;
 	}
 }

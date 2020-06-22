@@ -26,28 +26,37 @@ namespace quick_sticky_notes
 
 		public void SetTitle(string title)
 		{
-			this.title = title;
-			if (noteForm != null && !noteForm.IsDisposed)
+			if (title != this.title)
 			{
-				noteForm.SetTitle(title);
+				this.title = title;
+				if (noteForm != null && !noteForm.IsDisposed)
+				{
+					noteForm.SetTitle(title);
+				}
 			}
 		}
 
 		public void SetContent(string rtf)
 		{
-			this.contentRtf = rtf;
-			if (noteForm != null && !noteForm.IsDisposed)
+			if (rtf != this.contentRtf)
 			{
-				noteForm.SetContent(rtf);
+				this.contentRtf = rtf;
+				if (noteForm != null && !noteForm.IsDisposed)
+				{
+					noteForm.SetContent(rtf);
+				}
 			}	
 		}
 
 		public void SetColor(string colorStr)
 		{
-			this.colorStr = colorStr;
-			if (noteForm != null && !noteForm.IsDisposed)
+			if (colorStr != this.colorStr)
 			{
-				noteForm.SetColor(colorStr);
+				this.colorStr = colorStr;
+				if (noteForm != null && !noteForm.IsDisposed)
+				{
+					noteForm.SetColor(colorStr);
+				}
 			}
 		}
 
@@ -60,7 +69,7 @@ namespace quick_sticky_notes
 		{
 			if (noteForm == null || noteForm.IsDisposed)
 			{
-				noteForm = new NoteForm(title, contentRtf, colorStr);
+				noteForm = new NoteForm(title, contentRtf, colorStr, dateCreated);
 				noteForm.ContentChanged += NoteForm_ContentChanged;
 				noteForm.TitleChanged += NoteForm_TitleChanged;
 				noteForm.FormClosing += NoteForm_FormClosing;

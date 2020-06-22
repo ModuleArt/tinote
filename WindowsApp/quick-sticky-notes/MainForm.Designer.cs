@@ -47,13 +47,13 @@
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.titlePanel = new System.Windows.Forms.Panel();
+			this.syncBtn = new System.Windows.Forms.Button();
 			this.titleLabel = new System.Windows.Forms.Label();
 			this.closeBtn = new System.Windows.Forms.Button();
 			this.searchTextBox = new System.Windows.Forms.TextBox();
 			this.searchPanel = new System.Windows.Forms.Panel();
 			this.searchBtn = new System.Windows.Forms.Button();
 			this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.syncBtn = new System.Windows.Forms.Button();
 			this.notesListItemContext.SuspendLayout();
 			this.notesListEmptyContext.SuspendLayout();
 			this.trayContext.SuspendLayout();
@@ -223,6 +223,22 @@
 			this.titlePanel.TabIndex = 3;
 			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
 			// 
+			// syncBtn
+			// 
+			this.syncBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.syncBtn.FlatAppearance.BorderSize = 0;
+			this.syncBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.syncBtn.Image = ((System.Drawing.Image)(resources.GetObject("syncBtn.Image")));
+			this.syncBtn.Location = new System.Drawing.Point(166, 0);
+			this.syncBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.syncBtn.Name = "syncBtn";
+			this.syncBtn.Size = new System.Drawing.Size(30, 30);
+			this.syncBtn.TabIndex = 10;
+			this.infoToolTip.SetToolTip(this.syncBtn, "Sync notes now (Ctrl+D)");
+			this.syncBtn.UseVisualStyleBackColor = true;
+			this.syncBtn.Visible = false;
+			this.syncBtn.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// titleLabel
 			// 
 			this.titleLabel.AutoSize = true;
@@ -295,21 +311,6 @@
 			this.searchBtn.TabIndex = 10;
 			this.infoToolTip.SetToolTip(this.searchBtn, "Search");
 			this.searchBtn.UseVisualStyleBackColor = true;
-			// 
-			// syncBtn
-			// 
-			this.syncBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.syncBtn.FlatAppearance.BorderSize = 0;
-			this.syncBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.syncBtn.Image = ((System.Drawing.Image)(resources.GetObject("syncBtn.Image")));
-			this.syncBtn.Location = new System.Drawing.Point(166, 0);
-			this.syncBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.syncBtn.Name = "syncBtn";
-			this.syncBtn.Size = new System.Drawing.Size(30, 30);
-			this.syncBtn.TabIndex = 10;
-			this.infoToolTip.SetToolTip(this.syncBtn, "Sync notes now");
-			this.syncBtn.UseVisualStyleBackColor = true;
-			this.syncBtn.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// MainForm
 			// 

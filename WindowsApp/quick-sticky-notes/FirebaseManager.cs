@@ -72,6 +72,7 @@ namespace quick_sticky_notes
 		{
 			curUser = null;
 			SaveUserToDisk();
+			OnSignStatusChanged(EventArgs.Empty);
 
 			profileForm.Close();
 			profileForm.Dispose();
@@ -82,6 +83,7 @@ namespace quick_sticky_notes
 			FirebaseAuthLink fal = await firebaseAuth.CreateUserWithEmailAndPasswordAsync(email, password, displayName);
 			curUser = fal.User;
 			SaveUserToDisk();
+			OnSignStatusChanged(EventArgs.Empty);
 
 			loginForm.Close();
 			loginForm.Dispose();
@@ -94,6 +96,7 @@ namespace quick_sticky_notes
 			FirebaseAuthLink fal = await firebaseAuth.SignInWithEmailAndPasswordAsync(email, password);
 			curUser = fal.User;
 			SaveUserToDisk();
+			OnSignStatusChanged(EventArgs.Empty);
 
 			loginForm.Close();
 			loginForm.Dispose();
@@ -232,6 +235,12 @@ namespace quick_sticky_notes
 			UpdateNote?.Invoke(this, e);
 		}
 		public event EventHandler<UpdateNoteEventArgs> UpdateNote;
+
+		protected virtual void OnSignStatusChanged(EventArgs e)
+		{
+			SignStatusChanged?.Invoke(this, e);
+		}
+		public event EventHandler<EventArgs> SignStatusChanged;
 	}
 
 	public class UpdateNoteEventArgs : EventArgs

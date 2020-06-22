@@ -8,7 +8,6 @@ namespace quick_sticky_notes
 	public partial class MainForm : Form
 	{
         private FirebaseManager fm;
-
         private NoteManager noteManager;
         private bool quitApp = false;
 
@@ -19,13 +18,15 @@ namespace quick_sticky_notes
             noteManager = new NoteManager();
             noteManager.NoteAdded += NoteManager_NoteAdded;
 
-            //gSyncManager = new GSyncManager();
-            //gSyncManager.SyncDone += GSyncManager_SyncDone;
-            //gSyncManager.Authorize();
-
             fm = new FirebaseManager();
             fm.UpdateNote += Fm_UpdateNote;
+            fm.SignStatusChanged += Fm_SignStatusChanged;
             fm.LoadUserFromDisk();
+        }
+
+        private void Fm_SignStatusChanged(object sender, EventArgs e)
+        {
+            syncBtn.Visible = fm.IsLoggedIn();
         }
 
         private void Fm_UpdateNote(object sender, UpdateNoteEventArgs e)
@@ -65,7 +66,10 @@ namespace quick_sticky_notes
 
         private void Note_PerformSync(object sender, EventArgs e)
         {
-            fm.SyncNote(sender as Note);
+            if (fm.IsLoggedIn())
+            {
+                fm.SyncNote(sender as Note);
+            }
         }
 
         private void Note_PerformDelete(object sender, EventArgs e)
@@ -178,7 +182,13 @@ namespace quick_sticky_notes
         private void MainForm_Load(object sender, EventArgs e)
         {
             noteManager.LoadNotesFromDisk();
-            fm.LoadNotesFromServer();
+            
+            if (fm.IsLoggedIn())
+            {
+                fm.LoadNotesFromServer();
+
+                profileBtn.Visible = true;
+            }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -411,6 +421,10 @@ namespace quick_sticky_notes
                 if (e.KeyCode == Keys.N)
                 {
                     newNoteBtn.PerformClick();
+                }
+                else if (e.KeyCode == Keys.D)
+                {
+                    syncBtn.PerformClick();
                 }
                 else if (e.KeyCode == Keys.Q)
                 {

@@ -14,7 +14,7 @@ namespace quick_sticky_notes
 		private Point startPos;
 		private Size curSize;
 		
-		public NoteForm(string title, string content, string colorStr)
+		public NoteForm(string title, string content, string colorStr, DateTime dateCreated)
 		{
 			InitializeComponent();
 
@@ -34,6 +34,8 @@ namespace quick_sticky_notes
 			resizeTimer.Interval = 50;
 
 			SetColor(colorStr);
+
+			createdLabel.Text = "Created: " + dateCreated.ToString();
 		}
 
 		private void resizeTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -300,11 +302,7 @@ namespace quick_sticky_notes
 				}
 				else
 				{
-					if (e.KeyCode == Keys.S)
-					{
-						syncBtn.PerformClick();
-					}
-					else if (e.KeyCode == Keys.N)
+					if (e.KeyCode == Keys.N)
 					{
 						newNoteBtn.PerformClick();
 					} 
@@ -590,11 +588,6 @@ namespace quick_sticky_notes
 				ColorStr = "pink"
 			};
 			OnColorChanged(args);
-		}
-
-		private void syncBtn_Click(object sender, EventArgs e)
-		{
-			OnPerformSync(e);
 		}
 	}
 
