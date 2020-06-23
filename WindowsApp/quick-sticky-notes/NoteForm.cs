@@ -19,6 +19,7 @@ namespace quick_sticky_notes
 		{
 			InitializeComponent();
 
+			titleTextBox.Text = title;
 			SetTitle(title);
 			this.colorStr = colorStr;
 
@@ -36,7 +37,7 @@ namespace quick_sticky_notes
 
 			SetColor(colorStr);
 
-			createdLabel.Text = "Created: " + dateCreated.ToString();
+			createdToolStripMenuItem.Text = "Created: " + dateCreated.ToString();
 		}
 
 		private void resizeTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -69,20 +70,8 @@ namespace quick_sticky_notes
 			titlePanel.BackColor = ColorManager.GetDarkColor(colorStr);
 			richTextBox1.ForeColor = ColorManager.GetDarkColor(colorStr);
 			richTextBox1.BackColor = ColorManager.GetNoteColor(colorStr);
-			editPanel.BackColor = ColorManager.GetMiddleColor(colorStr);
 			secondTitleLabel.ForeColor = ColorManager.GetMiddleColor(colorStr);
-		}
-
-		public void Edit()
-		{
-			this.BringToFront();
-			titleTextBox.Text = this.Text;
-			editPanel.Visible = true;
-			ShowTitlebar(true);
-
-			titleTextBox.Focus();
-			titleTextBox.SelectionStart = richTextBox1.Text.Length;
-			titleTextBox.SelectionLength = 0;
+			titleTextBox.BackColor = ColorManager.GetDarkColor(colorStr);
 		}
 
 		private void richTextBox1_TextChanged(object sender, System.EventArgs e)
@@ -164,23 +153,10 @@ namespace quick_sticky_notes
 			NativeMethodsManager.SetWindowLong(this.Handle, NativeMethodsManager.GWL_HWNDPARENT, hprog);
 		}
 
-		private void editBtn_Click(object sender, EventArgs e)
-		{
-			if (editPanel.Visible)
-			{
-				editPanel.Visible = false;
-			}
-			else
-			{
-				Edit();
-			}
-		}
-
 		private void ShowTitlebar(bool show)
 		{
 			if (show)
 			{
-				editBtn.Visible = true;
 				closeBtn.Visible = true;
 				newNoteBtn.Visible = true;
 				notesListBtn.Visible = true;
@@ -192,18 +168,14 @@ namespace quick_sticky_notes
 			}
 			else
 			{
-				if (!editPanel.Visible)
-				{
-					editBtn.Visible = false;
-					closeBtn.Visible = false;
-					newNoteBtn.Visible = false;
-					notesListBtn.Visible = false;
+				closeBtn.Visible = false;
+				newNoteBtn.Visible = false;
+				notesListBtn.Visible = false;
 
-					titleLabel.Visible = false;
-					titlePanel.Height = 8;
+				titleLabel.Visible = false;
+				titlePanel.Height = 8;
 
-					secondTitleLabel.Visible = true;
-				}
+				secondTitleLabel.Visible = true;
 			}
 		}
 
@@ -253,12 +225,13 @@ namespace quick_sticky_notes
 
 		private void richTextBox1_KeyUp(object sender, KeyEventArgs e)
 		{
-			try
+			if (e.KeyCode == Keys.Enter)
 			{
-				if (e.KeyCode == Keys.Enter)
+				int firstCharIndex = richTextBox1.GetFirstCharIndexOfCurrentLine();
+				int prevLine = richTextBox1.GetLineFromCharIndex(firstCharIndex) - 1;
+
+				if (prevLine >= 0 && prevLine < richTextBox1.Lines.Length)
 				{
-					int firstCharIndex = richTextBox1.GetFirstCharIndexOfCurrentLine();
-					int prevLine = richTextBox1.GetLineFromCharIndex(firstCharIndex) - 1;
 					if (richTextBox1.Lines[prevLine].Length > 0)
 					{
 						if (richTextBox1.Lines[prevLine][0] == '○' || richTextBox1.Lines[prevLine][0] == '●')
@@ -267,10 +240,6 @@ namespace quick_sticky_notes
 						}
 					}
 				}
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex);
 			}
 		}
 
@@ -299,13 +268,13 @@ namespace quick_sticky_notes
 			{
 				if (e.Shift)
 				{
-					if (e.KeyCode == Keys.E)
-					{
-						editBtn.PerformClick();
-					}
-					else if (e.KeyCode == Keys.N)
+					if (e.KeyCode == Keys.N)
 					{
 						notesListBtn.PerformClick();
+					}
+					else if (e.KeyCode == Keys.R)
+					{
+						renameToolStripMenuItem.PerformClick();
 					}
 				}
 				else
@@ -536,22 +505,24 @@ namespace quick_sticky_notes
 		{
 			if (e.KeyCode == Keys.Enter)
 			{
-				editBtn.Focus();
+				richTextBox1.Focus();
 			}
 		}
 
 		private void titleTextBox_Leave(object sender, EventArgs e)
 		{
-			if (titleTextBox.Text.Length > 0 && this.Text != titleTextBox.Text)
+			titleTextBox.Visible = false;
+
+			if (titleTextBox.Text.Length > 0)
 			{
-				editPanel.Visible = false;
 				SetTitle(titleTextBox.Text);
-				TitleChangedEventArgs args = new TitleChangedEventArgs()
-				{
-					Title = titleTextBox.Text
-				};
-				OnTitleChanged(args);
 			}
+			
+			TitleChangedEventArgs args = new TitleChangedEventArgs()
+			{
+				Title = titleTextBox.Text
+			};
+			OnTitleChanged(args);
 		}
 
 		private void yellowBtn_Click(object sender, EventArgs e)
@@ -601,6 +572,36 @@ namespace quick_sticky_notes
 		private void richTextBox1_LinkClicked(object sender, LinkClickedEventArgs e)
 		{
 			Process.Start(e.LinkText);
+		}
+
+		private void renameToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			titleTextBox.Visible = true;
+			titleTextBox.Text = this.Text;
+			titleTextBox.Focus();
+			titleTextBox.SelectAll();
+		}
+
+		private void purpleToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			SetColor("purple");
+
+			ColorChangedEventArgs args = new ColorChangedEventArgs()
+			{
+				ColorStr = "purple"
+			};
+			OnColorChanged(args);
+		}
+
+		private void whiteToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			SetColor("white");
+
+			ColorChangedEventArgs args = new ColorChangedEventArgs()
+			{
+				ColorStr = "white"
+			};
+			OnColorChanged(args);
 		}
 	}
 

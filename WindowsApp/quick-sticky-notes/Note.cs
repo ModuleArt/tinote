@@ -210,11 +210,6 @@ namespace quick_sticky_notes
 			}
 		}
 
-		public void Edit()
-		{
-			noteForm.Edit();
-		}
-
 		protected virtual void OnContentChanged(ContentChangedEventArgs e)
 		{
 			ContentChanged?.Invoke(this, e);

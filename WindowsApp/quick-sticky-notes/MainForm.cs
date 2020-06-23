@@ -170,16 +170,6 @@ namespace quick_sticky_notes
             }
         }
 
-        private void renameToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
-            {
-                Note note = notesListBox.SelectedItem as Note;
-                note.Show();
-                note.Edit();
-            }
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             noteManager.LoadNotesFromDisk();
@@ -451,6 +441,66 @@ namespace quick_sticky_notes
         private void button1_Click(object sender, EventArgs e)
         {
             fm.LoadNotesFromServer();
+        }
+
+        private void yellowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
+            {
+                Note note = notesListBox.SelectedItem as Note;
+                note.SetColor("yellow");
+                notesListBox.Refresh();
+            }
+        }
+
+        private void greenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
+            {
+                Note note = notesListBox.SelectedItem as Note;
+                note.SetColor("green");
+                notesListBox.Refresh();
+            }
+        }
+
+        private void blueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
+            {
+                Note note = notesListBox.SelectedItem as Note;
+                note.SetColor("blue");
+                notesListBox.Refresh();
+            }
+        }
+
+        private void pinkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
+            {
+                Note note = notesListBox.SelectedItem as Note;
+                note.SetColor("pink");
+                notesListBox.Refresh();
+            }
+        }
+
+        private void purpleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
+            {
+                Note note = notesListBox.SelectedItem as Note;
+                note.SetColor("purple");
+                notesListBox.Refresh();
+            }
+        }
+
+        private void whiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
+            {
+                Note note = notesListBox.SelectedItem as Note;
+                note.SetColor("white");
+                notesListBox.Refresh();
+            }
         }
     }
 }

@@ -35,7 +35,6 @@
 			this.notesListBox = new System.Windows.Forms.ListBox();
 			this.notesListItemContext = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.notesListEmptyContext = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -54,6 +53,14 @@
 			this.searchPanel = new System.Windows.Forms.Panel();
 			this.searchBtn = new System.Windows.Forms.Button();
 			this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.changeColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.yellowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.greenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.blueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.purpleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.whiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.notesListItemContext.SuspendLayout();
 			this.notesListEmptyContext.SuspendLayout();
 			this.trayContext.SuspendLayout();
@@ -111,38 +118,31 @@
 			// 
 			this.notesListItemContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showToolStripMenuItem,
-            this.renameToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.changeColorMenuItem,
             this.toolStripSeparator2,
             this.deleteToolStripMenuItem});
 			this.notesListItemContext.Name = "notesListContext";
-			this.notesListItemContext.Size = new System.Drawing.Size(108, 76);
+			this.notesListItemContext.Size = new System.Drawing.Size(181, 104);
 			// 
 			// showToolStripMenuItem
 			// 
 			this.showToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showToolStripMenuItem.Image")));
 			this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-			this.showToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.showToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.showToolStripMenuItem.Text = "Show";
 			this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
-			// 
-			// renameToolStripMenuItem
-			// 
-			this.renameToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("renameToolStripMenuItem.Image")));
-			this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-			this.renameToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-			this.renameToolStripMenuItem.Text = "Edit";
-			this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(104, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
 			// 
 			// deleteToolStripMenuItem
 			// 
 			this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
 			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.deleteToolStripMenuItem.Text = "Delete";
 			this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
 			// 
@@ -312,6 +312,79 @@
 			this.infoToolTip.SetToolTip(this.searchBtn, "Search");
 			this.searchBtn.UseVisualStyleBackColor = true;
 			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+			// 
+			// changeColorMenuItem
+			// 
+			this.changeColorMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yellowToolStripMenuItem,
+            this.greenToolStripMenuItem,
+            this.blueToolStripMenuItem,
+            this.pinkToolStripMenuItem,
+            this.purpleToolStripMenuItem,
+            this.whiteToolStripMenuItem});
+			this.changeColorMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changeColorMenuItem.Image")));
+			this.changeColorMenuItem.Name = "changeColorMenuItem";
+			this.changeColorMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.changeColorMenuItem.Text = "Change color";
+			// 
+			// yellowToolStripMenuItem
+			// 
+			this.yellowToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(128)))));
+			this.yellowToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
+			this.yellowToolStripMenuItem.Name = "yellowToolStripMenuItem";
+			this.yellowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.yellowToolStripMenuItem.Text = "Yellow";
+			this.yellowToolStripMenuItem.Click += new System.EventHandler(this.yellowToolStripMenuItem_Click);
+			// 
+			// greenToolStripMenuItem
+			// 
+			this.greenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(219)))), ((int)(((byte)(193)))));
+			this.greenToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(109)))), ((int)(((byte)(96)))));
+			this.greenToolStripMenuItem.Name = "greenToolStripMenuItem";
+			this.greenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.greenToolStripMenuItem.Text = "Green";
+			this.greenToolStripMenuItem.Click += new System.EventHandler(this.greenToolStripMenuItem_Click);
+			// 
+			// blueToolStripMenuItem
+			// 
+			this.blueToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+			this.blueToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(97)))), ((int)(((byte)(127)))));
+			this.blueToolStripMenuItem.Name = "blueToolStripMenuItem";
+			this.blueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.blueToolStripMenuItem.Text = "Blue";
+			this.blueToolStripMenuItem.Click += new System.EventHandler(this.blueToolStripMenuItem_Click);
+			// 
+			// pinkToolStripMenuItem
+			// 
+			this.pinkToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(209)))));
+			this.pinkToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(81)))), ((int)(((byte)(104)))));
+			this.pinkToolStripMenuItem.Name = "pinkToolStripMenuItem";
+			this.pinkToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.pinkToolStripMenuItem.Text = "Pink";
+			this.pinkToolStripMenuItem.Click += new System.EventHandler(this.pinkToolStripMenuItem_Click);
+			// 
+			// purpleToolStripMenuItem
+			// 
+			this.purpleToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(164)))), ((int)(((byte)(255)))));
+			this.purpleToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(82)))), ((int)(((byte)(127)))));
+			this.purpleToolStripMenuItem.Name = "purpleToolStripMenuItem";
+			this.purpleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.purpleToolStripMenuItem.Text = "Purple";
+			this.purpleToolStripMenuItem.Click += new System.EventHandler(this.purpleToolStripMenuItem_Click);
+			// 
+			// whiteToolStripMenuItem
+			// 
+			this.whiteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+			this.whiteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+			this.whiteToolStripMenuItem.Name = "whiteToolStripMenuItem";
+			this.whiteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.whiteToolStripMenuItem.Text = "White";
+			this.whiteToolStripMenuItem.Click += new System.EventHandler(this.whiteToolStripMenuItem_Click);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -351,7 +424,6 @@
 		private System.Windows.Forms.Button newNoteBtn;
 		private System.Windows.Forms.ListBox notesListBox;
 		private System.Windows.Forms.ContextMenuStrip notesListItemContext;
-		private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip notesListEmptyContext;
 		private System.Windows.Forms.ToolStripMenuItem addNoteToolStripMenuItem;
@@ -371,6 +443,14 @@
 		private System.Windows.Forms.Button searchBtn;
 		private System.Windows.Forms.ToolTip infoToolTip;
 		private System.Windows.Forms.Button syncBtn;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+		private System.Windows.Forms.ToolStripMenuItem changeColorMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem yellowToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem greenToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem blueToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pinkToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem purpleToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem whiteToolStripMenuItem;
 	}
 }
 

@@ -30,22 +30,25 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteForm));
-			this.editPanel = new System.Windows.Forms.Panel();
-			this.createdLabel = new System.Windows.Forms.Label();
-			this.colorLabel = new System.Windows.Forms.Label();
-			this.pinkBtn = new System.Windows.Forms.Button();
-			this.blueBtn = new System.Windows.Forms.Button();
-			this.greenBtn = new System.Windows.Forms.Button();
-			this.yellowBtn = new System.Windows.Forms.Button();
-			this.deleteBtn = new System.Windows.Forms.Button();
-			this.editTitleLabel = new System.Windows.Forms.Label();
 			this.titleTextBox = new System.Windows.Forms.TextBox();
 			this.titlePanel = new System.Windows.Forms.Panel();
+			this.headerContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.changeColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.yellowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.greenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.blueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pinkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.purpleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.whiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.createdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.titleLabel = new System.Windows.Forms.Label();
 			this.notesListBtn = new System.Windows.Forms.Button();
 			this.newNoteBtn = new System.Windows.Forms.Button();
-			this.editBtn = new System.Windows.Forms.Button();
 			this.closeBtn = new System.Windows.Forms.Button();
-			this.titleLabel = new System.Windows.Forms.Label();
 			this.secondTitleLabel = new System.Windows.Forms.Label();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.rmbContext = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -71,149 +74,25 @@
 			this.rightAlignToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.resizeBtn = new System.Windows.Forms.Button();
 			this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.editPanel.SuspendLayout();
 			this.titlePanel.SuspendLayout();
+			this.headerContext.SuspendLayout();
 			this.rmbContext.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// editPanel
-			// 
-			this.editPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.editPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(173)))), ((int)(((byte)(96)))));
-			this.editPanel.Controls.Add(this.createdLabel);
-			this.editPanel.Controls.Add(this.colorLabel);
-			this.editPanel.Controls.Add(this.pinkBtn);
-			this.editPanel.Controls.Add(this.blueBtn);
-			this.editPanel.Controls.Add(this.greenBtn);
-			this.editPanel.Controls.Add(this.yellowBtn);
-			this.editPanel.Controls.Add(this.deleteBtn);
-			this.editPanel.Controls.Add(this.editTitleLabel);
-			this.editPanel.Controls.Add(this.titleTextBox);
-			this.editPanel.Location = new System.Drawing.Point(0, 30);
-			this.editPanel.Margin = new System.Windows.Forms.Padding(0);
-			this.editPanel.Name = "editPanel";
-			this.editPanel.Size = new System.Drawing.Size(256, 226);
-			this.editPanel.TabIndex = 1;
-			this.editPanel.Visible = false;
-			// 
-			// createdLabel
-			// 
-			this.createdLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.createdLabel.AutoSize = true;
-			this.createdLabel.ForeColor = System.Drawing.Color.White;
-			this.createdLabel.Location = new System.Drawing.Point(9, 161);
-			this.createdLabel.Margin = new System.Windows.Forms.Padding(9, 0, 0, 9);
-			this.createdLabel.Name = "createdLabel";
-			this.createdLabel.Size = new System.Drawing.Size(57, 17);
-			this.createdLabel.TabIndex = 12;
-			this.createdLabel.Text = "Created:";
-			// 
-			// colorLabel
-			// 
-			this.colorLabel.AutoSize = true;
-			this.colorLabel.ForeColor = System.Drawing.Color.White;
-			this.colorLabel.Location = new System.Drawing.Point(9, 47);
-			this.colorLabel.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
-			this.colorLabel.Name = "colorLabel";
-			this.colorLabel.Size = new System.Drawing.Size(43, 17);
-			this.colorLabel.TabIndex = 11;
-			this.colorLabel.Text = "Color:";
-			// 
-			// pinkBtn
-			// 
-			this.pinkBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(209)))));
-			this.pinkBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-			this.pinkBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.pinkBtn.Location = new System.Drawing.Point(148, 43);
-			this.pinkBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.pinkBtn.Name = "pinkBtn";
-			this.pinkBtn.Size = new System.Drawing.Size(30, 30);
-			this.pinkBtn.TabIndex = 10;
-			this.pinkBtn.UseVisualStyleBackColor = false;
-			this.pinkBtn.Click += new System.EventHandler(this.pinkBtn_Click);
-			// 
-			// blueBtn
-			// 
-			this.blueBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
-			this.blueBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-			this.blueBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.blueBtn.Location = new System.Drawing.Point(119, 43);
-			this.blueBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.blueBtn.Name = "blueBtn";
-			this.blueBtn.Size = new System.Drawing.Size(30, 30);
-			this.blueBtn.TabIndex = 9;
-			this.blueBtn.UseVisualStyleBackColor = false;
-			this.blueBtn.Click += new System.EventHandler(this.blueBtn_Click);
-			// 
-			// greenBtn
-			// 
-			this.greenBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(219)))), ((int)(((byte)(193)))));
-			this.greenBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-			this.greenBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.greenBtn.Location = new System.Drawing.Point(90, 43);
-			this.greenBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.greenBtn.Name = "greenBtn";
-			this.greenBtn.Size = new System.Drawing.Size(30, 30);
-			this.greenBtn.TabIndex = 8;
-			this.greenBtn.UseVisualStyleBackColor = false;
-			this.greenBtn.Click += new System.EventHandler(this.greenBtn_Click);
-			// 
-			// yellowBtn
-			// 
-			this.yellowBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(128)))));
-			this.yellowBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-			this.yellowBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.yellowBtn.Location = new System.Drawing.Point(61, 43);
-			this.yellowBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.yellowBtn.Name = "yellowBtn";
-			this.yellowBtn.Size = new System.Drawing.Size(30, 30);
-			this.yellowBtn.TabIndex = 7;
-			this.yellowBtn.UseVisualStyleBackColor = false;
-			this.yellowBtn.Click += new System.EventHandler(this.yellowBtn_Click);
-			// 
-			// deleteBtn
-			// 
-			this.deleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.deleteBtn.BackColor = System.Drawing.Color.White;
-			this.deleteBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-			this.deleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
-			this.deleteBtn.Location = new System.Drawing.Point(9, 187);
-			this.deleteBtn.Margin = new System.Windows.Forms.Padding(9, 0, 0, 0);
-			this.deleteBtn.Name = "deleteBtn";
-			this.deleteBtn.Size = new System.Drawing.Size(238, 30);
-			this.deleteBtn.TabIndex = 6;
-			this.deleteBtn.Text = "Delete note";
-			this.deleteBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.deleteBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.deleteBtn.UseVisualStyleBackColor = false;
-			this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
-			// 
-			// editTitleLabel
-			// 
-			this.editTitleLabel.AutoSize = true;
-			this.editTitleLabel.ForeColor = System.Drawing.Color.White;
-			this.editTitleLabel.Location = new System.Drawing.Point(17, 11);
-			this.editTitleLabel.Margin = new System.Windows.Forms.Padding(0, 0, 9, 0);
-			this.editTitleLabel.Name = "editTitleLabel";
-			this.editTitleLabel.Size = new System.Drawing.Size(35, 17);
-			this.editTitleLabel.TabIndex = 1;
-			this.editTitleLabel.Text = "Title:";
 			// 
 			// titleTextBox
 			// 
 			this.titleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.titleTextBox.BackColor = System.Drawing.Color.White;
-			this.titleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.titleTextBox.Location = new System.Drawing.Point(61, 9);
-			this.titleTextBox.Margin = new System.Windows.Forms.Padding(0, 9, 9, 0);
+			this.titleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
+			this.titleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.titleTextBox.ForeColor = System.Drawing.Color.White;
+			this.titleTextBox.Location = new System.Drawing.Point(33, 5);
+			this.titleTextBox.Margin = new System.Windows.Forms.Padding(0);
 			this.titleTextBox.Name = "titleTextBox";
-			this.titleTextBox.Size = new System.Drawing.Size(186, 25);
+			this.titleTextBox.Size = new System.Drawing.Size(166, 18);
 			this.titleTextBox.TabIndex = 0;
+			this.titleTextBox.Text = "Title";
+			this.titleTextBox.Visible = false;
 			this.titleTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.titleTextBox_KeyDown);
 			this.titleTextBox.Leave += new System.EventHandler(this.titleTextBox_Leave);
 			// 
@@ -222,17 +101,145 @@
 			this.titlePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
-			this.titlePanel.Controls.Add(this.notesListBtn);
-			this.titlePanel.Controls.Add(this.newNoteBtn);
-			this.titlePanel.Controls.Add(this.editBtn);
+			this.titlePanel.ContextMenuStrip = this.headerContext;
 			this.titlePanel.Controls.Add(this.closeBtn);
+			this.titlePanel.Controls.Add(this.notesListBtn);
+			this.titlePanel.Controls.Add(this.titleTextBox);
 			this.titlePanel.Controls.Add(this.titleLabel);
+			this.titlePanel.Controls.Add(this.newNoteBtn);
 			this.titlePanel.Location = new System.Drawing.Point(0, 0);
 			this.titlePanel.Margin = new System.Windows.Forms.Padding(0);
 			this.titlePanel.Name = "titlePanel";
 			this.titlePanel.Size = new System.Drawing.Size(256, 30);
 			this.titlePanel.TabIndex = 6;
 			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
+			// 
+			// headerContext
+			// 
+			this.headerContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.renameToolStripMenuItem,
+            this.changeColorToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.createdToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.deleteToolStripMenuItem});
+			this.headerContext.Name = "headerContext";
+			this.headerContext.Size = new System.Drawing.Size(191, 104);
+			// 
+			// renameToolStripMenuItem
+			// 
+			this.renameToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("renameToolStripMenuItem.Image")));
+			this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
+			this.renameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.R)));
+			this.renameToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.renameToolStripMenuItem.Text = "Rename";
+			this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
+			// 
+			// changeColorToolStripMenuItem
+			// 
+			this.changeColorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yellowToolStripMenuItem,
+            this.greenToolStripMenuItem,
+            this.blueToolStripMenuItem,
+            this.pinkToolStripMenuItem,
+            this.purpleToolStripMenuItem,
+            this.whiteToolStripMenuItem});
+			this.changeColorToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("changeColorToolStripMenuItem.Image")));
+			this.changeColorToolStripMenuItem.Name = "changeColorToolStripMenuItem";
+			this.changeColorToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.changeColorToolStripMenuItem.Text = "Change color";
+			// 
+			// yellowToolStripMenuItem
+			// 
+			this.yellowToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(128)))));
+			this.yellowToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
+			this.yellowToolStripMenuItem.Name = "yellowToolStripMenuItem";
+			this.yellowToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+			this.yellowToolStripMenuItem.Text = "Yellow";
+			this.yellowToolStripMenuItem.Click += new System.EventHandler(this.yellowBtn_Click);
+			// 
+			// greenToolStripMenuItem
+			// 
+			this.greenToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(219)))), ((int)(((byte)(193)))));
+			this.greenToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(109)))), ((int)(((byte)(96)))));
+			this.greenToolStripMenuItem.Name = "greenToolStripMenuItem";
+			this.greenToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+			this.greenToolStripMenuItem.Text = "Green";
+			this.greenToolStripMenuItem.Click += new System.EventHandler(this.greenBtn_Click);
+			// 
+			// blueToolStripMenuItem
+			// 
+			this.blueToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(194)))), ((int)(((byte)(255)))));
+			this.blueToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(97)))), ((int)(((byte)(127)))));
+			this.blueToolStripMenuItem.Name = "blueToolStripMenuItem";
+			this.blueToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+			this.blueToolStripMenuItem.Text = "Blue";
+			this.blueToolStripMenuItem.Click += new System.EventHandler(this.blueBtn_Click);
+			// 
+			// pinkToolStripMenuItem
+			// 
+			this.pinkToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(163)))), ((int)(((byte)(209)))));
+			this.pinkToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(81)))), ((int)(((byte)(104)))));
+			this.pinkToolStripMenuItem.Name = "pinkToolStripMenuItem";
+			this.pinkToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+			this.pinkToolStripMenuItem.Text = "Pink";
+			this.pinkToolStripMenuItem.Click += new System.EventHandler(this.pinkBtn_Click);
+			// 
+			// purpleToolStripMenuItem
+			// 
+			this.purpleToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(164)))), ((int)(((byte)(255)))));
+			this.purpleToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(82)))), ((int)(((byte)(127)))));
+			this.purpleToolStripMenuItem.Name = "purpleToolStripMenuItem";
+			this.purpleToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+			this.purpleToolStripMenuItem.Text = "Purple";
+			this.purpleToolStripMenuItem.Click += new System.EventHandler(this.purpleToolStripMenuItem_Click);
+			// 
+			// whiteToolStripMenuItem
+			// 
+			this.whiteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(249)))), ((int)(((byte)(249)))));
+			this.whiteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(124)))), ((int)(((byte)(124)))));
+			this.whiteToolStripMenuItem.Name = "whiteToolStripMenuItem";
+			this.whiteToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+			this.whiteToolStripMenuItem.Text = "White";
+			this.whiteToolStripMenuItem.Click += new System.EventHandler(this.whiteToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
+			// 
+			// createdToolStripMenuItem
+			// 
+			this.createdToolStripMenuItem.Enabled = false;
+			this.createdToolStripMenuItem.Name = "createdToolStripMenuItem";
+			this.createdToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.createdToolStripMenuItem.Text = "Created";
+			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
+			// 
+			// deleteToolStripMenuItem
+			// 
+			this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
+			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+			this.deleteToolStripMenuItem.Text = "Delete note";
+			this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteBtn_Click);
+			// 
+			// titleLabel
+			// 
+			this.titleLabel.AutoSize = true;
+			this.titleLabel.ForeColor = System.Drawing.Color.White;
+			this.titleLabel.Location = new System.Drawing.Point(30, 5);
+			this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.titleLabel.Name = "titleLabel";
+			this.titleLabel.Size = new System.Drawing.Size(32, 17);
+			this.titleLabel.TabIndex = 11;
+			this.titleLabel.Text = "Title";
+			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
 			// 
 			// notesListBtn
 			// 
@@ -263,21 +270,6 @@
 			this.newNoteBtn.UseVisualStyleBackColor = true;
 			this.newNoteBtn.Click += new System.EventHandler(this.newNoteBtn_Click);
 			// 
-			// editBtn
-			// 
-			this.editBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.editBtn.FlatAppearance.BorderSize = 0;
-			this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.editBtn.Image = ((System.Drawing.Image)(resources.GetObject("editBtn.Image")));
-			this.editBtn.Location = new System.Drawing.Point(166, 0);
-			this.editBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.editBtn.Name = "editBtn";
-			this.editBtn.Size = new System.Drawing.Size(30, 30);
-			this.editBtn.TabIndex = 7;
-			this.infoToolTip.SetToolTip(this.editBtn, "Edit note (Ctrl+Shift+E)");
-			this.editBtn.UseVisualStyleBackColor = true;
-			this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
-			// 
 			// closeBtn
 			// 
 			this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -292,19 +284,6 @@
 			this.infoToolTip.SetToolTip(this.closeBtn, "Hide note (Ctrl+Q)");
 			this.closeBtn.UseVisualStyleBackColor = true;
 			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
-			// 
-			// titleLabel
-			// 
-			this.titleLabel.AutoSize = true;
-			this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.titleLabel.ForeColor = System.Drawing.Color.White;
-			this.titleLabel.Location = new System.Drawing.Point(30, 6);
-			this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
-			this.titleLabel.Name = "titleLabel";
-			this.titleLabel.Size = new System.Drawing.Size(32, 17);
-			this.titleLabel.TabIndex = 8;
-			this.titleLabel.Text = "Title";
-			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
 			// 
 			// secondTitleLabel
 			// 
@@ -561,7 +540,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(128)))));
 			this.ClientSize = new System.Drawing.Size(256, 256);
-			this.Controls.Add(this.editPanel);
 			this.Controls.Add(this.secondTitleLabel);
 			this.Controls.Add(this.titlePanel);
 			this.Controls.Add(this.resizeBtn);
@@ -583,10 +561,9 @@
 			this.Load += new System.EventHandler(this.NoteForm_Load);
 			this.TextChanged += new System.EventHandler(this.NoteForm_TextChanged);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NoteForm_KeyDown);
-			this.editPanel.ResumeLayout(false);
-			this.editPanel.PerformLayout();
 			this.titlePanel.ResumeLayout(false);
 			this.titlePanel.PerformLayout();
+			this.headerContext.ResumeLayout(false);
 			this.rmbContext.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -594,17 +571,12 @@
 		}
 
 		#endregion
-		private System.Windows.Forms.Panel editPanel;
 		private System.Windows.Forms.TextBox titleTextBox;
 		private System.Windows.Forms.Panel titlePanel;
 		private System.Windows.Forms.Button closeBtn;
-		private System.Windows.Forms.Button editBtn;
 		private System.Windows.Forms.RichTextBox richTextBox1;
-		private System.Windows.Forms.Label titleLabel;
-		private System.Windows.Forms.Label editTitleLabel;
 		private System.Windows.Forms.Label secondTitleLabel;
 		private System.Windows.Forms.Button newNoteBtn;
-		private System.Windows.Forms.Button deleteBtn;
 		private System.Windows.Forms.Button resizeBtn;
 		private System.Windows.Forms.ToolTip infoToolTip;
 		private System.Windows.Forms.ContextMenuStrip rmbContext;
@@ -625,15 +597,23 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 		private System.Windows.Forms.ToolStripMenuItem pasteAsPlainTextToolStripMenuItem;
 		private System.Windows.Forms.Button notesListBtn;
-		private System.Windows.Forms.Button yellowBtn;
-		private System.Windows.Forms.Button greenBtn;
-		private System.Windows.Forms.Button pinkBtn;
-		private System.Windows.Forms.Button blueBtn;
-		private System.Windows.Forms.Label colorLabel;
 		private System.Windows.Forms.ToolStripMenuItem textAlignToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem leftAlignToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem centerAlignToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem rightAlignToolStripMenuItem1;
-		private System.Windows.Forms.Label createdLabel;
+		private System.Windows.Forms.ContextMenuStrip headerContext;
+		private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem changeColorToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem yellowToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem greenToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem blueToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pinkToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+		private System.Windows.Forms.ToolStripMenuItem createdToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+		private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+		private System.Windows.Forms.Label titleLabel;
+		private System.Windows.Forms.ToolStripMenuItem purpleToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem whiteToolStripMenuItem;
 	}
 }
