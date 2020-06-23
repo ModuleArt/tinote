@@ -14,6 +14,28 @@ namespace quick_sticky_notes
 
 		}
 
+		public List<Note> SearchFor(string str = "")
+		{
+			if (string.IsNullOrEmpty(str))
+			{
+				return notes;
+			}
+			else
+			{
+				List<Note> res = new List<Note>();
+
+				for (int i = 0; i < notes.Count; i++)
+				{
+					if (notes[i].ToString().ToLower().Contains(str.ToLower()))
+					{
+						res.Add(notes[i]);
+					}
+				}
+
+				return res;
+			}
+		}
+
 		public void NewNote(string uniqueId, string colorStr = "yellow")
 		{
 			Note note = new Note(uniqueId, colorStr, DateTime.Now);

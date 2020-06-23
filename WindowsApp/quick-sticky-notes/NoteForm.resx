@@ -120,24 +120,7 @@
   <metadata name="headerContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>246, 17</value>
   </metadata>
-  <metadata name="infoToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="notesListBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAH5JREFUOE/Fk1EKgDAMQ3cB9dqKB1ZRqGnXQV3Htg/FB6FpiP2a4RWIaIE2qAfu
-        zfppBMEBDbpWQW+Cdl0jCEhtF65vg+R55kgBWC+4oMG3B5LnmSMFYL3gggbfHkieZ44UgPWCCxqUDvBL
-        HHWtgl7xJa7QBfVwQs9/4UdCuAFNShEsVO33egAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="newNoteBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACpJREFUOE9j
-        oCn4DwRQJnlg1AASDAApJBVAteIHRCvEBUYNoIIBdAAMDADSD2OddIxgcwAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="renameToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAJNJREFUOE/N
@@ -161,6 +144,23 @@
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAFVJREFUOE9j
         oBXoBuLvQPwfSncAMUngJxDzQZhg+geEiR+AbCMW4wR4JYGAkDxcASEaJxg1YDAYgJwC0QE/EBNMkaA8
         8AeIQTah499ATHKeoDVgYAAA1Bc/8ThcSIsAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="infoToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="notesListBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAH5JREFUOE/Fk1EKgDAMQ3cB9dqKB1ZRqGnXQV3Htg/FB6FpiP2a4RWIaIE2qAfu
+        zfppBMEBDbpWQW+Cdl0jCEhtF65vg+R55kgBWC+4oMG3B5LnmSMFYL3gggbfHkieZ44UgPWCCxqUDvBL
+        HHWtgl7xJa7QBfVwQs9/4UdCuAFNShEsVO33egAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="newNoteBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACpJREFUOE9j
+        oCn4DwRQJnlg1AASDAApJBVAteIHRCvEBUYNoIIBdAAMDADSD2OddIxgcwAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="rmbContext.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -265,12 +265,6 @@
         GAA59iE3QPKRMwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="textAlignToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACtJREFUOE9j
-        GF7gP4mY+gCbLciY9gCbrfgw9QE2W5Ax7QE2W/HhUQAGDAwABjQzzXt52/oAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="leftAlignToolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACtJREFUOE9j
@@ -289,6 +283,12 @@
         GF7gP4mY9gCbrciY+gCbLfgw7QE2W5Ex9QE2W/DhUQAGDAwAByUzzfpe1UQAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="textAlignToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACtJREFUOE9j
+        GF7gP4mY+gCbLciY9gCbrfgw9QE2W5Ax7QE2W/HhUQAGDAwABjQzzXt52/oAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="resizeBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAYAAACprHcmAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -296,9 +296,6 @@
         LnhjdVX2fG2OJOfCE7mxuty4kjy+iAgHJkZheMNhkO7sAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="infoToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAA4AAAAAAAEAIABMcwAA5gAAAAAAAAABACAA+TIAADJ0AAAAAAAAAQAgACcYAAArpwAAgIAAAAEA

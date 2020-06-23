@@ -45,10 +45,10 @@
 			this.createdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.titleLabel = new System.Windows.Forms.Label();
-			this.notesListBtn = new System.Windows.Forms.Button();
-			this.newNoteBtn = new System.Windows.Forms.Button();
 			this.closeBtn = new System.Windows.Forms.Button();
+			this.notesListBtn = new System.Windows.Forms.Button();
+			this.titleLabel = new System.Windows.Forms.Label();
+			this.newNoteBtn = new System.Windows.Forms.Button();
 			this.secondTitleLabel = new System.Windows.Forms.Label();
 			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
 			this.rmbContext = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -86,7 +86,7 @@
 			this.titleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
 			this.titleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.titleTextBox.ForeColor = System.Drawing.Color.White;
-			this.titleTextBox.Location = new System.Drawing.Point(33, 5);
+			this.titleTextBox.Location = new System.Drawing.Point(33, 6);
 			this.titleTextBox.Margin = new System.Windows.Forms.Padding(0);
 			this.titleTextBox.Name = "titleTextBox";
 			this.titleTextBox.Size = new System.Drawing.Size(166, 18);
@@ -229,17 +229,20 @@
 			this.deleteToolStripMenuItem.Text = "Delete note";
 			this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteBtn_Click);
 			// 
-			// titleLabel
+			// closeBtn
 			// 
-			this.titleLabel.AutoSize = true;
-			this.titleLabel.ForeColor = System.Drawing.Color.White;
-			this.titleLabel.Location = new System.Drawing.Point(30, 5);
-			this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
-			this.titleLabel.Name = "titleLabel";
-			this.titleLabel.Size = new System.Drawing.Size(32, 17);
-			this.titleLabel.TabIndex = 11;
-			this.titleLabel.Text = "Title";
-			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
+			this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.closeBtn.FlatAppearance.BorderSize = 0;
+			this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.closeBtn.Image = global::quick_sticky_notes.Properties.Resources.white_close;
+			this.closeBtn.Location = new System.Drawing.Point(226, 0);
+			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.closeBtn.Name = "closeBtn";
+			this.closeBtn.Size = new System.Drawing.Size(30, 30);
+			this.closeBtn.TabIndex = 6;
+			this.infoToolTip.SetToolTip(this.closeBtn, "Hide note (Ctrl+Q)");
+			this.closeBtn.UseVisualStyleBackColor = true;
+			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
 			// 
 			// notesListBtn
 			// 
@@ -256,6 +259,18 @@
 			this.notesListBtn.UseVisualStyleBackColor = true;
 			this.notesListBtn.Click += new System.EventHandler(this.notesListBtn_Click);
 			// 
+			// titleLabel
+			// 
+			this.titleLabel.AutoSize = true;
+			this.titleLabel.ForeColor = System.Drawing.Color.White;
+			this.titleLabel.Location = new System.Drawing.Point(30, 6);
+			this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.titleLabel.Name = "titleLabel";
+			this.titleLabel.Size = new System.Drawing.Size(32, 17);
+			this.titleLabel.TabIndex = 11;
+			this.titleLabel.Text = "Title";
+			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
+			// 
 			// newNoteBtn
 			// 
 			this.newNoteBtn.FlatAppearance.BorderSize = 0;
@@ -269,21 +284,6 @@
 			this.infoToolTip.SetToolTip(this.newNoteBtn, "New note (Ctrl+N)");
 			this.newNoteBtn.UseVisualStyleBackColor = true;
 			this.newNoteBtn.Click += new System.EventHandler(this.newNoteBtn_Click);
-			// 
-			// closeBtn
-			// 
-			this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.closeBtn.FlatAppearance.BorderSize = 0;
-			this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.closeBtn.Image = global::quick_sticky_notes.Properties.Resources.white_close;
-			this.closeBtn.Location = new System.Drawing.Point(226, 0);
-			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.closeBtn.Name = "closeBtn";
-			this.closeBtn.Size = new System.Drawing.Size(30, 30);
-			this.closeBtn.TabIndex = 6;
-			this.infoToolTip.SetToolTip(this.closeBtn, "Hide note (Ctrl+Q)");
-			this.closeBtn.UseVisualStyleBackColor = true;
-			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
 			// 
 			// secondTitleLabel
 			// 

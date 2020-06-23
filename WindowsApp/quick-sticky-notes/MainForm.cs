@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -92,7 +93,7 @@ namespace quick_sticky_notes
 
         private void Note_VisibleChanged(object sender, VisibleChangedEventArgs e)
         {
-            notesListBox.Refresh();
+            notesListBox.Invalidate();
             noteManager.SaveNoteToDisk(sender as Note);
         }
 
@@ -273,20 +274,15 @@ namespace quick_sticky_notes
 
         private void searchTextBox_Enter(object sender, EventArgs e)
         {
-            if (searchTextBox.Text == "Search your notes...")
-            {
-                searchTextBox.Text = "";
-                searchTextBox.ForeColor = Color.Black;
-            }
+            searchTextBox.Text = "";
+            searchTextBox.ForeColor = Color.Black;
         }
 
         private void searchTextBox_Leave(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(searchTextBox.Text))
-            {
-                searchTextBox.Text = "Search your notes...";
-                searchTextBox.ForeColor = Color.FromArgb(100, 100, 100);
-            }   
+            searchTextBox.Text = "";
+            searchTextBox.Text = "Search your notes...";
+            searchTextBox.ForeColor = Color.FromArgb(100, 100, 100);
         }
 
         private void notesListBox_DrawItem(object sender, DrawItemEventArgs e)
@@ -307,7 +303,7 @@ namespace quick_sticky_notes
                     8
                 ));
                 e.Graphics.FillRectangle(noteBrush, new RectangleF(
-                    e.Bounds.X + 9, 
+                    e.Bounds.X + 9,
                     e.Bounds.Y + 17,
                     e.Bounds.Width - 18,
                     e.Bounds.Height - 17
@@ -326,7 +322,7 @@ namespace quick_sticky_notes
                 // right side gradient
                 var rc = new Rectangle(
                     e.Bounds.X + e.Bounds.Width - 39,
-                    e.Bounds.Y + 17, 
+                    e.Bounds.Y + 17,
                     20,
                     e.Bounds.Height - 17
                 );
@@ -335,7 +331,8 @@ namespace quick_sticky_notes
                     Color.FromArgb(0, ColorManager.GetNoteColor(note.colorStr)),
                     Color.FromArgb(255, ColorManager.GetNoteColor(note.colorStr)),
                     0f
-                )) {
+                ))
+                {
                     e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
                     e.Graphics.FillRectangle(brush, rc);
                 }
@@ -352,17 +349,17 @@ namespace quick_sticky_notes
                 {
                     PointF[] outerNoteTriangle =
                     {
-                         new PointF(e.Bounds.X + e.Bounds.Width - 9, e.Bounds.Y + e.Bounds.Height - 12),
-                         new PointF(e.Bounds.X + e.Bounds.Width - 21, e.Bounds.Y + e.Bounds.Height),
-                         new PointF(e.Bounds.X + e.Bounds.Width - 9, e.Bounds.Y + e.Bounds.Height)
+                            new PointF(e.Bounds.X + e.Bounds.Width - 9, e.Bounds.Y + e.Bounds.Height - 12),
+                            new PointF(e.Bounds.X + e.Bounds.Width - 21, e.Bounds.Y + e.Bounds.Height),
+                            new PointF(e.Bounds.X + e.Bounds.Width - 9, e.Bounds.Y + e.Bounds.Height)
                     };
                     e.Graphics.FillPolygon(backBrush, outerNoteTriangle);
 
                     PointF[] innerNoteTriangle =
-                    {
-                         new PointF(e.Bounds.X + e.Bounds.Width - 9, e.Bounds.Y + e.Bounds.Height - 12),
-                         new PointF(e.Bounds.X + e.Bounds.Width - 21, e.Bounds.Y + e.Bounds.Height),
-                         new PointF(e.Bounds.X + e.Bounds.Width - 21, e.Bounds.Y + e.Bounds.Height - 12)
+                        {
+                            new PointF(e.Bounds.X + e.Bounds.Width - 9, e.Bounds.Y + e.Bounds.Height - 12),
+                            new PointF(e.Bounds.X + e.Bounds.Width - 21, e.Bounds.Y + e.Bounds.Height),
+                            new PointF(e.Bounds.X + e.Bounds.Width - 21, e.Bounds.Y + e.Bounds.Height - 12)
                     };
                     e.Graphics.FillPolygon(middleBrush, innerNoteTriangle);
                 }
@@ -371,26 +368,26 @@ namespace quick_sticky_notes
 
         private void searchTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (searchTextBox.Text.Length > 0)
+            if (searchTextBox.Text.Length > 0 && searchTextBox.Text != "Search your notes...")
             {
-                
-
-                for (int i = 0; i < notesListBox.Items.Count; i++)
+                notesListBox.Items.Clear();
+                List<Note> ln = noteManager.SearchFor(searchTextBox.Text);
+                for (int i = 0; i < ln.Count; i++)
                 {
-                    if (notesListBox.Items[i].ToString().ToLower().Contains(searchTextBox.Text.ToLower()))
-                    {
-                        //notesListBox.Items[i]
-                    }
-                    else
-                    {
-
-                    }
+                    notesListBox.Items.Add(ln[i]);
                 }
-            } 
+            }
             else
             {
-
+                notesListBox.Items.Clear();
+                List<Note> ln = noteManager.SearchFor();
+                for (int i = 0; i < ln.Count; i++)
+                {
+                    notesListBox.Items.Add(ln[i]);
+                }
             }
+
+            emptyLabel.Visible = notesListBox.Items.Count == 0;
         }
 
         private void closeBtn_MouseLeave(object sender, EventArgs e)
@@ -449,7 +446,7 @@ namespace quick_sticky_notes
             {
                 Note note = notesListBox.SelectedItem as Note;
                 note.SetColor("yellow");
-                notesListBox.Refresh();
+                notesListBox.Invalidate();
             }
         }
 
@@ -459,7 +456,7 @@ namespace quick_sticky_notes
             {
                 Note note = notesListBox.SelectedItem as Note;
                 note.SetColor("green");
-                notesListBox.Refresh();
+                notesListBox.Invalidate();
             }
         }
 
@@ -469,7 +466,7 @@ namespace quick_sticky_notes
             {
                 Note note = notesListBox.SelectedItem as Note;
                 note.SetColor("blue");
-                notesListBox.Refresh();
+                notesListBox.Invalidate();
             }
         }
 
@@ -479,7 +476,7 @@ namespace quick_sticky_notes
             {
                 Note note = notesListBox.SelectedItem as Note;
                 note.SetColor("pink");
-                notesListBox.Refresh();
+                notesListBox.Invalidate();
             }
         }
 
@@ -489,7 +486,7 @@ namespace quick_sticky_notes
             {
                 Note note = notesListBox.SelectedItem as Note;
                 note.SetColor("purple");
-                notesListBox.Refresh();
+                notesListBox.Invalidate();
             }
         }
 
@@ -499,8 +496,13 @@ namespace quick_sticky_notes
             {
                 Note note = notesListBox.SelectedItem as Note;
                 note.SetColor("white");
-                notesListBox.Refresh();
+                notesListBox.Invalidate();
             }
+        }
+
+        private void MainForm_Deactivate(object sender, EventArgs e)
+        {
+            notesListBox.Focus();
         }
     }
 }
