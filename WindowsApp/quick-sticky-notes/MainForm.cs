@@ -33,11 +33,14 @@ namespace quick_sticky_notes
         private void Fm_UpdateNote(object sender, UpdateNoteEventArgs e)
         {
             noteManager.UpdateNote(e.Data);
+            notesListBox.Invalidate();
         }
 
         private void NoteManager_NoteAdded(object sender, NoteAddedEventArgs e)
         {
-            notesListBox.Items.Add(e.Note);
+            notesListBox.Invoke((MethodInvoker)(() => {
+                notesListBox.Items.Add(e.Note);
+            }));
 
             e.Note.ContentChanged += Note_ContentChanged;
             e.Note.TitleChanged += Note_TitleChanged;
@@ -76,9 +79,15 @@ namespace quick_sticky_notes
 
         private void Note_PerformDelete(object sender, EventArgs e)
         {
-            noteManager.RemoveNote(sender as Note);
-            notesListBox.Items.Remove(sender as Note);
-            noteManager.SaveNoteToDisk(sender as Note);
+            Note note = sender as Note;
+
+            if (notesListBox.Items.Contains(note))
+            {
+                notesListBox.Items.Remove(note);
+            }
+
+            fm.RemoveNote(note.uniqueId);
+            noteManager.RemoveNote(note);
         }
 
         private void Note_PerformNewNote(object sender, PerformNewNoteEventArgs e)
@@ -177,7 +186,9 @@ namespace quick_sticky_notes
             
             if (fm.IsLoggedIn())
             {
-                fm.LoadNotesFromServer();
+                //fm.LoadNotesFromServer();
+
+                fm.AddObserversForServer();
             }
         }
 
@@ -185,9 +196,15 @@ namespace quick_sticky_notes
         {
             if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
             {
-                noteManager.RemoveNote(notesListBox.SelectedItem as Note);
-                notesListBox.Items.Remove(notesListBox.SelectedItem as Note);
-                noteManager.SaveNoteToDisk(sender as Note);
+                Note note = notesListBox.SelectedItem as Note;
+
+                if (notesListBox.Items.Contains(note))
+                {
+                    notesListBox.Items.Remove(note);
+                }
+
+                fm.RemoveNote(note.uniqueId);
+                noteManager.RemoveNote(note);
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace quick_sticky_notes
 {
@@ -31,7 +32,9 @@ namespace quick_sticky_notes
 				this.title = title;
 				if (noteForm != null && !noteForm.IsDisposed)
 				{
-					noteForm.SetTitle(title);
+					noteForm.Invoke((MethodInvoker)(() => {
+						noteForm.SetTitle(title);
+					}));
 				}
 			}
 		}
@@ -43,9 +46,11 @@ namespace quick_sticky_notes
 				this.contentRtf = rtf;
 				if (noteForm != null && !noteForm.IsDisposed)
 				{
-					noteForm.SetContent(rtf);
+					noteForm.Invoke((MethodInvoker)(() => {
+						noteForm.SetContent(rtf);
+					}));
 				}
-			}	
+			}
 		}
 
 		public void SetColor(string colorStr)
@@ -55,7 +60,9 @@ namespace quick_sticky_notes
 				this.colorStr = colorStr;
 				if (noteForm != null && !noteForm.IsDisposed)
 				{
-					noteForm.SetColor(colorStr);
+					noteForm.Invoke((MethodInvoker)(() => {
+						noteForm.SetColor(colorStr);
+					}));
 				}
 			}
 		}

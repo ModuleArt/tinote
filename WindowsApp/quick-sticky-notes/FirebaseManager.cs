@@ -5,7 +5,6 @@ using Firebase.Database.Query;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 
 namespace quick_sticky_notes
 {
@@ -104,6 +103,25 @@ namespace quick_sticky_notes
 			ShowProfileForm();
 		}
 
+		public void AddObserversForServer()
+		{
+			try
+			{
+				var observable = firebaseClient.Child("notes").OrderByValue().StartAt(curUser.Email).AsObservable<NoteData>().Subscribe(item =>
+				{
+					UpdateNoteEventArgs args = new UpdateNoteEventArgs
+					{
+						Data = item.Object
+					};
+					OnUpdateNote(args);
+				});
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
+		}
+
 		public async void SyncNote(Note note)
 		{
 			try
@@ -120,6 +138,18 @@ namespace quick_sticky_notes
 				};
 
 				await firebaseClient.Child("notes").Child(note.uniqueId.ToString()).PutAsync<NoteData>(data);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
+		}
+
+		public async void RemoveNote(string uniqueId)
+		{
+			try
+			{
+				await firebaseClient.Child("notes").Child(uniqueId).DeleteAsync();
 			}
 			catch (Exception ex)
 			{
@@ -212,18 +242,25 @@ namespace quick_sticky_notes
 
 		public async void LoadNotesFromServer()
 		{
-			var notes = await firebaseClient.Child("notes").OrderByValue().StartAt(curUser.Email).OnceAsync<NoteData>();
-
-			if (notes.Count > 0)
+			try
 			{
-				foreach (var item in notes)
+				var notes = await firebaseClient.Child("notes").OrderByValue().StartAt(curUser.Email).OnceAsync<NoteData>();
+
+				if (notes.Count > 0)
 				{
-					UpdateNoteEventArgs args = new UpdateNoteEventArgs 
+					foreach (var item in notes)
 					{
-						Data = item.Object
-					};
-					OnUpdateNote(args);
+						UpdateNoteEventArgs args = new UpdateNoteEventArgs
+						{
+							Data = item.Object
+						};
+						OnUpdateNote(args);
+					}
 				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex);
 			}
 		}
 

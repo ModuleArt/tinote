@@ -53,8 +53,24 @@ namespace quick_sticky_notes
 
 		public void RemoveNote(Note note)
 		{
+			string notesFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tinote", "notes");
+			DirectoryInfo di = new DirectoryInfo(notesFolder);
+
+			if (!di.Exists)
+			{
+				di.Create();
+			}
+
+			string uniqueId = note.uniqueId;
+			string filePath = Path.Combine(notesFolder, uniqueId);
+			
 			note.Hide();
 			notes.Remove(note);
+
+			if (File.Exists(filePath))
+			{
+				File.Delete(filePath);
+			}
 		}
 
 		public void SaveNoteToDisk(Note note)
@@ -105,6 +121,8 @@ namespace quick_sticky_notes
 					Note = note
 				};
 				OnNoteAdded(args);
+
+				SaveNoteToDisk(note);
 			}
 		}
 
@@ -141,11 +159,6 @@ namespace quick_sticky_notes
 			{
 				Console.WriteLine(ex);
 			}
-		}
-
-		public void LoadNotesFromServer()
-		{
-
 		}
 
 		protected virtual void OnNoteAdded(NoteAddedEventArgs e)

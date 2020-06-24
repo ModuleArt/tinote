@@ -22,6 +22,7 @@ namespace quick_sticky_notes
 			titleTextBox.Text = title;
 			SetTitle(title);
 			this.colorStr = colorStr;
+			richTextBox1.SelectionColor = ColorManager.GetDarkColor(colorStr);
 
 			try
 			{
@@ -68,8 +69,9 @@ namespace quick_sticky_notes
 
 			this.BackColor = ColorManager.GetNoteColor(colorStr);
 			titlePanel.BackColor = ColorManager.GetDarkColor(colorStr);
-			richTextBox1.ForeColor = ColorManager.GetDarkColor(colorStr);
 			richTextBox1.BackColor = ColorManager.GetNoteColor(colorStr);
+			richTextBox1.ForeColor = ColorManager.GetDarkColor(colorStr);
+			richTextBox1.SelectionColor = ColorManager.GetDarkColor(colorStr);
 			secondTitleLabel.ForeColor = ColorManager.GetMiddleColor(colorStr);
 			titleTextBox.BackColor = ColorManager.GetDarkColor(colorStr);
 		}
