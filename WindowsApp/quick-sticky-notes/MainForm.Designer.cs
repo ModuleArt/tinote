@@ -30,8 +30,6 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.profileBtn = new System.Windows.Forms.Button();
-			this.newNoteBtn = new System.Windows.Forms.Button();
 			this.notesListBox = new System.Windows.Forms.ListBox();
 			this.notesListItemContext = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,62 +51,43 @@
 			this.newNoteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.titlePanel = new System.Windows.Forms.Panel();
-			this.syncBtn = new System.Windows.Forms.Button();
-			this.titleLabel = new System.Windows.Forms.Label();
-			this.closeBtn = new System.Windows.Forms.Button();
 			this.searchTextBox = new System.Windows.Forms.TextBox();
 			this.searchPanel = new System.Windows.Forms.Panel();
+			this.profileBtn = new System.Windows.Forms.Button();
+			this.newNoteBtn = new System.Windows.Forms.Button();
 			this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.trashBtn = new System.Windows.Forms.Button();
+			this.pinnedNotesBtn = new System.Windows.Forms.Button();
+			this.allNotesBtn = new System.Windows.Forms.Button();
 			this.emptyLabel = new System.Windows.Forms.Label();
+			this.titleLabel = new System.Windows.Forms.Label();
+			this.titlePanel = new System.Windows.Forms.Panel();
+			this.logoPictureBox = new System.Windows.Forms.PictureBox();
+			this.closeBtn = new System.Windows.Forms.Button();
+			this.settingsBtn = new System.Windows.Forms.Button();
+			this.sidePanel = new System.Windows.Forms.Panel();
 			this.notesListItemContext.SuspendLayout();
 			this.notesListEmptyContext.SuspendLayout();
 			this.trayContext.SuspendLayout();
-			this.titlePanel.SuspendLayout();
 			this.searchPanel.SuspendLayout();
+			this.titlePanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
+			this.sidePanel.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// profileBtn
-			// 
-			this.profileBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.profileBtn.FlatAppearance.BorderSize = 0;
-			this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.profileBtn.Image = ((System.Drawing.Image)(resources.GetObject("profileBtn.Image")));
-			this.profileBtn.Location = new System.Drawing.Point(196, 0);
-			this.profileBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.profileBtn.Name = "profileBtn";
-			this.profileBtn.Size = new System.Drawing.Size(30, 30);
-			this.profileBtn.TabIndex = 1;
-			this.infoToolTip.SetToolTip(this.profileBtn, "Profile (Ctrl+P)");
-			this.profileBtn.UseVisualStyleBackColor = true;
-			this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
-			// 
-			// newNoteBtn
-			// 
-			this.newNoteBtn.FlatAppearance.BorderSize = 0;
-			this.newNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.newNoteBtn.Image = ((System.Drawing.Image)(resources.GetObject("newNoteBtn.Image")));
-			this.newNoteBtn.Location = new System.Drawing.Point(0, 0);
-			this.newNoteBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.newNoteBtn.Name = "newNoteBtn";
-			this.newNoteBtn.Size = new System.Drawing.Size(30, 30);
-			this.newNoteBtn.TabIndex = 0;
-			this.infoToolTip.SetToolTip(this.newNoteBtn, "New note (Ctrl+N)");
-			this.newNoteBtn.UseVisualStyleBackColor = true;
-			this.newNoteBtn.Click += new System.EventHandler(this.newNoteBtn_Click);
 			// 
 			// notesListBox
 			// 
+			this.notesListBox.BackColor = System.Drawing.Color.White;
 			this.notesListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.notesListBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
 			this.notesListBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.notesListBox.FormattingEnabled = true;
 			this.notesListBox.IntegralHeight = false;
 			this.notesListBox.ItemHeight = 64;
-			this.notesListBox.Location = new System.Drawing.Point(0, 60);
+			this.notesListBox.Location = new System.Drawing.Point(32, 64);
 			this.notesListBox.Margin = new System.Windows.Forms.Padding(0);
 			this.notesListBox.Name = "notesListBox";
-			this.notesListBox.Size = new System.Drawing.Size(256, 329);
+			this.notesListBox.Size = new System.Drawing.Size(247, 325);
 			this.notesListBox.TabIndex = 2;
 			this.notesListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.notesListBox_DrawItem);
 			this.notesListBox.DoubleClick += new System.EventHandler(this.notesListBox_DoubleClick_1);
@@ -281,78 +260,15 @@
 			this.exitToolStripMenuItem.Text = "Exit";
 			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
 			// 
-			// titlePanel
-			// 
-			this.titlePanel.BackColor = System.Drawing.Color.White;
-			this.titlePanel.Controls.Add(this.syncBtn);
-			this.titlePanel.Controls.Add(this.titleLabel);
-			this.titlePanel.Controls.Add(this.closeBtn);
-			this.titlePanel.Controls.Add(this.newNoteBtn);
-			this.titlePanel.Controls.Add(this.profileBtn);
-			this.titlePanel.Location = new System.Drawing.Point(0, 0);
-			this.titlePanel.Margin = new System.Windows.Forms.Padding(0);
-			this.titlePanel.Name = "titlePanel";
-			this.titlePanel.Size = new System.Drawing.Size(256, 30);
-			this.titlePanel.TabIndex = 3;
-			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
-			// 
-			// syncBtn
-			// 
-			this.syncBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.syncBtn.FlatAppearance.BorderSize = 0;
-			this.syncBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.syncBtn.Image = ((System.Drawing.Image)(resources.GetObject("syncBtn.Image")));
-			this.syncBtn.Location = new System.Drawing.Point(166, 0);
-			this.syncBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.syncBtn.Name = "syncBtn";
-			this.syncBtn.Size = new System.Drawing.Size(30, 30);
-			this.syncBtn.TabIndex = 10;
-			this.infoToolTip.SetToolTip(this.syncBtn, "Sync notes now (Ctrl+D)");
-			this.syncBtn.UseVisualStyleBackColor = true;
-			this.syncBtn.Visible = false;
-			this.syncBtn.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// titleLabel
-			// 
-			this.titleLabel.AutoSize = true;
-			this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.titleLabel.ForeColor = System.Drawing.Color.Black;
-			this.titleLabel.Location = new System.Drawing.Point(30, 6);
-			this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
-			this.titleLabel.Name = "titleLabel";
-			this.titleLabel.Size = new System.Drawing.Size(44, 17);
-			this.titleLabel.TabIndex = 9;
-			this.titleLabel.Text = "Tinote";
-			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
-			// 
-			// closeBtn
-			// 
-			this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.closeBtn.FlatAppearance.BorderSize = 0;
-			this.closeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(112)))), ((int)(((byte)(122)))));
-			this.closeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
-			this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.closeBtn.Image = global::quick_sticky_notes.Properties.Resources.black_close;
-			this.closeBtn.Location = new System.Drawing.Point(226, 0);
-			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
-			this.closeBtn.Name = "closeBtn";
-			this.closeBtn.Size = new System.Drawing.Size(30, 30);
-			this.closeBtn.TabIndex = 2;
-			this.infoToolTip.SetToolTip(this.closeBtn, "Close (Ctrl+Q)");
-			this.closeBtn.UseVisualStyleBackColor = true;
-			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
-			this.closeBtn.MouseEnter += new System.EventHandler(this.closeBtn_MouseEnter);
-			this.closeBtn.MouseLeave += new System.EventHandler(this.closeBtn_MouseLeave);
-			// 
 			// searchTextBox
 			// 
-			this.searchTextBox.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.searchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
 			this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-			this.searchTextBox.Location = new System.Drawing.Point(30, 6);
+			this.searchTextBox.Location = new System.Drawing.Point(32, 7);
 			this.searchTextBox.Margin = new System.Windows.Forms.Padding(0);
 			this.searchTextBox.Name = "searchTextBox";
-			this.searchTextBox.Size = new System.Drawing.Size(196, 18);
+			this.searchTextBox.Size = new System.Drawing.Size(182, 18);
 			this.searchTextBox.TabIndex = 4;
 			this.searchTextBox.Text = "Search your notes...";
 			this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -363,38 +279,184 @@
 			// 
 			// searchPanel
 			// 
-			this.searchPanel.BackColor = System.Drawing.SystemColors.ControlLight;
+			this.searchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
 			this.searchPanel.Controls.Add(this.searchTextBox);
-			this.searchPanel.Location = new System.Drawing.Point(0, 30);
+			this.searchPanel.Controls.Add(this.profileBtn);
+			this.searchPanel.Controls.Add(this.newNoteBtn);
+			this.searchPanel.Location = new System.Drawing.Point(32, 32);
 			this.searchPanel.Margin = new System.Windows.Forms.Padding(0);
 			this.searchPanel.Name = "searchPanel";
-			this.searchPanel.Size = new System.Drawing.Size(256, 30);
+			this.searchPanel.Size = new System.Drawing.Size(247, 32);
 			this.searchPanel.TabIndex = 5;
+			// 
+			// profileBtn
+			// 
+			this.profileBtn.FlatAppearance.BorderSize = 0;
+			this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.profileBtn.Image = ((System.Drawing.Image)(resources.GetObject("profileBtn.Image")));
+			this.profileBtn.Location = new System.Drawing.Point(0, 0);
+			this.profileBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.profileBtn.Name = "profileBtn";
+			this.profileBtn.Size = new System.Drawing.Size(32, 32);
+			this.profileBtn.TabIndex = 1;
+			this.infoToolTip.SetToolTip(this.profileBtn, "Profile (Ctrl+Shift+P)");
+			this.profileBtn.UseVisualStyleBackColor = true;
+			this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
+			// 
+			// newNoteBtn
+			// 
+			this.newNoteBtn.FlatAppearance.BorderSize = 0;
+			this.newNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.newNoteBtn.Image = ((System.Drawing.Image)(resources.GetObject("newNoteBtn.Image")));
+			this.newNoteBtn.Location = new System.Drawing.Point(214, 0);
+			this.newNoteBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.newNoteBtn.Name = "newNoteBtn";
+			this.newNoteBtn.Size = new System.Drawing.Size(32, 32);
+			this.newNoteBtn.TabIndex = 0;
+			this.infoToolTip.SetToolTip(this.newNoteBtn, "New note (Ctrl+N)");
+			this.newNoteBtn.UseVisualStyleBackColor = true;
+			this.newNoteBtn.Click += new System.EventHandler(this.newNoteBtn_Click);
+			// 
+			// trashBtn
+			// 
+			this.trashBtn.Enabled = false;
+			this.trashBtn.FlatAppearance.BorderSize = 0;
+			this.trashBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.trashBtn.Image = global::quick_sticky_notes.Properties.Resources.black_trash;
+			this.trashBtn.Location = new System.Drawing.Point(0, 64);
+			this.trashBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.trashBtn.Name = "trashBtn";
+			this.trashBtn.Size = new System.Drawing.Size(32, 32);
+			this.trashBtn.TabIndex = 12;
+			this.infoToolTip.SetToolTip(this.trashBtn, "Trash (Ctrl+T)");
+			this.trashBtn.UseVisualStyleBackColor = true;
+			// 
+			// pinnedNotesBtn
+			// 
+			this.pinnedNotesBtn.Enabled = false;
+			this.pinnedNotesBtn.FlatAppearance.BorderSize = 0;
+			this.pinnedNotesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.pinnedNotesBtn.Image = global::quick_sticky_notes.Properties.Resources.black_pin;
+			this.pinnedNotesBtn.Location = new System.Drawing.Point(0, 32);
+			this.pinnedNotesBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.pinnedNotesBtn.Name = "pinnedNotesBtn";
+			this.pinnedNotesBtn.Size = new System.Drawing.Size(32, 32);
+			this.pinnedNotesBtn.TabIndex = 11;
+			this.infoToolTip.SetToolTip(this.pinnedNotesBtn, "Pinned notes (Ctrl+P)");
+			this.pinnedNotesBtn.UseVisualStyleBackColor = true;
+			// 
+			// allNotesBtn
+			// 
+			this.allNotesBtn.Enabled = false;
+			this.allNotesBtn.FlatAppearance.BorderSize = 0;
+			this.allNotesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.allNotesBtn.Image = global::quick_sticky_notes.Properties.Resources.black_notes;
+			this.allNotesBtn.Location = new System.Drawing.Point(0, 0);
+			this.allNotesBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.allNotesBtn.Name = "allNotesBtn";
+			this.allNotesBtn.Size = new System.Drawing.Size(32, 32);
+			this.allNotesBtn.TabIndex = 7;
+			this.infoToolTip.SetToolTip(this.allNotesBtn, "All notes (Ctrl+A)");
+			this.allNotesBtn.UseVisualStyleBackColor = true;
 			// 
 			// emptyLabel
 			// 
-			this.emptyLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.emptyLabel.BackColor = System.Drawing.Color.White;
 			this.emptyLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-			this.emptyLabel.Location = new System.Drawing.Point(27, 87);
+			this.emptyLabel.Location = new System.Drawing.Point(29, 91);
 			this.emptyLabel.Margin = new System.Windows.Forms.Padding(18, 27, 18, 18);
 			this.emptyLabel.Name = "emptyLabel";
-			this.emptyLabel.Size = new System.Drawing.Size(202, 17);
+			this.emptyLabel.Size = new System.Drawing.Size(247, 17);
 			this.emptyLabel.TabIndex = 6;
 			this.emptyLabel.Text = "No notes found";
 			this.emptyLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.emptyLabel.Visible = false;
 			// 
+			// titleLabel
+			// 
+			this.titleLabel.AutoSize = true;
+			this.titleLabel.Location = new System.Drawing.Point(35, 7);
+			this.titleLabel.Name = "titleLabel";
+			this.titleLabel.Size = new System.Drawing.Size(44, 17);
+			this.titleLabel.TabIndex = 9;
+			this.titleLabel.Text = "Tinote";
+			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
+			// 
+			// titlePanel
+			// 
+			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(213)))), ((int)(((byte)(210)))));
+			this.titlePanel.Controls.Add(this.logoPictureBox);
+			this.titlePanel.Controls.Add(this.closeBtn);
+			this.titlePanel.Controls.Add(this.titleLabel);
+			this.titlePanel.Location = new System.Drawing.Point(0, 0);
+			this.titlePanel.Margin = new System.Windows.Forms.Padding(0);
+			this.titlePanel.Name = "titlePanel";
+			this.titlePanel.Size = new System.Drawing.Size(279, 32);
+			this.titlePanel.TabIndex = 10;
+			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
+			// 
+			// logoPictureBox
+			// 
+			this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
+			this.logoPictureBox.Location = new System.Drawing.Point(0, 0);
+			this.logoPictureBox.Margin = new System.Windows.Forms.Padding(0);
+			this.logoPictureBox.Name = "logoPictureBox";
+			this.logoPictureBox.Size = new System.Drawing.Size(32, 32);
+			this.logoPictureBox.TabIndex = 13;
+			this.logoPictureBox.TabStop = false;
+			// 
+			// closeBtn
+			// 
+			this.closeBtn.FlatAppearance.BorderSize = 0;
+			this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.closeBtn.Image = global::quick_sticky_notes.Properties.Resources.black_close;
+			this.closeBtn.Location = new System.Drawing.Point(246, 0);
+			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.closeBtn.Name = "closeBtn";
+			this.closeBtn.Size = new System.Drawing.Size(32, 32);
+			this.closeBtn.TabIndex = 5;
+			this.infoToolTip.SetToolTip(this.closeBtn, "Hide window (Alt+F4)");
+			this.closeBtn.UseVisualStyleBackColor = true;
+			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+			// 
+			// settingsBtn
+			// 
+			this.settingsBtn.Enabled = false;
+			this.settingsBtn.FlatAppearance.BorderSize = 0;
+			this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.settingsBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingsBtn.Image")));
+			this.settingsBtn.Location = new System.Drawing.Point(0, 325);
+			this.settingsBtn.Margin = new System.Windows.Forms.Padding(0);
+			this.settingsBtn.Name = "settingsBtn";
+			this.settingsBtn.Size = new System.Drawing.Size(32, 32);
+			this.settingsBtn.TabIndex = 6;
+			this.infoToolTip.SetToolTip(this.settingsBtn, "Settings (Ctrl+Comma)");
+			this.settingsBtn.UseVisualStyleBackColor = true;
+			// 
+			// sidePanel
+			// 
+			this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(227)))), ((int)(((byte)(225)))));
+			this.sidePanel.Controls.Add(this.allNotesBtn);
+			this.sidePanel.Controls.Add(this.pinnedNotesBtn);
+			this.sidePanel.Controls.Add(this.trashBtn);
+			this.sidePanel.Controls.Add(this.settingsBtn);
+			this.sidePanel.Location = new System.Drawing.Point(0, 32);
+			this.sidePanel.Margin = new System.Windows.Forms.Padding(0);
+			this.sidePanel.Name = "sidePanel";
+			this.sidePanel.Size = new System.Drawing.Size(32, 418);
+			this.sidePanel.TabIndex = 13;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(256, 389);
-			this.Controls.Add(this.emptyLabel);
-			this.Controls.Add(this.searchPanel);
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(226)))), ((int)(((byte)(229)))));
+			this.ClientSize = new System.Drawing.Size(278, 389);
+			this.Controls.Add(this.sidePanel);
 			this.Controls.Add(this.titlePanel);
+			this.Controls.Add(this.emptyLabel);
 			this.Controls.Add(this.notesListBox);
+			this.Controls.Add(this.searchPanel);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -405,6 +467,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Tinote";
 			this.TopMost = true;
+			this.Activated += new System.EventHandler(this.MainForm_Activated);
 			this.Deactivate += new System.EventHandler(this.MainForm_Deactivate);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.Load += new System.EventHandler(this.MainForm_Load);
@@ -413,10 +476,12 @@
 			this.notesListItemContext.ResumeLayout(false);
 			this.notesListEmptyContext.ResumeLayout(false);
 			this.trayContext.ResumeLayout(false);
-			this.titlePanel.ResumeLayout(false);
-			this.titlePanel.PerformLayout();
 			this.searchPanel.ResumeLayout(false);
 			this.searchPanel.PerformLayout();
+			this.titlePanel.ResumeLayout(false);
+			this.titlePanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
+			this.sidePanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -434,16 +499,12 @@
 		private System.Windows.Forms.ToolStripMenuItem notesListToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.Panel titlePanel;
-		private System.Windows.Forms.Button closeBtn;
-		private System.Windows.Forms.Label titleLabel;
 		private System.Windows.Forms.ToolStripMenuItem newNoteToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem showToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.TextBox searchTextBox;
 		private System.Windows.Forms.Panel searchPanel;
 		private System.Windows.Forms.ToolTip infoToolTip;
-		private System.Windows.Forms.Button syncBtn;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripMenuItem changeColorMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem yellowToolStripMenuItem;
@@ -453,6 +514,15 @@
 		private System.Windows.Forms.ToolStripMenuItem purpleToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem whiteToolStripMenuItem;
 		private System.Windows.Forms.Label emptyLabel;
+		private System.Windows.Forms.Button settingsBtn;
+		private System.Windows.Forms.Button allNotesBtn;
+		private System.Windows.Forms.Label titleLabel;
+		private System.Windows.Forms.Button closeBtn;
+		private System.Windows.Forms.Panel titlePanel;
+		private System.Windows.Forms.Button pinnedNotesBtn;
+		private System.Windows.Forms.Button trashBtn;
+		private System.Windows.Forms.PictureBox logoPictureBox;
+		private System.Windows.Forms.Panel sidePanel;
 	}
 }
 

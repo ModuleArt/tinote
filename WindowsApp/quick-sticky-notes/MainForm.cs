@@ -13,8 +13,9 @@ namespace quick_sticky_notes
         private bool quitApp = false;
 
         public MainForm()
-		{
-			InitializeComponent();
+        {
+            m_aeroEnabled = true;
+            InitializeComponent();
 
             noteManager = new NoteManager();
             noteManager.NoteAdded += NoteManager_NoteAdded;
@@ -27,7 +28,7 @@ namespace quick_sticky_notes
 
         private void Fm_SignStatusChanged(object sender, EventArgs e)
         {
-            syncBtn.Visible = fm.IsLoggedIn();
+            //syncBtn.Visible = fm.IsLoggedIn();
         }
 
         private void Fm_UpdateNote(object sender, UpdateNoteEventArgs e)
@@ -258,11 +259,6 @@ namespace quick_sticky_notes
             }
         }
 
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void titleLabel_MouseDown(object sender, MouseEventArgs e)
         {
             this.titlePanel_MouseDown(sender, e);
@@ -311,7 +307,7 @@ namespace quick_sticky_notes
                 Brush darkBrush = new SolidBrush(ColorManager.GetDarkColor(note.colorStr));
                 Brush middleBrush = new SolidBrush(ColorManager.GetMiddleColor(note.colorStr));
                 Brush noteBrush = new SolidBrush(ColorManager.GetNoteColor(note.colorStr));
-                Brush backBrush = new SolidBrush(this.BackColor);
+                Brush backBrush = new SolidBrush(notesListBox.BackColor);
 
                 e.Graphics.FillRectangle(darkBrush, new RectangleF(
                     e.Bounds.X + 9,
@@ -407,39 +403,43 @@ namespace quick_sticky_notes
             emptyLabel.Visible = notesListBox.Items.Count == 0;
         }
 
-        private void closeBtn_MouseLeave(object sender, EventArgs e)
-        {
-            closeBtn.Image = Properties.Resources.black_close;
-        }
-
-        private void closeBtn_MouseEnter(object sender, EventArgs e)
-        {
-            closeBtn.Image = Properties.Resources.white_close;
-        }
-
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control)
             {
-                if (e.KeyCode == Keys.N)
+                if (e.Shift)
                 {
-                    newNoteBtn.PerformClick();
+                    if (e.KeyCode == Keys.P)
+                    {
+                        profileBtn.PerformClick();
+                    }
                 }
-                else if (e.KeyCode == Keys.D)
+                else
                 {
-                    syncBtn.PerformClick();
-                }
-                else if (e.KeyCode == Keys.Q)
-                {
-                    closeBtn.PerformClick();
-                }
-                else if (e.KeyCode == Keys.P)
-                {
-                    profileBtn.PerformClick();
-                }
-                else if (e.KeyCode == Keys.F)
-                {
-                    searchTextBox.Focus();
+                    if (e.KeyCode == Keys.N)
+                    {
+                        newNoteBtn.PerformClick();
+                    }
+                    else if (e.KeyCode == Keys.A)
+                    {
+                        allNotesBtn.PerformClick();
+                    }
+                    else if (e.KeyCode == Keys.T)
+                    {
+                        trashBtn.PerformClick();
+                    }
+                    else if (e.KeyCode == Keys.P)
+                    {
+                        pinnedNotesBtn.PerformClick();
+                    }
+                    else if (e.KeyCode == Keys.F)
+                    {
+                        searchTextBox.Focus();
+                    }
+                    else if (e.KeyCode == Keys.Oemcomma)
+                    {
+                        settingsBtn.Focus();
+                    }
                 }
             }
         }
@@ -450,11 +450,6 @@ namespace quick_sticky_notes
             {
                 notesListBox.Focus();
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            fm.LoadNotesFromServer();
         }
 
         private void yellowToolStripMenuItem_Click(object sender, EventArgs e)
@@ -520,6 +515,90 @@ namespace quick_sticky_notes
         private void MainForm_Deactivate(object sender, EventArgs e)
         {
             notesListBox.Focus();
+
+            titlePanel.BackColor = Color.FromArgb(227, 227, 225);
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private bool m_aeroEnabled;
+
+        private const int CS_DROPSHADOW = 0x00020000;
+        private const int WM_NCPAINT = 0x0085;
+
+        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
+        public static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref MARGINS pMarInset);
+        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
+        public static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
+        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
+
+        public static extern int DwmIsCompositionEnabled(ref int pfEnabled);
+        [System.Runtime.InteropServices.DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn(
+            int nLeftRect,
+            int nTopRect,
+            int nRightRect,
+            int nBottomRect,
+            int nWidthEllipse,
+            int nHeightEllipse
+        );
+
+        public struct MARGINS
+        {
+            public int leftWidth;
+            public int rightWidth;
+            public int topHeight;
+            public int bottomHeight;
+        }
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                m_aeroEnabled = CheckAeroEnabled();
+                CreateParams cp = base.CreateParams;
+                if (!m_aeroEnabled)
+                    cp.ClassStyle |= CS_DROPSHADOW; return cp;
+            }
+        }
+        private bool CheckAeroEnabled()
+        {
+            if (Environment.OSVersion.Version.Major >= 6)
+            {
+                int enabled = 0; DwmIsCompositionEnabled(ref enabled);
+                return (enabled == 1) ? true : false;
+            }
+            return false;
+        }
+        protected override void WndProc(ref Message m)
+        {
+            switch (m.Msg)
+            {
+                case WM_NCPAINT:
+                    if (m_aeroEnabled)
+                    {
+                        var v = 2;
+                        DwmSetWindowAttribute(this.Handle, 2, ref v, 4);
+                        MARGINS margins = new MARGINS()
+                        {
+                            bottomHeight = 1,
+                            leftWidth = 0,
+                            rightWidth = 0,
+                            topHeight = 0
+                        }; 
+                        DwmExtendFrameIntoClientArea(this.Handle, ref margins);
+                    }
+                    break;
+                default: break;
+            }
+            base.WndProc(ref m);
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            titlePanel.BackColor = Color.FromArgb(214, 213, 210);
         }
     }
 }

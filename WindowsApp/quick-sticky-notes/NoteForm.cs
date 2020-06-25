@@ -39,6 +39,10 @@ namespace quick_sticky_notes
 			SetColor(colorStr);
 
 			createdToolStripMenuItem.Text = "Created: " + dateCreated.ToString();
+
+			toggleBulletsToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Comma";
+			superscriptToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+Plus";
+			subscriptToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Plus";
 		}
 
 		private void resizeTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -164,7 +168,7 @@ namespace quick_sticky_notes
 				notesListBtn.Visible = true;
 
 				titleLabel.Visible = true;
-				titlePanel.Height = 30;
+				titlePanel.Height = 32;
 
 				secondTitleLabel.Visible = false;
 			}
@@ -285,10 +289,6 @@ namespace quick_sticky_notes
 					{
 						newNoteBtn.PerformClick();
 					} 
-					else if (e.KeyCode == Keys.Q)
-					{
-						closeBtn.PerformClick();
-					}
 				}
 			}
 		}

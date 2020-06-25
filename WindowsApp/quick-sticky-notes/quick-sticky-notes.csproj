@@ -281,6 +281,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="resources\imgs\dark\black-pin.png" />
+    <None Include="resources\imgs\dark\black-note.png" />
+    <None Include="resources\imgs\dark\black-trash.png" />
+    <None Include="resources\imgs\dark\black-folder.png" />
+    <None Include="resources\imgs\dark\black-notes.png" />
     <Content Include="tinote.ico" />
     <None Include="resources\imgs\dark\black-close.png" />
     <None Include="resources\imgs\light\white-close.png" />

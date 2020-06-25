@@ -86,10 +86,10 @@
 			this.titleTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
 			this.titleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.titleTextBox.ForeColor = System.Drawing.Color.White;
-			this.titleTextBox.Location = new System.Drawing.Point(33, 6);
+			this.titleTextBox.Location = new System.Drawing.Point(38, 7);
 			this.titleTextBox.Margin = new System.Windows.Forms.Padding(0);
 			this.titleTextBox.Name = "titleTextBox";
-			this.titleTextBox.Size = new System.Drawing.Size(166, 18);
+			this.titleTextBox.Size = new System.Drawing.Size(154, 18);
 			this.titleTextBox.TabIndex = 0;
 			this.titleTextBox.Text = "Title";
 			this.titleTextBox.Visible = false;
@@ -102,15 +102,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
 			this.titlePanel.ContextMenuStrip = this.headerContext;
+			this.titlePanel.Controls.Add(this.titleTextBox);
 			this.titlePanel.Controls.Add(this.closeBtn);
 			this.titlePanel.Controls.Add(this.notesListBtn);
-			this.titlePanel.Controls.Add(this.titleTextBox);
 			this.titlePanel.Controls.Add(this.titleLabel);
 			this.titlePanel.Controls.Add(this.newNoteBtn);
 			this.titlePanel.Location = new System.Drawing.Point(0, 0);
 			this.titlePanel.Margin = new System.Windows.Forms.Padding(0);
 			this.titlePanel.Name = "titlePanel";
-			this.titlePanel.Size = new System.Drawing.Size(256, 30);
+			this.titlePanel.Size = new System.Drawing.Size(256, 32);
 			this.titlePanel.TabIndex = 6;
 			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
 			// 
@@ -235,12 +235,12 @@
 			this.closeBtn.FlatAppearance.BorderSize = 0;
 			this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.closeBtn.Image = global::quick_sticky_notes.Properties.Resources.white_close;
-			this.closeBtn.Location = new System.Drawing.Point(226, 0);
+			this.closeBtn.Location = new System.Drawing.Point(224, 0);
 			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.closeBtn.Name = "closeBtn";
-			this.closeBtn.Size = new System.Drawing.Size(30, 30);
+			this.closeBtn.Size = new System.Drawing.Size(32, 32);
 			this.closeBtn.TabIndex = 6;
-			this.infoToolTip.SetToolTip(this.closeBtn, "Hide note (Ctrl+Q)");
+			this.infoToolTip.SetToolTip(this.closeBtn, "Hide note (Alt+F4)");
 			this.closeBtn.UseVisualStyleBackColor = true;
 			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
 			// 
@@ -250,10 +250,10 @@
 			this.notesListBtn.FlatAppearance.BorderSize = 0;
 			this.notesListBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.notesListBtn.Image = ((System.Drawing.Image)(resources.GetObject("notesListBtn.Image")));
-			this.notesListBtn.Location = new System.Drawing.Point(196, 0);
+			this.notesListBtn.Location = new System.Drawing.Point(192, 0);
 			this.notesListBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.notesListBtn.Name = "notesListBtn";
-			this.notesListBtn.Size = new System.Drawing.Size(30, 30);
+			this.notesListBtn.Size = new System.Drawing.Size(32, 32);
 			this.notesListBtn.TabIndex = 10;
 			this.infoToolTip.SetToolTip(this.notesListBtn, "Show notes list (Ctrl+Shift+N)");
 			this.notesListBtn.UseVisualStyleBackColor = true;
@@ -263,7 +263,7 @@
 			// 
 			this.titleLabel.AutoSize = true;
 			this.titleLabel.ForeColor = System.Drawing.Color.White;
-			this.titleLabel.Location = new System.Drawing.Point(30, 6);
+			this.titleLabel.Location = new System.Drawing.Point(35, 7);
 			this.titleLabel.Margin = new System.Windows.Forms.Padding(0);
 			this.titleLabel.Name = "titleLabel";
 			this.titleLabel.Size = new System.Drawing.Size(32, 17);
@@ -276,10 +276,10 @@
 			this.newNoteBtn.FlatAppearance.BorderSize = 0;
 			this.newNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.newNoteBtn.Image = ((System.Drawing.Image)(resources.GetObject("newNoteBtn.Image")));
-			this.newNoteBtn.Location = new System.Drawing.Point(0, 0);
+			this.newNoteBtn.Location = new System.Drawing.Point(1, 0);
 			this.newNoteBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.newNoteBtn.Name = "newNoteBtn";
-			this.newNoteBtn.Size = new System.Drawing.Size(30, 30);
+			this.newNoteBtn.Size = new System.Drawing.Size(32, 32);
 			this.newNoteBtn.TabIndex = 9;
 			this.infoToolTip.SetToolTip(this.newNoteBtn, "New note (Ctrl+N)");
 			this.newNoteBtn.UseVisualStyleBackColor = true;
@@ -308,11 +308,11 @@
 			this.richTextBox1.ContextMenuStrip = this.rmbContext;
 			this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
-			this.richTextBox1.Location = new System.Drawing.Point(11, 41);
+			this.richTextBox1.Location = new System.Drawing.Point(11, 43);
 			this.richTextBox1.Margin = new System.Windows.Forms.Padding(11);
 			this.richTextBox1.Name = "richTextBox1";
 			this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-			this.richTextBox1.Size = new System.Drawing.Size(234, 206);
+			this.richTextBox1.Size = new System.Drawing.Size(234, 204);
 			this.richTextBox1.TabIndex = 0;
 			this.richTextBox1.Text = "";
 			this.richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox1_LinkClicked);
@@ -340,14 +340,14 @@
             this.toolStripSeparator2,
             this.textAlignToolStripMenuItem});
 			this.rmbContext.Name = "rmbContext";
-			this.rmbContext.Size = new System.Drawing.Size(248, 330);
+			this.rmbContext.Size = new System.Drawing.Size(249, 330);
 			// 
 			// cutToolStripMenuItem
 			// 
 			this.cutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripMenuItem.Image")));
 			this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
 			this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-			this.cutToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.cutToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.cutToolStripMenuItem.Text = "Cut";
 			this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
 			// 
@@ -356,7 +356,7 @@
 			this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
 			this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
 			this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-			this.copyToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.copyToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.copyToolStripMenuItem.Text = "Copy";
 			this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
 			// 
@@ -365,7 +365,7 @@
 			this.pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripMenuItem.Image")));
 			this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
 			this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-			this.pasteToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.pasteToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.pasteToolStripMenuItem.Text = "Paste";
 			this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
 			// 
@@ -375,7 +375,7 @@
 			this.pasteAsPlainTextToolStripMenuItem.Name = "pasteAsPlainTextToolStripMenuItem";
 			this.pasteAsPlainTextToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.V)));
-			this.pasteAsPlainTextToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.pasteAsPlainTextToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.pasteAsPlainTextToolStripMenuItem.Text = "Paste as plain text";
 			this.pasteAsPlainTextToolStripMenuItem.Click += new System.EventHandler(this.pasteAsPlainTextToolStripMenuItem_Click);
 			// 
@@ -384,22 +384,21 @@
 			this.selectAllToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("selectAllToolStripMenuItem.Image")));
 			this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
 			this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-			this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.selectAllToolStripMenuItem.Text = "Select all";
 			this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(244, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(245, 6);
 			// 
 			// toggleBulletsToolStripMenuItem
 			// 
 			this.toggleBulletsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("toggleBulletsToolStripMenuItem.Image")));
 			this.toggleBulletsToolStripMenuItem.Name = "toggleBulletsToolStripMenuItem";
-			this.toggleBulletsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.L)));
-			this.toggleBulletsToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.toggleBulletsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Oemcomma)));
+			this.toggleBulletsToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.toggleBulletsToolStripMenuItem.Text = "Toggle bullets";
 			this.toggleBulletsToolStripMenuItem.Click += new System.EventHandler(this.toggleBulletsToolStripMenuItem_Click);
 			// 
@@ -408,7 +407,7 @@
 			this.boldToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("boldToolStripMenuItem.Image")));
 			this.boldToolStripMenuItem.Name = "boldToolStripMenuItem";
 			this.boldToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-			this.boldToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.boldToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.boldToolStripMenuItem.Text = "Bold";
 			this.boldToolStripMenuItem.Click += new System.EventHandler(this.boldToolStripMenuItem_Click);
 			// 
@@ -417,7 +416,7 @@
 			this.italicToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("italicToolStripMenuItem.Image")));
 			this.italicToolStripMenuItem.Name = "italicToolStripMenuItem";
 			this.italicToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-			this.italicToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.italicToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.italicToolStripMenuItem.Text = "Italic";
 			this.italicToolStripMenuItem.Click += new System.EventHandler(this.italicToolStripMenuItem_Click);
 			// 
@@ -426,7 +425,7 @@
 			this.underlineToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("underlineToolStripMenuItem.Image")));
 			this.underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
 			this.underlineToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-			this.underlineToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.underlineToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.underlineToolStripMenuItem.Text = "Underline";
 			this.underlineToolStripMenuItem.Click += new System.EventHandler(this.underlineToolStripMenuItem_Click);
 			// 
@@ -435,14 +434,14 @@
 			this.strikethroughToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("strikethroughToolStripMenuItem.Image")));
 			this.strikethroughToolStripMenuItem.Name = "strikethroughToolStripMenuItem";
 			this.strikethroughToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-			this.strikethroughToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.strikethroughToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.strikethroughToolStripMenuItem.Text = "Strikethrough";
 			this.strikethroughToolStripMenuItem.Click += new System.EventHandler(this.strikethroughToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator4
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(244, 6);
+			this.toolStripSeparator4.Size = new System.Drawing.Size(245, 6);
 			// 
 			// capitalizeToolStripMenuItem
 			// 
@@ -450,7 +449,7 @@
 			this.capitalizeToolStripMenuItem.Name = "capitalizeToolStripMenuItem";
 			this.capitalizeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.A)));
-			this.capitalizeToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.capitalizeToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.capitalizeToolStripMenuItem.Text = "Capitalize";
 			this.capitalizeToolStripMenuItem.Click += new System.EventHandler(this.capitalizeToolStripMenuItem_Click);
 			// 
@@ -460,7 +459,7 @@
 			this.superscriptToolStripMenuItem.Name = "superscriptToolStripMenuItem";
 			this.superscriptToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Oemplus)));
-			this.superscriptToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.superscriptToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.superscriptToolStripMenuItem.Text = "Superscript";
 			this.superscriptToolStripMenuItem.Click += new System.EventHandler(this.superscriptToolStripMenuItem_Click);
 			// 
@@ -469,14 +468,14 @@
 			this.subscriptToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("subscriptToolStripMenuItem.Image")));
 			this.subscriptToolStripMenuItem.Name = "subscriptToolStripMenuItem";
 			this.subscriptToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Oemplus)));
-			this.subscriptToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.subscriptToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.subscriptToolStripMenuItem.Text = "Subscript";
 			this.subscriptToolStripMenuItem.Click += new System.EventHandler(this.subscriptToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(244, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(245, 6);
 			// 
 			// textAlignToolStripMenuItem
 			// 
@@ -486,7 +485,7 @@
             this.rightAlignToolStripMenuItem1});
 			this.textAlignToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("textAlignToolStripMenuItem.Image")));
 			this.textAlignToolStripMenuItem.Name = "textAlignToolStripMenuItem";
-			this.textAlignToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
+			this.textAlignToolStripMenuItem.Size = new System.Drawing.Size(248, 22);
 			this.textAlignToolStripMenuItem.Text = "Text align";
 			// 
 			// leftAlignToolStripMenuItem1
