@@ -14,7 +14,18 @@ namespace quick_sticky_notes
 
 		private Point startPos;
 		private Size curSize;
-		
+
+		protected override CreateParams CreateParams
+		{
+			get
+			{
+				const int CS_DROPSHADOW = 0x20000;
+				CreateParams cp = base.CreateParams;
+				cp.ClassStyle |= CS_DROPSHADOW;
+				return cp;
+			}
+		}
+
 		public NoteForm(string title, string content, string colorStr, DateTime dateCreated)
 		{
 			InitializeComponent();

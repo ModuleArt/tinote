@@ -84,3 +84,4 @@ D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Threading.Task
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.ValueTuple.xml
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Collections.Immutable.dll
 D:\Projects\tinote\WindowsApp\quick-sticky-notes\bin\Debug\System.Collections.Immutable.xml
+D:\Projects\tinote\WindowsApp\quick-sticky-notes\obj\Debug\quick_sticky_notes.AboutForm.resources

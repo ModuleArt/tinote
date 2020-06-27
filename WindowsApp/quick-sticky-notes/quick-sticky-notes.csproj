@@ -212,6 +212,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ColorManager.cs" />
     <Compile Include="NativeMethodsManager.cs" />
     <Compile Include="FirebaseManager.cs" />
@@ -244,6 +250,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +295,8 @@
     <None Include="resources\imgs\dark\black-trash.png" />
     <None Include="resources\imgs\dark\black-folder.png" />
     <None Include="resources\imgs\dark\black-notes.png" />
+    <None Include="resources\imgs\dark\black-about.png" />
+    <None Include="resources\imgs\dark\black-github.png" />
     <Content Include="tinote.ico" />
     <None Include="resources\imgs\dark\black-close.png" />
     <None Include="resources\imgs\light\white-close.png" />
