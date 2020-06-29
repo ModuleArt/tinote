@@ -291,7 +291,7 @@
 			this.secondTitleLabel.AutoSize = true;
 			this.secondTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.secondTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(173)))), ((int)(((byte)(96)))));
-			this.secondTitleLabel.Location = new System.Drawing.Point(9, 15);
+			this.secondTitleLabel.Location = new System.Drawing.Point(13, 20);
 			this.secondTitleLabel.Margin = new System.Windows.Forms.Padding(0);
 			this.secondTitleLabel.Name = "secondTitleLabel";
 			this.secondTitleLabel.Size = new System.Drawing.Size(32, 17);
@@ -523,14 +523,13 @@
 			this.richTextBox1.ContextMenuStrip = this.rmbContext;
 			this.richTextBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
-			this.richTextBox1.Location = new System.Drawing.Point(11, 43);
-			this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 11, 11, 2);
+			this.richTextBox1.Location = new System.Drawing.Point(15, 49);
+			this.richTextBox1.Margin = new System.Windows.Forms.Padding(6, 17, 0, 0);
 			this.richTextBox1.Name = "richTextBox1";
 			this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-			this.richTextBox1.Size = new System.Drawing.Size(262, 202);
+			this.richTextBox1.Size = new System.Drawing.Size(241, 190);
 			this.richTextBox1.TabIndex = 0;
 			this.richTextBox1.Text = "";
-			this.richTextBox1.vScroll += new quick_sticky_notes.CustomRichTextBox.vScrollEventHandler(this.richTextBox1_vScroll);
 			this.richTextBox1.ContentsResized += new System.Windows.Forms.ContentsResizedEventHandler(this.richTextBox1_ContentsResized);
 			this.richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox1_LinkClicked);
 			this.richTextBox1.VScroll += new System.EventHandler(this.richTextBox1_VScroll);
@@ -539,6 +538,7 @@
 			// 
 			// customScrollbar1
 			// 
+			this.customScrollbar1.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
 			this.customScrollbar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.customScrollbar1.ChannelColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(128)))));
@@ -556,6 +556,7 @@
 			this.customScrollbar1.ThumbMiddleImage = global::quick_sticky_notes.Properties.Resources.sb_thumbmiddle_y;
 			this.customScrollbar1.UpArrowImage = global::quick_sticky_notes.Properties.Resources.sb_uparrow_y;
 			this.customScrollbar1.Value = 0;
+			this.customScrollbar1.Visible = false;
 			this.customScrollbar1.Scroll += new System.EventHandler(this.customScrollbar1_Scroll);
 			// 
 			// NoteForm
@@ -564,11 +565,11 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(128)))));
 			this.ClientSize = new System.Drawing.Size(256, 256);
-			this.Controls.Add(this.customScrollbar1);
 			this.Controls.Add(this.richTextBox1);
 			this.Controls.Add(this.secondTitleLabel);
 			this.Controls.Add(this.titlePanel);
 			this.Controls.Add(this.resizeBtn);
+			this.Controls.Add(this.customScrollbar1);
 			this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

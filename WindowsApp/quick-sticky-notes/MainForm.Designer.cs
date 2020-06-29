@@ -391,6 +391,8 @@
 			// closeBtn
 			// 
 			this.closeBtn.FlatAppearance.BorderSize = 0;
+			this.closeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(112)))), ((int)(((byte)(122)))));
+			this.closeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
 			this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.closeBtn.Image = global::quick_sticky_notes.Properties.Resources.black_close;
 			this.closeBtn.Location = new System.Drawing.Point(246, 0);
@@ -401,6 +403,8 @@
 			this.infoToolTip.SetToolTip(this.closeBtn, "Hide window (Alt+F4)");
 			this.closeBtn.UseVisualStyleBackColor = true;
 			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
+			this.closeBtn.MouseEnter += new System.EventHandler(this.closeBtn_MouseEnter);
+			this.closeBtn.MouseLeave += new System.EventHandler(this.closeBtn_MouseLeave);
 			// 
 			// emptyLabel
 			// 

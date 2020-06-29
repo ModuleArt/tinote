@@ -124,6 +124,7 @@ namespace quick_sticky_notes
 			ShowTitlebar(true);
 			richTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical;
 			resizeBtn.Visible = true;
+			//customScrollbar1.Visible = true;
 		}
 
 		private void NoteForm_Deactivate(object sender, EventArgs e)
@@ -131,6 +132,7 @@ namespace quick_sticky_notes
 			ShowTitlebar(false);
 			richTextBox1.ScrollBars = RichTextBoxScrollBars.None;
 			resizeBtn.Visible = false;
+			//customScrollbar1.Visible = false;
 
 			OnPerformSync(e);
 		}
@@ -619,61 +621,29 @@ namespace quick_sticky_notes
 
 		private void customScrollbar1_Scroll(object sender, EventArgs e)
 		{
-			vScrollBar1.Value = customScrollbar1.Value;
-			customScrollbar1.Invalidate();
-			panel1_Scroll(sender, null);
-		}
-
-		private void richTextBox1_VScroll(object sender, EventArgs e)
-		{
-			int pos = NativeMethodsManager.GetScrollPos(richTextBox1.Handle, (int)NativeMethodsManager.ScrollBarType.SbVert);
-			pos <<= 16;
-
-			vScrollBar1.Scroll -= panel1_Scroll;
-			uint par = (uint)NativeMethodsManager.ScrollBarCommands.SB_THUMBPOSITION | (uint)pos;
-			NativeMethodsManager.SendMessage(vScrollBar1.Handle, (int)NativeMethodsManager.ScrollBarCommands.SB_THUMBPOSITION, new IntPtr(par), new IntPtr(0));
-			vScrollBar1.Scroll += panel1_Scroll;
-		}
-
-		private void panel1_Scroll(object sender, ScrollEventArgs e)
-		{
-			int pos = NativeMethodsManager.GetScrollPos(vScrollBar1.Handle, (int)NativeMethodsManager.ScrollBarType.SbVert);
-			pos <<= 16;
-
-			Console.WriteLine(pos);
-
-			richTextBox1.VScroll -= richTextBox1_VScroll;
-			uint par = (uint)NativeMethodsManager.ScrollBarCommands.SB_THUMBPOSITION | (uint)pos;
-			NativeMethodsManager.SendMessage(richTextBox1.Handle, (int)NativeMethodsManager.Message.WM_VSCROLL, new IntPtr(par), new IntPtr(0));
-			richTextBox1.VScroll += richTextBox1_VScroll;
-
-
-			//customScrollbar1.Scroll -= customScrollbar1_Scroll;
-			//customScrollbar1.Value = fakePanel.AutoScrollPosition.Y;
+			//richTextBox1.fakePanel.AutoScrollPosition = new Point(0, customScrollbar1.Value);
 			//customScrollbar1.Invalidate();
-			//customScrollbar1.Scroll += customScrollbar1_Scroll;
-		}
-
-		private void richTextBox1_vScroll(Message msg)
-		{
-			//msg.HWnd = fakePanel.Handle;
-			//fakePanel.PubWndProc(ref msg);
-		}
-
-		private void fakePanel_vScroll(Message msg)
-		{
-			//msg.HWnd = richTextBox1.Handle;
-			//richTextBox1.PubWndProc(ref msg);
-		}
-
-		private void fakePanel_SizeChanged(object sender, EventArgs e)
-		{
-			//richTextBox1.MinimumSize = new Size(fakePanel.Width, fakePanel.Height);
+			//richTextBox1.FakePanel_Scroll(sender, null);
 		}
 
 		private void richTextBox1_ContentsResized(object sender, ContentsResizedEventArgs e)
 		{
-			//richTextBox1.Width = e.NewRectangle.Width + 5;
+			//richTextBox1.fakePanel.Controls[0].Height = richTextBox1.GetContentSize();
+			//customScrollbar1.Maximum = richTextBox1.GetContentSize();
+		}
+
+		private void richTextBox1_VScroll(object sender, EventArgs e)
+		{
+			int y1 = richTextBox1.GetCurScrollLine();
+			int y2 = richTextBox1.GetCurShowedLinesCount();
+			int y3 = richTextBox1.Lines.Length;
+
+			int x3 = customScrollbar1.Maximum;
+			int z = customScrollbar1.ThumbMiddleImage.Height;
+
+			int x1 = ((y1 * x3) - (z * y1)) / (y3 - y2 + y1);
+
+			customScrollbar1.Value = x1;
 		}
 	}
 

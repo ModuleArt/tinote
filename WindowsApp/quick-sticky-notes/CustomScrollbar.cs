@@ -13,7 +13,6 @@ namespace quick_sticky_notes
 {
     public class CustomScrollbar : UserControl 
     {
-
         protected Color moChannelColor = Color.Empty;
         protected Image moUpArrowImage = null;
         protected Image moDownArrowImage = null;

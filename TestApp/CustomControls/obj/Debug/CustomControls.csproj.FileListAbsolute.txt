@@ -1,0 +1,8 @@
+C:\Users\beelink\Desktop\TestApp\CustomControls\bin\Debug\CustomControls.dll
+C:\Users\beelink\Desktop\TestApp\CustomControls\bin\Debug\CustomControls.pdb
+C:\Users\beelink\Desktop\TestApp\CustomControls\obj\Debug\CustomControls.csprojAssemblyReference.cache
+C:\Users\beelink\Desktop\TestApp\CustomControls\obj\Debug\CustomControls.CustomScrollbar.resources
+C:\Users\beelink\Desktop\TestApp\CustomControls\obj\Debug\CustomControls.Resource.resources
+C:\Users\beelink\Desktop\TestApp\CustomControls\obj\Debug\CustomControls.csproj.GenerateResource.cache
+C:\Users\beelink\Desktop\TestApp\CustomControls\obj\Debug\CustomControls.dll
+C:\Users\beelink\Desktop\TestApp\CustomControls\obj\Debug\CustomControls.pdb

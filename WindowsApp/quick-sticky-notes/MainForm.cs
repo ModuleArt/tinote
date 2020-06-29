@@ -37,6 +37,16 @@ namespace quick_sticky_notes
             fm.LoadUserFromDisk();
         }
 
+        private void closeBtn_MouseEnter(object sender, EventArgs e)
+        {
+            closeBtn.Image = Properties.Resources.white_close;
+        }
+
+        private void closeBtn_MouseLeave(object sender, EventArgs e)
+        {
+            closeBtn.Image = Properties.Resources.black_close;
+        }
+
         private void Fm_SignStatusChanged(object sender, EventArgs e)
         {
             //syncBtn.Visible = fm.IsLoggedIn();

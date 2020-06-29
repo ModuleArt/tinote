@@ -1,0 +1,11 @@
+C:\Users\beelink\Desktop\TestApp\TestApp\bin\Debug\TestApp.exe
+C:\Users\beelink\Desktop\TestApp\TestApp\bin\Debug\TestApp.pdb
+C:\Users\beelink\Desktop\TestApp\TestApp\bin\Debug\CustomControls.dll
+C:\Users\beelink\Desktop\TestApp\TestApp\bin\Debug\CustomControls.pdb
+C:\Users\beelink\Desktop\TestApp\TestApp\obj\Debug\TestApp.csprojAssemblyReference.cache
+C:\Users\beelink\Desktop\TestApp\TestApp\obj\Debug\TestApp.Form1.resources
+C:\Users\beelink\Desktop\TestApp\TestApp\obj\Debug\TestApp.Properties.Resources.resources
+C:\Users\beelink\Desktop\TestApp\TestApp\obj\Debug\TestApp.csproj.GenerateResource.cache
+C:\Users\beelink\Desktop\TestApp\TestApp\obj\Debug\TestApp.csproj.CopyComplete
+C:\Users\beelink\Desktop\TestApp\TestApp\obj\Debug\TestApp.exe
+C:\Users\beelink\Desktop\TestApp\TestApp\obj\Debug\TestApp.pdb

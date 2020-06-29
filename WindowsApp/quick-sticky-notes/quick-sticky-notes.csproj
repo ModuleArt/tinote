@@ -225,9 +225,6 @@
     <Compile Include="CustomScrollbar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FakeScrollPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="NativeMethodsManager.cs" />
     <Compile Include="FirebaseManager.cs" />
     <Compile Include="LoginForm.cs">
