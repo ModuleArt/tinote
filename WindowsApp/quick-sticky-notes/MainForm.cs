@@ -558,5 +558,10 @@ namespace quick_sticky_notes
                 }
             }
         }
+
+        private void logoPictureBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            titlePanel_MouseDown(sender, e);
+        }
     }
 }

@@ -55,6 +55,7 @@
 			// 
 			// versionLabel
 			// 
+			this.versionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(106)))), ((int)(((byte)(29)))));
 			this.versionLabel.Location = new System.Drawing.Point(9, 208);
 			this.versionLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.versionLabel.Name = "versionLabel";
@@ -77,6 +78,7 @@
 			this.githubBtn.Text = " Contribute";
 			this.githubBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.githubBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.infoToolTip.SetToolTip(this.githubBtn, "Open GitHub repository of this application");
 			this.githubBtn.UseVisualStyleBackColor = true;
 			this.githubBtn.Click += new System.EventHandler(this.githubBtn_Click);
 			// 
@@ -113,6 +115,7 @@
 			// 
 			// copyrightBtn
 			// 
+			this.copyrightBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(106)))), ((int)(((byte)(29)))));
 			this.copyrightBtn.Location = new System.Drawing.Point(9, 316);
 			this.copyrightBtn.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
 			this.copyrightBtn.Name = "copyrightBtn";
@@ -135,6 +138,7 @@
 			this.developerBtn.Text = " Module Art";
 			this.developerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.developerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.infoToolTip.SetToolTip(this.developerBtn, "Open Module Art website");
 			this.developerBtn.UseVisualStyleBackColor = true;
 			this.developerBtn.Click += new System.EventHandler(this.button1_Click);
 			// 

@@ -143,6 +143,36 @@ namespace quick_sticky_notes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sb_downarrow_y {
+            get {
+                object obj = ResourceManager.GetObject("sb_downarrow_y", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sb_thumbmiddle_y {
+            get {
+                object obj = ResourceManager.GetObject("sb_thumbmiddle_y", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sb_uparrow_y {
+            get {
+                object obj = ResourceManager.GetObject("sb_uparrow_y", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap white_close {
             get {
                 object obj = ResourceManager.GetObject("white_close", resourceCulture);

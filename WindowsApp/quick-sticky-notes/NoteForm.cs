@@ -616,6 +616,65 @@ namespace quick_sticky_notes
 			};
 			OnColorChanged(args);
 		}
+
+		private void customScrollbar1_Scroll(object sender, EventArgs e)
+		{
+			vScrollBar1.Value = customScrollbar1.Value;
+			customScrollbar1.Invalidate();
+			panel1_Scroll(sender, null);
+		}
+
+		private void richTextBox1_VScroll(object sender, EventArgs e)
+		{
+			int pos = NativeMethodsManager.GetScrollPos(richTextBox1.Handle, (int)NativeMethodsManager.ScrollBarType.SbVert);
+			pos <<= 16;
+
+			vScrollBar1.Scroll -= panel1_Scroll;
+			uint par = (uint)NativeMethodsManager.ScrollBarCommands.SB_THUMBPOSITION | (uint)pos;
+			NativeMethodsManager.SendMessage(vScrollBar1.Handle, (int)NativeMethodsManager.ScrollBarCommands.SB_THUMBPOSITION, new IntPtr(par), new IntPtr(0));
+			vScrollBar1.Scroll += panel1_Scroll;
+		}
+
+		private void panel1_Scroll(object sender, ScrollEventArgs e)
+		{
+			int pos = NativeMethodsManager.GetScrollPos(vScrollBar1.Handle, (int)NativeMethodsManager.ScrollBarType.SbVert);
+			pos <<= 16;
+
+			Console.WriteLine(pos);
+
+			richTextBox1.VScroll -= richTextBox1_VScroll;
+			uint par = (uint)NativeMethodsManager.ScrollBarCommands.SB_THUMBPOSITION | (uint)pos;
+			NativeMethodsManager.SendMessage(richTextBox1.Handle, (int)NativeMethodsManager.Message.WM_VSCROLL, new IntPtr(par), new IntPtr(0));
+			richTextBox1.VScroll += richTextBox1_VScroll;
+
+
+			//customScrollbar1.Scroll -= customScrollbar1_Scroll;
+			//customScrollbar1.Value = fakePanel.AutoScrollPosition.Y;
+			//customScrollbar1.Invalidate();
+			//customScrollbar1.Scroll += customScrollbar1_Scroll;
+		}
+
+		private void richTextBox1_vScroll(Message msg)
+		{
+			//msg.HWnd = fakePanel.Handle;
+			//fakePanel.PubWndProc(ref msg);
+		}
+
+		private void fakePanel_vScroll(Message msg)
+		{
+			//msg.HWnd = richTextBox1.Handle;
+			//richTextBox1.PubWndProc(ref msg);
+		}
+
+		private void fakePanel_SizeChanged(object sender, EventArgs e)
+		{
+			//richTextBox1.MinimumSize = new Size(fakePanel.Width, fakePanel.Height);
+		}
+
+		private void richTextBox1_ContentsResized(object sender, ContentsResizedEventArgs e)
+		{
+			//richTextBox1.Width = e.NewRectangle.Width + 5;
+		}
 	}
 
 	public class ContentChangedEventArgs : EventArgs

@@ -219,6 +219,15 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ColorManager.cs" />
+    <Compile Include="CustomRichTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomScrollbar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FakeScrollPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="NativeMethodsManager.cs" />
     <Compile Include="FirebaseManager.cs" />
     <Compile Include="LoginForm.cs">
@@ -252,6 +261,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomScrollbar.resx">
+      <DependentUpon>CustomScrollbar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -297,6 +309,9 @@
     <None Include="resources\imgs\dark\black-notes.png" />
     <None Include="resources\imgs\dark\black-about.png" />
     <None Include="resources\imgs\dark\black-github.png" />
+    <None Include="resources\imgs\note-scrollbar\yellow\sb-uparrow-y.png" />
+    <None Include="resources\imgs\note-scrollbar\yellow\sb-downarrow-y.png" />
+    <None Include="resources\imgs\note-scrollbar\yellow\sb-thumbmiddle-y.png" />
     <Content Include="tinote.ico" />
     <None Include="resources\imgs\dark\black-close.png" />
     <None Include="resources\imgs\light\white-close.png" />
