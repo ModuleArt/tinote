@@ -2,9 +2,10 @@
   <img src="/WindowsApp/quick-sticky-notes/resources/imgs/tinote96.png">
 </p>
 <h1 align="center">Tinote</h1>
+<h4 align="center">Sticky Notes app for Windows</h4>
 
 <p align="center">
-  Quick Picture Viewer is a lightweight cross-platform note-taking application with RTF support, built on top of WinForms (C#).
+  Tinote is a lightweight cross-platform note-taking application with RTF support.
 </p>
 
 <p align="center">
