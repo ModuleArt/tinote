@@ -61,7 +61,10 @@ namespace quick_sticky_notes
         private void NoteManager_NoteAdded(object sender, NoteAddedEventArgs e)
         {
             notesListBox.Invoke((MethodInvoker)(() => {
-                notesListBox.Items.Add(e.Note);
+                if (noteManager.currentFolder == e.Note.folderName)
+                {
+                    notesListBox.Items.Add(e.Note);
+                }
             }));
 
             e.Note.ContentChanged += Note_ContentChanged;
@@ -69,15 +72,28 @@ namespace quick_sticky_notes
             e.Note.VisibleChanged += Note_VisibleChanged;
             e.Note.PositionChanged += Note_PositionChanged;
             e.Note.PerformNewNote += Note_PerformNewNote;
-            e.Note.PerformDelete += Note_PerformDelete;
+            e.Note.PerformMoveToTrash += Note_PerformMoveToTrash;
             e.Note.PerformSync += Note_PerformSync;
             e.Note.ShowNotesList += Note_ShowNotesList;
             e.Note.ColorChanged += Note_ColorChanged;
+            e.Note.FolderChanged += Note_FolderChanged;
 
             if (e.Note.visible)
             {
                 e.Note.Show();
             }
+        }
+
+        private void Note_FolderChanged(object sender, EventArgs e)
+        {
+            notesListBox.Items.Clear();
+            List<Note> ln = noteManager.SearchFor();
+            for (int i = 0; i < ln.Count; i++)
+            {
+                notesListBox.Items.Add(ln[i]);
+            }
+
+            noteManager.SaveNoteToDisk(sender as Note);
         }
 
         private void Note_ColorChanged(object sender, ColorChangedEventArgs e)
@@ -99,17 +115,21 @@ namespace quick_sticky_notes
             }
         }
 
-        private void Note_PerformDelete(object sender, EventArgs e)
+        private void Note_PerformMoveToTrash(object sender, EventArgs e)
         {
             Note note = sender as Note;
 
-            if (notesListBox.Items.Contains(note))
-            {
-                notesListBox.Items.Remove(note);
-            }
+            //if (notesListBox.Items.Contains(note))
+            //{
+            //    notesListBox.Items.Remove(note);
+            //}
 
-            fm.RemoveNote(note.uniqueId);
-            noteManager.RemoveNote(note);
+            //fm.RemoveNote(note.uniqueId);
+            //noteManager.RemoveNote(note);
+
+            note.ChangeFolder(noteManager.trashFolderId);
+
+            notesListBox.Invalidate();
         }
 
         private void Note_PerformNewNote(object sender, PerformNewNoteEventArgs e)
@@ -193,7 +213,15 @@ namespace quick_sticky_notes
                 if (index != ListBox.NoMatches)
                 {
                     notesListBox.SelectedIndex = index;
-                    notesListItemContext.Show(Cursor.Position);
+
+                    if (noteManager.currentFolder == noteManager.trashFolderId)
+                    {
+                        trashListItemContext.Show(Cursor.Position);
+                    }
+                    else
+                    {
+                        notesListItemContext.Show(Cursor.Position);
+                    }
                 }
                 else
                 {
@@ -220,13 +248,17 @@ namespace quick_sticky_notes
             {
                 Note note = notesListBox.SelectedItem as Note;
 
-                if (notesListBox.Items.Contains(note))
-                {
-                    notesListBox.Items.Remove(note);
-                }
+                //if (notesListBox.Items.Contains(note))
+                //{
+                //    notesListBox.Items.Remove(note);
+                //}
 
-                fm.RemoveNote(note.uniqueId);
-                noteManager.RemoveNote(note);
+                //fm.RemoveNote(note.uniqueId);
+                //noteManager.RemoveNote(note);
+
+                note.ChangeFolder(noteManager.trashFolderId);
+
+                notesListBox.Invalidate();
             }
         }
 
@@ -420,8 +452,6 @@ namespace quick_sticky_notes
                     notesListBox.Items.Add(ln[i]);
                 }
             }
-
-            emptyLabel.Visible = notesListBox.Items.Count == 0;
         }
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
@@ -441,7 +471,7 @@ namespace quick_sticky_notes
                     {
                         newNoteBtn.PerformClick();
                     }
-                    else if (e.KeyCode == Keys.A)
+                    else if (e.KeyCode == Keys.W)
                     {
                         allNotesBtn.PerformClick();
                     }
@@ -572,6 +602,54 @@ namespace quick_sticky_notes
         private void logoPictureBox_MouseDown(object sender, MouseEventArgs e)
         {
             titlePanel_MouseDown(sender, e);
+        }
+
+        private void allNotesBtn_Click(object sender, EventArgs e)
+        {
+            if (noteManager.currentFolder != noteManager.noFolderId)
+            {
+                noteManager.currentFolder = noteManager.noFolderId;
+
+                notesListBox.Items.Clear();
+                List<Note> ln = noteManager.SearchFor();
+                for (int i = 0; i < ln.Count; i++)
+                {
+                    notesListBox.Items.Add(ln[i]);
+                }
+
+                allNotesBtn.FlatAppearance.BorderSize = 1;
+                trashBtn.FlatAppearance.BorderSize = 0;
+            }
+        }
+
+        private void trashBtn_Click(object sender, EventArgs e)
+        {
+            if (noteManager.currentFolder != noteManager.trashFolderId)
+            {
+                noteManager.currentFolder = noteManager.trashFolderId;
+
+                notesListBox.Items.Clear();
+                List<Note> ln = noteManager.SearchFor();
+                for (int i = 0; i < ln.Count; i++)
+                {
+                    notesListBox.Items.Add(ln[i]);
+                }
+
+                allNotesBtn.FlatAppearance.BorderSize = 0;
+                trashBtn.FlatAppearance.BorderSize = 1;
+            }
+        }
+
+        private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
+            {
+                Note note = notesListBox.SelectedItem as Note;
+
+                note.ChangeFolder(noteManager.noFolderId);
+
+                notesListBox.Invalidate();
+            }
         }
     }
 }

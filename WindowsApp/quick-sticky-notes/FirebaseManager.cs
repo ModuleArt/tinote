@@ -4,7 +4,7 @@ using System;
 using Firebase.Database.Query;
 using Newtonsoft.Json;
 using System.IO;
-using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace quick_sticky_notes
 {
@@ -34,9 +34,11 @@ namespace quick_sticky_notes
 			if (profileForm == null || profileForm.IsDisposed)
 			{
 				profileForm = new ProfileForm(curUser.DisplayName, curUser.Email);
-				profileForm.Show();
-
 				profileForm.PerformSignOut += ProfileForm_PerformSignOut;
+				if (profileForm.ShowDialog() == DialogResult.Cancel)
+				{
+					profileForm.Dispose();
+				}
 			}
 		}
 
@@ -50,10 +52,12 @@ namespace quick_sticky_notes
 			if (loginForm == null || loginForm.IsDisposed)
 			{
 				loginForm = new LoginForm();
-				loginForm.Show();
-
 				loginForm.PerformRegistration += LoginForm_PerformRegistration1;
 				loginForm.PerformLogin += LoginForm_PerformLogin1;
+				if (loginForm.ShowDialog() == DialogResult.Cancel)
+				{
+					loginForm.Dispose();
+				}
 			}
 		}
 
@@ -72,9 +76,6 @@ namespace quick_sticky_notes
 			curUser = null;
 			SaveUserToDisk();
 			OnSignStatusChanged(EventArgs.Empty);
-
-			profileForm.Close();
-			profileForm.Dispose();
 		}
 
 		private async void Register(string displayName, string email, string password)
@@ -83,9 +84,6 @@ namespace quick_sticky_notes
 			curUser = fal.User;
 			SaveUserToDisk();
 			OnSignStatusChanged(EventArgs.Empty);
-
-			loginForm.Close();
-			loginForm.Dispose();
 
 			ShowProfileForm();
 		}
@@ -96,9 +94,6 @@ namespace quick_sticky_notes
 			curUser = fal.User;
 			SaveUserToDisk();
 			OnSignStatusChanged(EventArgs.Empty);
-
-			loginForm.Close();
-			loginForm.Dispose();
 
 			ShowProfileForm();
 		}
@@ -134,7 +129,8 @@ namespace quick_sticky_notes
 					t = note.contentRtf,
 					s = DateTime.Now.ToBinary().ToString(),
 					c = note.colorStr,
-					d = note.dateCreated.ToBinary().ToString()
+					d = note.dateCreated.ToBinary().ToString(),
+					f = note.folderName
 				};
 
 				await firebaseClient.Child("notes").Child(note.uniqueId.ToString()).PutAsync<NoteData>(data);

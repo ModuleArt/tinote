@@ -44,7 +44,7 @@
 			// titleLabel
 			// 
 			this.titleLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.titleLabel.Location = new System.Drawing.Point(9, 178);
+			this.titleLabel.Location = new System.Drawing.Point(9, 169);
 			this.titleLabel.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
 			this.titleLabel.Name = "titleLabel";
 			this.titleLabel.Size = new System.Drawing.Size(238, 21);
@@ -56,7 +56,7 @@
 			// versionLabel
 			// 
 			this.versionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(106)))), ((int)(((byte)(29)))));
-			this.versionLabel.Location = new System.Drawing.Point(9, 208);
+			this.versionLabel.Location = new System.Drawing.Point(9, 199);
 			this.versionLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.versionLabel.Name = "versionLabel";
 			this.versionLabel.Size = new System.Drawing.Size(238, 17);
@@ -70,10 +70,10 @@
 			this.githubBtn.FlatAppearance.BorderSize = 0;
 			this.githubBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.githubBtn.Image = global::quick_sticky_notes.Properties.Resources.black_github;
-			this.githubBtn.Location = new System.Drawing.Point(9, 266);
+			this.githubBtn.Location = new System.Drawing.Point(9, 257);
 			this.githubBtn.Margin = new System.Windows.Forms.Padding(0, 32, 0, 9);
 			this.githubBtn.Name = "githubBtn";
-			this.githubBtn.Size = new System.Drawing.Size(110, 32);
+			this.githubBtn.Size = new System.Drawing.Size(118, 32);
 			this.githubBtn.TabIndex = 15;
 			this.githubBtn.Text = " Contribute";
 			this.githubBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -85,8 +85,8 @@
 			// pictureBox1
 			// 
 			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-			this.pictureBox1.Location = new System.Drawing.Point(9, 41);
-			this.pictureBox1.Margin = new System.Windows.Forms.Padding(0, 9, 0, 0);
+			this.pictureBox1.Location = new System.Drawing.Point(9, 32);
+			this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
 			this.pictureBox1.Name = "pictureBox1";
 			this.pictureBox1.Size = new System.Drawing.Size(238, 128);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -116,7 +116,7 @@
 			// copyrightBtn
 			// 
 			this.copyrightBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(106)))), ((int)(((byte)(29)))));
-			this.copyrightBtn.Location = new System.Drawing.Point(9, 316);
+			this.copyrightBtn.Location = new System.Drawing.Point(9, 307);
 			this.copyrightBtn.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
 			this.copyrightBtn.Name = "copyrightBtn";
 			this.copyrightBtn.Size = new System.Drawing.Size(238, 17);
@@ -130,10 +130,10 @@
 			this.developerBtn.FlatAppearance.BorderSize = 0;
 			this.developerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.developerBtn.Image = ((System.Drawing.Image)(resources.GetObject("developerBtn.Image")));
-			this.developerBtn.Location = new System.Drawing.Point(137, 266);
+			this.developerBtn.Location = new System.Drawing.Point(129, 257);
 			this.developerBtn.Margin = new System.Windows.Forms.Padding(0, 32, 0, 9);
 			this.developerBtn.Name = "developerBtn";
-			this.developerBtn.Size = new System.Drawing.Size(110, 32);
+			this.developerBtn.Size = new System.Drawing.Size(118, 32);
 			this.developerBtn.TabIndex = 17;
 			this.developerBtn.Text = " Module Art";
 			this.developerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -147,7 +147,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(205)))), ((int)(((byte)(56)))));
-			this.ClientSize = new System.Drawing.Size(256, 351);
+			this.ClientSize = new System.Drawing.Size(256, 342);
 			this.Controls.Add(this.closeBtn);
 			this.Controls.Add(this.developerBtn);
 			this.Controls.Add(this.copyrightBtn);
@@ -164,7 +164,6 @@
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "AboutForm";
-			this.TopMost = true;
 			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AboutForm_MouseDown);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);

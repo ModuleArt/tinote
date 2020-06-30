@@ -8,17 +8,30 @@ namespace quick_sticky_notes
 	public class NoteManager
 	{
 		private List<Note> notes = new List<Note>();
+		public string trashFolderId = "$";
+		public string noFolderId = "";
+		public string currentFolder;
 
 		public NoteManager()
 		{
-
+			currentFolder = noFolderId;
 		}
 
 		public List<Note> SearchFor(string str = "")
 		{
 			if (string.IsNullOrEmpty(str))
 			{
-				return notes;
+				List<Note> res = new List<Note>();
+
+				for (int i = 0; i < notes.Count; i++)
+				{
+					if (notes[i].folderName == currentFolder)
+					{
+						res.Add(notes[i]);
+					}
+				}
+
+				return res;
 			}
 			else
 			{

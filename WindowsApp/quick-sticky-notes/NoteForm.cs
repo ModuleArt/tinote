@@ -165,11 +165,13 @@ namespace quick_sticky_notes
 
 		private void NoteForm_Load(object sender, EventArgs e)
 		{
-			IntPtr hprog = NativeMethodsManager.FindWindowEx(
-				NativeMethodsManager.FindWindowEx(NativeMethodsManager.FindWindow("Progman", "Program Manager"), IntPtr.Zero, "SHELLDLL_DefView", ""),
-				IntPtr.Zero, "SysListView32", "FolderView");
+			//IntPtr hprog = NativeMethodsManager.FindWindowEx(NativeMethodsManager.FindWindowEx(
+			//	NativeMethodsManager.FindWindow("Progman", "Program Manager"),
+			//	IntPtr.Zero, "SHELLDLL_DefView", ""),
+			//	IntPtr.Zero, "SysListView32", "FolderView"
+			//);
 
-			NativeMethodsManager.SetWindowLong(this.Handle, NativeMethodsManager.GWL_HWNDPARENT, hprog);
+			//NativeMethodsManager.SetWindowLong(this.Handle, NativeMethodsManager.GWL_HWNDPARENT, hprog);
 		}
 
 		private void ShowTitlebar(bool show)
@@ -215,14 +217,15 @@ namespace quick_sticky_notes
 
 		private void deleteBtn_Click(object sender, EventArgs e)
 		{
-			OnPerformDelete(e);
+			OnPerformMoveToTrash(e);
+			this.Close();
 		}
 
-		protected virtual void OnPerformDelete(EventArgs e)
+		protected virtual void OnPerformMoveToTrash(EventArgs e)
 		{
-			PerformDelete?.Invoke(this, e);
+			PerformMoveToTrash?.Invoke(this, e);
 		}
-		public event EventHandler<EventArgs> PerformDelete;
+		public event EventHandler<EventArgs> PerformMoveToTrash;
 
 		protected virtual void OnPerformSync(EventArgs e)
 		{

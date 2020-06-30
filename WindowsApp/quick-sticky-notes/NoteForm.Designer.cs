@@ -125,7 +125,7 @@
             this.toolStripSeparator5,
             this.deleteToolStripMenuItem});
 			this.headerContext.Name = "headerContext";
-			this.headerContext.Size = new System.Drawing.Size(191, 104);
+			this.headerContext.Size = new System.Drawing.Size(191, 126);
 			// 
 			// renameToolStripMenuItem
 			// 
@@ -227,7 +227,7 @@
 			this.deleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripMenuItem.Image")));
 			this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
 			this.deleteToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-			this.deleteToolStripMenuItem.Text = "Delete note";
+			this.deleteToolStripMenuItem.Text = "Move to trash";
 			this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteBtn_Click);
 			// 
 			// closeBtn
@@ -291,7 +291,7 @@
 			this.secondTitleLabel.AutoSize = true;
 			this.secondTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.secondTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(173)))), ((int)(((byte)(96)))));
-			this.secondTitleLabel.Location = new System.Drawing.Point(13, 20);
+			this.secondTitleLabel.Location = new System.Drawing.Point(13, 21);
 			this.secondTitleLabel.Margin = new System.Windows.Forms.Padding(0);
 			this.secondTitleLabel.Name = "secondTitleLabel";
 			this.secondTitleLabel.Size = new System.Drawing.Size(32, 17);

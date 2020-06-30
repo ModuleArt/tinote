@@ -9,6 +9,7 @@
 		public string s { get; set; } // sync date
 		public string d { get; set; } // date created
 		public string c { get; set; } // note color
+		public string f { get; set; } // folder name
 		public string[] a { get; set; } // attachments
 	}
 }

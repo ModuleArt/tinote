@@ -16,6 +16,7 @@ namespace quick_sticky_notes
 			{
 				if (String.Equals(regPassTextBox.Text, regCpassTextBox.Text))
 				{
+					this.Close();
 					PerformRegistrationEventArgs args = new PerformRegistrationEventArgs
 					{
 						DisplayName = regNameTextBox.Text,
@@ -51,6 +52,7 @@ namespace quick_sticky_notes
 		{
 			if (loginMailTextBox.Text.Length > 0 && loginPassTextBox.Text.Length > 0)
 			{
+				this.Close();
 				PerformLoginEventArgs args = new PerformLoginEventArgs
 				{
 					Email = loginMailTextBox.Text,

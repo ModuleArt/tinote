@@ -16,13 +16,32 @@ namespace quick_sticky_notes
 		public int width = -1;
 		public int height = -1;
 		public string colorStr = "yellow";
+		public string folderName = "";
 		private NoteForm noteForm;
 
-		public Note(string uniqueId, string colorStr, DateTime created)
+		public Note(string uniqueId, string colorStr, DateTime dateCreated)
 		{
 			this.uniqueId = uniqueId;
 			this.colorStr = colorStr;
-			this.dateCreated = created;
+			this.dateCreated = dateCreated;
+		}
+
+		public void ChangeFolder(string folderName)
+		{
+			if (folderName != this.folderName)
+			{
+				this.folderName = folderName;
+				if (noteForm != null && !noteForm.IsDisposed)
+				{
+					noteForm.Invoke((MethodInvoker)(() =>
+					{
+
+					}));
+				}
+
+				OnFolderChanged(EventArgs.Empty);
+				OnPerformSync(EventArgs.Empty);
+			}
 		}
 
 		public void SetTitle(string title)
@@ -32,7 +51,8 @@ namespace quick_sticky_notes
 				this.title = title;
 				if (noteForm != null && !noteForm.IsDisposed)
 				{
-					noteForm.Invoke((MethodInvoker)(() => {
+					noteForm.Invoke((MethodInvoker)(() => 
+					{
 						noteForm.SetTitle(title);
 					}));
 				}
@@ -46,7 +66,8 @@ namespace quick_sticky_notes
 				this.contentRtf = rtf;
 				if (noteForm != null && !noteForm.IsDisposed)
 				{
-					noteForm.Invoke((MethodInvoker)(() => {
+					noteForm.Invoke((MethodInvoker)(() => 
+					{
 						noteForm.SetContent(rtf);
 					}));
 				}
@@ -60,7 +81,8 @@ namespace quick_sticky_notes
 				this.colorStr = colorStr;
 				if (noteForm != null && !noteForm.IsDisposed)
 				{
-					noteForm.Invoke((MethodInvoker)(() => {
+					noteForm.Invoke((MethodInvoker)(() => 
+					{
 						noteForm.SetColor(colorStr);
 					}));
 				}
@@ -82,7 +104,7 @@ namespace quick_sticky_notes
 				noteForm.FormClosing += NoteForm_FormClosing;
 				noteForm.ResizeEnd += NoteForm_ResizeEnd;
 				noteForm.PerformNewNote += NoteForm_PerformNewNote;
-				noteForm.PerformDelete += NoteForm_PerformDelete;
+				noteForm.PerformMoveToTrash += NoteForm_PerformMoveToTrash;
 				noteForm.PerformSync += NoteForm_PerformSync;
 				noteForm.ShowNotesList += NoteForm_ShowNotesList;
 				noteForm.ColorChanged += NoteForm_ColorChanged;
@@ -127,9 +149,9 @@ namespace quick_sticky_notes
 			OnPerformSync(e);
 		}
 
-		private void NoteForm_PerformDelete(object sender, EventArgs e)
+		private void NoteForm_PerformMoveToTrash(object sender, EventArgs e)
 		{
-			OnPerformDelete(e);
+			OnPerformMoveToTrash(e);
 		}
 
 		private void NoteForm_PerformNewNote(object sender, PerformNewNoteEventArgs e)
@@ -247,11 +269,11 @@ namespace quick_sticky_notes
 		}
 		public event EventHandler<PerformNewNoteEventArgs> PerformNewNote;
 
-		protected virtual void OnPerformDelete(EventArgs e)
+		protected virtual void OnPerformMoveToTrash(EventArgs e)
 		{
-			PerformDelete?.Invoke(this, e);
+			PerformMoveToTrash?.Invoke(this, e);
 		}
-		public event EventHandler<EventArgs> PerformDelete;
+		public event EventHandler<EventArgs> PerformMoveToTrash;
 
 		protected virtual void OnPerformSync(EventArgs e)
 		{
@@ -264,6 +286,12 @@ namespace quick_sticky_notes
 			ShowNotesList?.Invoke(this, e);
 		}
 		public event EventHandler<EventArgs> ShowNotesList;
+
+		protected virtual void OnFolderChanged(EventArgs e)
+		{
+			FolderChanged?.Invoke(this, e);
+		}
+		public event EventHandler<EventArgs> FolderChanged;
 
 		protected virtual void OnColorChanged(ColorChangedEventArgs e)
 		{

@@ -252,9 +252,9 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "LoginForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Register / Login";
-			this.TopMost = true;
 			this.tabControl1.ResumeLayout(false);
 			this.loginPage.ResumeLayout(false);
 			this.loginPage.PerformLayout();
