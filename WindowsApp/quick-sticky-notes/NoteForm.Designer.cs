@@ -125,7 +125,7 @@
             this.toolStripSeparator5,
             this.deleteToolStripMenuItem});
 			this.headerContext.Name = "headerContext";
-			this.headerContext.Size = new System.Drawing.Size(191, 126);
+			this.headerContext.Size = new System.Drawing.Size(191, 104);
 			// 
 			// renameToolStripMenuItem
 			// 
@@ -289,12 +289,12 @@
 			// secondTitleLabel
 			// 
 			this.secondTitleLabel.AutoSize = true;
-			this.secondTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.secondTitleLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.secondTitleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(173)))), ((int)(((byte)(96)))));
 			this.secondTitleLabel.Location = new System.Drawing.Point(13, 21);
 			this.secondTitleLabel.Margin = new System.Windows.Forms.Padding(0);
 			this.secondTitleLabel.Name = "secondTitleLabel";
-			this.secondTitleLabel.Size = new System.Drawing.Size(32, 17);
+			this.secondTitleLabel.Size = new System.Drawing.Size(36, 17);
 			this.secondTitleLabel.TabIndex = 9;
 			this.secondTitleLabel.Text = "Title";
 			this.secondTitleLabel.Visible = false;

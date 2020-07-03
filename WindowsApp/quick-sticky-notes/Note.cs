@@ -31,13 +31,6 @@ namespace quick_sticky_notes
 			if (folderName != this.folderName)
 			{
 				this.folderName = folderName;
-				if (noteForm != null && !noteForm.IsDisposed)
-				{
-					noteForm.Invoke((MethodInvoker)(() =>
-					{
-
-					}));
-				}
 
 				OnFolderChanged(EventArgs.Empty);
 				OnPerformSync(EventArgs.Empty);
@@ -192,17 +185,17 @@ namespace quick_sticky_notes
 
 		public void Hide()
 		{
-			VisibleChangedEventArgs args = new VisibleChangedEventArgs()
-			{
-				Visible = visible
-			};
-			OnVisibleChanged(args);
-
 			visible = false;
 			if (noteForm != null && !noteForm.IsDisposed)
 			{
 				noteForm.Dispose();
 			}
+
+			VisibleChangedEventArgs args = new VisibleChangedEventArgs()
+			{
+				Visible = visible
+			};
+			OnVisibleChanged(args);
 		}
 
 		private void NoteForm_TitleChanged(object sender, TitleChangedEventArgs e)

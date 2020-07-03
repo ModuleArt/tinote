@@ -266,7 +266,7 @@
 			// 
 			// searchTextBox
 			// 
-			this.searchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
+			this.searchTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
 			this.searchTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.searchTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
 			this.searchTextBox.Location = new System.Drawing.Point(32, 7);
@@ -283,7 +283,7 @@
 			// 
 			// searchPanel
 			// 
-			this.searchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(240)))));
+			this.searchPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
 			this.searchPanel.Controls.Add(this.searchTextBox);
 			this.searchPanel.Controls.Add(this.profileBtn);
 			this.searchPanel.Controls.Add(this.newNoteBtn);
@@ -369,6 +369,8 @@
 			// 
 			// allNotesBtn
 			// 
+			this.allNotesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+			this.allNotesBtn.FlatAppearance.BorderSize = 0;
 			this.allNotesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.allNotesBtn.Image = global::quick_sticky_notes.Properties.Resources.black_notes;
 			this.allNotesBtn.Location = new System.Drawing.Point(0, 0);
@@ -376,8 +378,8 @@
 			this.allNotesBtn.Name = "allNotesBtn";
 			this.allNotesBtn.Size = new System.Drawing.Size(32, 32);
 			this.allNotesBtn.TabIndex = 7;
-			this.sidebarToolTip.SetToolTip(this.allNotesBtn, "Without group (Ctrl+W)");
-			this.allNotesBtn.UseVisualStyleBackColor = true;
+			this.sidebarToolTip.SetToolTip(this.allNotesBtn, "Ungrouped notes (Ctrl+U)");
+			this.allNotesBtn.UseVisualStyleBackColor = false;
 			this.allNotesBtn.Click += new System.EventHandler(this.allNotesBtn_Click);
 			// 
 			// pinnedNotesBtn
@@ -420,7 +422,7 @@
 			// 
 			// titlePanel
 			// 
-			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(213)))), ((int)(((byte)(210)))));
+			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
 			this.titlePanel.Controls.Add(this.logoPictureBox);
 			this.titlePanel.Controls.Add(this.closeBtn);
 			this.titlePanel.Controls.Add(this.titleLabel);
@@ -444,7 +446,7 @@
 			// 
 			// sidePanel
 			// 
-			this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(227)))), ((int)(((byte)(225)))));
+			this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
 			this.sidePanel.Controls.Add(this.aboutBtn);
 			this.sidePanel.Controls.Add(this.allNotesBtn);
 			this.sidePanel.Controls.Add(this.pinnedNotesBtn);
@@ -468,7 +470,7 @@
 			// 
 			this.restoreToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("restoreToolStripMenuItem.Image")));
 			this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-			this.restoreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.restoreToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
 			this.restoreToolStripMenuItem.Text = "Restore";
 			this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
 			// 
@@ -477,7 +479,7 @@
 			this.trashListItemContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.restoreToolStripMenuItem});
 			this.trashListItemContext.Name = "notesListContext";
-			this.trashListItemContext.Size = new System.Drawing.Size(181, 48);
+			this.trashListItemContext.Size = new System.Drawing.Size(114, 26);
 			// 
 			// MainForm
 			// 

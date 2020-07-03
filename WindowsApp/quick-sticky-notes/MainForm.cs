@@ -28,6 +28,8 @@ namespace quick_sticky_notes
         {
             InitializeComponent();
 
+            this.Hide();
+
             noteManager = new NoteManager();
             noteManager.NoteAdded += NoteManager_NoteAdded;
 
@@ -78,7 +80,7 @@ namespace quick_sticky_notes
             e.Note.ColorChanged += Note_ColorChanged;
             e.Note.FolderChanged += Note_FolderChanged;
 
-            if (e.Note.visible)
+            if (e.Note.visible && e.Note.folderName != noteManager.trashFolderId)
             {
                 e.Note.Show();
             }
@@ -128,6 +130,7 @@ namespace quick_sticky_notes
             //noteManager.RemoveNote(note);
 
             note.ChangeFolder(noteManager.trashFolderId);
+            //note.Hide();
 
             notesListBox.Invalidate();
         }
@@ -194,13 +197,23 @@ namespace quick_sticky_notes
             if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
             {
                 Note note = notesListBox.SelectedItem as Note;
-                if (note.visible)
+
+                if (note.folderName == noteManager.trashFolderId)
                 {
-                    note.Focus();
+                    note.ChangeFolder(noteManager.noFolderId);
+                    note.Show();
+                    allNotesBtn.PerformClick();
                 }
                 else
                 {
-                    note.Show();
+                    if (note.visible)
+                    {
+                        note.Focus();
+                    }
+                    else
+                    {
+                        note.Show();
+                    }
                 }
             }
         }
@@ -256,6 +269,7 @@ namespace quick_sticky_notes
                 //fm.RemoveNote(note.uniqueId);
                 //noteManager.RemoveNote(note);
 
+                note.Hide();
                 note.ChangeFolder(noteManager.trashFolderId);
 
                 notesListBox.Invalidate();
@@ -471,7 +485,7 @@ namespace quick_sticky_notes
                     {
                         newNoteBtn.PerformClick();
                     }
-                    else if (e.KeyCode == Keys.W)
+                    else if (e.KeyCode == Keys.U)
                     {
                         allNotesBtn.PerformClick();
                     }
@@ -617,8 +631,8 @@ namespace quick_sticky_notes
                     notesListBox.Items.Add(ln[i]);
                 }
 
-                allNotesBtn.FlatAppearance.BorderSize = 1;
-                trashBtn.FlatAppearance.BorderSize = 0;
+                allNotesBtn.BackColor = ColorManager.UIColor5;
+                trashBtn.BackColor = ColorManager.UIColor3;
             }
         }
 
@@ -635,8 +649,8 @@ namespace quick_sticky_notes
                     notesListBox.Items.Add(ln[i]);
                 }
 
-                allNotesBtn.FlatAppearance.BorderSize = 0;
-                trashBtn.FlatAppearance.BorderSize = 1;
+                allNotesBtn.BackColor = ColorManager.UIColor3;
+                trashBtn.BackColor = ColorManager.UIColor5;
             }
         }
 
