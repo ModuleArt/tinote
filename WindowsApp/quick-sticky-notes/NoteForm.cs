@@ -391,18 +391,25 @@ namespace quick_sticky_notes
 
 		private void toggleBulletsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			SelectCurLine();
-			if (richTextBox1.SelectedText[0] == '○')
+			int firstLine = richTextBox1.GetLineFromCharIndex(richTextBox1.SelectionStart);
+			int lastLine = richTextBox1.GetLineFromCharIndex(richTextBox1.SelectionStart + richTextBox1.SelectionLength) + 1;
+
+			for (int i = firstLine; i < lastLine; i++)
 			{
-				richTextBox1.SelectedText = "●" + richTextBox1.SelectedText.Substring(1, richTextBox1.SelectedText.Length - 1);
-			}
-			else if (richTextBox1.SelectedText[0] == '●')
-			{
-				richTextBox1.SelectedText = "○" + richTextBox1.SelectedText.Substring(1, richTextBox1.SelectedText.Length - 1);
-			}
-			else
-			{
-				richTextBox1.SelectedText = "○ " + richTextBox1.SelectedText;
+				richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), richTextBox1.GetFirstCharIndexFromLine(i) + richTextBox1.Lines[i].Length);
+
+				if (richTextBox1.SelectedText[0] == '○')
+				{
+					richTextBox1.SelectedText = "●" + richTextBox1.SelectedText.Substring(1, richTextBox1.SelectedText.Length - 1);
+				}
+				else if (richTextBox1.SelectedText[0] == '●')
+				{
+					richTextBox1.SelectedText = "○" + richTextBox1.SelectedText.Substring(1, richTextBox1.SelectedText.Length - 1);
+				}
+				else
+				{
+					richTextBox1.SelectedText = "○ " + richTextBox1.SelectedText;
+				}
 			}
 		}
 

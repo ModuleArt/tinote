@@ -25,6 +25,14 @@ namespace quick_sticky_notes
 			string fullVer = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 			int lastDotIndex = fullVer.LastIndexOf('.');
 			versionLabel.Text = String.Format(versionLabel.Text, fullVer.Substring(0, lastDotIndex));
+			if (IntPtr.Size == 4)
+			{
+				versionLabel.Text += " (x32)";
+			}
+			else if (IntPtr.Size == 8)
+			{
+				versionLabel.Text += " (x64)";
+			}
 		}
 
 		private void closeBtn_Click(object sender, EventArgs e)
@@ -80,6 +88,11 @@ namespace quick_sticky_notes
 		private void button1_Click(object sender, EventArgs e)
 		{
 			Process.Start("https://moduleart.github.io/");
+		}
+
+		private void donateBtn_Click(object sender, EventArgs e)
+		{
+			Process.Start("https://www.patreon.com/moduleart");
 		}
 	}
 }

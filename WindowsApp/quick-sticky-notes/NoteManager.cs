@@ -76,14 +76,10 @@ namespace quick_sticky_notes
 
 			string uniqueId = note.uniqueId;
 			string filePath = Path.Combine(notesFolder, uniqueId);
-			
+
+			note.deleted = true;
 			note.Hide();
 			notes.Remove(note);
-
-			if (File.Exists(filePath))
-			{
-				File.Delete(filePath);
-			}
 		}
 
 		public void SaveNoteToDisk(Note note)
@@ -116,6 +112,7 @@ namespace quick_sticky_notes
 					notes[i].SetTitle(data.l);
 					notes[i].SetColor(data.c);
 					notes[i].SetContent(data.t);
+					notes[i].ChangeFolder(data.f);
 
 					noteExists = true;
 				}
@@ -123,19 +120,24 @@ namespace quick_sticky_notes
 
 			if (!noteExists)
 			{
-				Note note = new Note(data.i, data.c, DateTime.FromBinary(long.Parse(data.d)));
-				note.SetContent(data.t);
-				note.SetTitle(data.l);
+				string notePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tinote", "notes", data.i);
 
-				notes.Add(note);
-
-				NoteAddedEventArgs args = new NoteAddedEventArgs()
+				if (!File.Exists(notePath))
 				{
-					Note = note
-				};
-				OnNoteAdded(args);
+					Note note = new Note(data.i, data.c, DateTime.FromBinary(long.Parse(data.d)));
+					note.SetContent(data.t);
+					note.SetTitle(data.l);
 
-				SaveNoteToDisk(note);
+					notes.Add(note);
+
+					NoteAddedEventArgs args = new NoteAddedEventArgs()
+					{
+						Note = note
+					};
+					OnNoteAdded(args);
+
+					SaveNoteToDisk(note);
+				}
 			}
 		}
 
@@ -159,13 +161,17 @@ namespace quick_sticky_notes
 				{
 					string[] lines = File.ReadAllLines(filePaths[i]);
 					Note note = JsonConvert.DeserializeObject<Note>(lines[0]);
-					notes.Add(note);
 
-					NoteAddedEventArgs args = new NoteAddedEventArgs()
+					if (!note.deleted)
 					{
-						Note = note
-					};
-					OnNoteAdded(args);
+						notes.Add(note);
+
+						NoteAddedEventArgs args = new NoteAddedEventArgs()
+						{
+							Note = note
+						};
+						OnNoteAdded(args);
+					}
 				}
 			}
 			catch (Exception ex)

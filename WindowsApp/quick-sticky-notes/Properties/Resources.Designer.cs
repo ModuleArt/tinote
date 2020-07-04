@@ -73,9 +73,29 @@ namespace quick_sticky_notes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap black_broom {
+            get {
+                object obj = ResourceManager.GetObject("black_broom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap black_close {
             get {
                 object obj = ResourceManager.GetObject("black_close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap black_donate {
+            get {
+                object obj = ResourceManager.GetObject("black_donate", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

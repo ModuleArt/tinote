@@ -102,7 +102,7 @@ namespace quick_sticky_notes
 		{
 			try
 			{
-				var observable = firebaseClient.Child("notes").OrderByValue().StartAt(curUser.Email).AsObservable<NoteData>().Subscribe(item =>
+				firebaseClient.Child("notes").OrderByValue().StartAt(curUser.Email).AsObservable<NoteData>().Subscribe(item =>
 				{
 					UpdateNoteEventArgs args = new UpdateNoteEventArgs
 					{
@@ -236,29 +236,29 @@ namespace quick_sticky_notes
 			}
 		}
 
-		public async void LoadNotesFromServer()
-		{
-			try
-			{
-				var notes = await firebaseClient.Child("notes").OrderByValue().StartAt(curUser.Email).OnceAsync<NoteData>();
+		//public async void LoadNotesFromServer()
+		//{
+		//	try
+		//	{
+		//		var notes = await firebaseClient.Child("notes").OrderByValue().StartAt(curUser.Email).OnceAsync<NoteData>();
 
-				if (notes.Count > 0)
-				{
-					foreach (var item in notes)
-					{
-						UpdateNoteEventArgs args = new UpdateNoteEventArgs
-						{
-							Data = item.Object
-						};
-						OnUpdateNote(args);
-					}
-				}
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex);
-			}
-		}
+		//		if (notes.Count > 0)
+		//		{
+		//			foreach (var item in notes)
+		//			{
+		//				UpdateNoteEventArgs args = new UpdateNoteEventArgs
+		//				{
+		//					Data = item.Object
+		//				};
+		//				OnUpdateNote(args);
+		//			}
+		//		}
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		Console.WriteLine(ex);
+		//	}
+		//}
 
 		protected virtual void OnUpdateNote(UpdateNoteEventArgs e)
 		{

@@ -17,6 +17,7 @@ namespace quick_sticky_notes
 		public int height = -1;
 		public string colorStr = "yellow";
 		public string folderName = "";
+		public bool deleted = false;
 		private NoteForm noteForm;
 
 		public Note(string uniqueId, string colorStr, DateTime dateCreated)

@@ -59,16 +59,20 @@
 			this.aboutBtn = new System.Windows.Forms.Button();
 			this.settingsBtn = new System.Windows.Forms.Button();
 			this.closeBtn = new System.Windows.Forms.Button();
-			this.allNotesBtn = new System.Windows.Forms.Button();
-			this.pinnedNotesBtn = new System.Windows.Forms.Button();
-			this.trashBtn = new System.Windows.Forms.Button();
 			this.titleLabel = new System.Windows.Forms.Label();
 			this.titlePanel = new System.Windows.Forms.Panel();
 			this.logoPictureBox = new System.Windows.Forms.PictureBox();
 			this.sidePanel = new System.Windows.Forms.Panel();
+			this.allNotesBtn = new System.Windows.Forms.Button();
+			this.pinnedNotesBtn = new System.Windows.Forms.Button();
+			this.trashBtn = new System.Windows.Forms.Button();
 			this.sidebarToolTip = new System.Windows.Forms.ToolTip(this.components);
-			this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.trashListItemContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+			this.deleteForeverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+			this.emptyTrashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.notesListItemContext.SuspendLayout();
 			this.notesListEmptyContext.SuspendLayout();
 			this.trayContext.SuspendLayout();
@@ -367,6 +371,54 @@
 			this.closeBtn.MouseEnter += new System.EventHandler(this.closeBtn_MouseEnter);
 			this.closeBtn.MouseLeave += new System.EventHandler(this.closeBtn_MouseLeave);
 			// 
+			// titleLabel
+			// 
+			this.titleLabel.AutoSize = true;
+			this.titleLabel.Location = new System.Drawing.Point(35, 7);
+			this.titleLabel.Name = "titleLabel";
+			this.titleLabel.Size = new System.Drawing.Size(44, 17);
+			this.titleLabel.TabIndex = 9;
+			this.titleLabel.Text = "Tinote";
+			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
+			// 
+			// titlePanel
+			// 
+			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+			this.titlePanel.Controls.Add(this.logoPictureBox);
+			this.titlePanel.Controls.Add(this.closeBtn);
+			this.titlePanel.Controls.Add(this.titleLabel);
+			this.titlePanel.Location = new System.Drawing.Point(0, 0);
+			this.titlePanel.Margin = new System.Windows.Forms.Padding(0);
+			this.titlePanel.Name = "titlePanel";
+			this.titlePanel.Size = new System.Drawing.Size(279, 32);
+			this.titlePanel.TabIndex = 10;
+			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
+			// 
+			// logoPictureBox
+			// 
+			this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
+			this.logoPictureBox.Location = new System.Drawing.Point(0, 0);
+			this.logoPictureBox.Margin = new System.Windows.Forms.Padding(0);
+			this.logoPictureBox.Name = "logoPictureBox";
+			this.logoPictureBox.Size = new System.Drawing.Size(32, 32);
+			this.logoPictureBox.TabIndex = 13;
+			this.logoPictureBox.TabStop = false;
+			this.logoPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.logoPictureBox_MouseDown);
+			// 
+			// sidePanel
+			// 
+			this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
+			this.sidePanel.Controls.Add(this.aboutBtn);
+			this.sidePanel.Controls.Add(this.allNotesBtn);
+			this.sidePanel.Controls.Add(this.pinnedNotesBtn);
+			this.sidePanel.Controls.Add(this.trashBtn);
+			this.sidePanel.Controls.Add(this.settingsBtn);
+			this.sidePanel.Location = new System.Drawing.Point(0, 32);
+			this.sidePanel.Margin = new System.Windows.Forms.Padding(0);
+			this.sidePanel.Name = "sidePanel";
+			this.sidePanel.Size = new System.Drawing.Size(32, 418);
+			this.sidePanel.TabIndex = 13;
+			// 
 			// allNotesBtn
 			// 
 			this.allNotesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
@@ -410,54 +462,6 @@
 			this.trashBtn.UseVisualStyleBackColor = true;
 			this.trashBtn.Click += new System.EventHandler(this.trashBtn_Click);
 			// 
-			// titleLabel
-			// 
-			this.titleLabel.AutoSize = true;
-			this.titleLabel.Location = new System.Drawing.Point(35, 7);
-			this.titleLabel.Name = "titleLabel";
-			this.titleLabel.Size = new System.Drawing.Size(44, 17);
-			this.titleLabel.TabIndex = 9;
-			this.titleLabel.Text = "Tinote";
-			this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
-			// 
-			// titlePanel
-			// 
-			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
-			this.titlePanel.Controls.Add(this.logoPictureBox);
-			this.titlePanel.Controls.Add(this.closeBtn);
-			this.titlePanel.Controls.Add(this.titleLabel);
-			this.titlePanel.Location = new System.Drawing.Point(0, 0);
-			this.titlePanel.Margin = new System.Windows.Forms.Padding(0);
-			this.titlePanel.Name = "titlePanel";
-			this.titlePanel.Size = new System.Drawing.Size(279, 32);
-			this.titlePanel.TabIndex = 10;
-			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
-			// 
-			// logoPictureBox
-			// 
-			this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
-			this.logoPictureBox.Location = new System.Drawing.Point(0, 0);
-			this.logoPictureBox.Margin = new System.Windows.Forms.Padding(0);
-			this.logoPictureBox.Name = "logoPictureBox";
-			this.logoPictureBox.Size = new System.Drawing.Size(32, 32);
-			this.logoPictureBox.TabIndex = 13;
-			this.logoPictureBox.TabStop = false;
-			this.logoPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.logoPictureBox_MouseDown);
-			// 
-			// sidePanel
-			// 
-			this.sidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(225)))), ((int)(((byte)(225)))));
-			this.sidePanel.Controls.Add(this.aboutBtn);
-			this.sidePanel.Controls.Add(this.allNotesBtn);
-			this.sidePanel.Controls.Add(this.pinnedNotesBtn);
-			this.sidePanel.Controls.Add(this.trashBtn);
-			this.sidePanel.Controls.Add(this.settingsBtn);
-			this.sidePanel.Location = new System.Drawing.Point(0, 32);
-			this.sidePanel.Margin = new System.Windows.Forms.Padding(0);
-			this.sidePanel.Name = "sidePanel";
-			this.sidePanel.Size = new System.Drawing.Size(32, 418);
-			this.sidePanel.TabIndex = 13;
-			// 
 			// sidebarToolTip
 			// 
 			this.sidebarToolTip.AutomaticDelay = 0;
@@ -466,20 +470,52 @@
 			this.sidebarToolTip.ReshowDelay = 0;
 			this.sidebarToolTip.ToolTipTitle = "Group";
 			// 
-			// restoreToolStripMenuItem
-			// 
-			this.restoreToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("restoreToolStripMenuItem.Image")));
-			this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-			this.restoreToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-			this.restoreToolStripMenuItem.Text = "Restore";
-			this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
-			// 
 			// trashListItemContext
 			// 
 			this.trashListItemContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.restoreToolStripMenuItem});
+            this.restoreToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.deleteForeverToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.emptyTrashToolStripMenuItem});
 			this.trashListItemContext.Name = "notesListContext";
-			this.trashListItemContext.Size = new System.Drawing.Size(114, 26);
+			this.trashListItemContext.Size = new System.Drawing.Size(148, 82);
+			// 
+			// restoreToolStripMenuItem
+			// 
+			this.restoreToolStripMenuItem.Enabled = false;
+			this.restoreToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("restoreToolStripMenuItem.Image")));
+			this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
+			this.restoreToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+			this.restoreToolStripMenuItem.Text = "Restore note";
+			this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(144, 6);
+			// 
+			// deleteForeverToolStripMenuItem
+			// 
+			this.deleteForeverToolStripMenuItem.Enabled = false;
+			this.deleteForeverToolStripMenuItem.Image = global::quick_sticky_notes.Properties.Resources.black_trash;
+			this.deleteForeverToolStripMenuItem.Name = "deleteForeverToolStripMenuItem";
+			this.deleteForeverToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+			this.deleteForeverToolStripMenuItem.Text = "Delete forever";
+			this.deleteForeverToolStripMenuItem.Click += new System.EventHandler(this.deleteForewerToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator4
+			// 
+			this.toolStripSeparator4.Name = "toolStripSeparator4";
+			this.toolStripSeparator4.Size = new System.Drawing.Size(144, 6);
+			// 
+			// emptyTrashToolStripMenuItem
+			// 
+			this.emptyTrashToolStripMenuItem.Image = global::quick_sticky_notes.Properties.Resources.black_broom;
+			this.emptyTrashToolStripMenuItem.Name = "emptyTrashToolStripMenuItem";
+			this.emptyTrashToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+			this.emptyTrashToolStripMenuItem.Text = "Empty trash";
+			this.emptyTrashToolStripMenuItem.Click += new System.EventHandler(this.emptyTrashToolStripMenuItem_Click);
 			// 
 			// MainForm
 			// 
@@ -560,6 +596,10 @@
 		private System.Windows.Forms.ToolTip sidebarToolTip;
 		private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip trashListItemContext;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+		private System.Windows.Forms.ToolStripMenuItem emptyTrashToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+		private System.Windows.Forms.ToolStripMenuItem deleteForeverToolStripMenuItem;
 	}
 }
 

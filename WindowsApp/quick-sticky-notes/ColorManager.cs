@@ -7,7 +7,7 @@ namespace quick_sticky_notes
 		public static Color UIColor1 = Color.White;
 		public static Color UIColor2 = Color.FromArgb(240, 240, 240);
 		public static Color UIColor3 = Color.FromArgb(225, 225, 225);
-		public static Color UIColor4 = Color.FromArgb(205, 205, 205);
+		public static Color UIColor4 = Color.FromArgb(200, 200, 200);
 		public static Color UIColor5 = Color.FromArgb(190, 190, 190);
 
 		public static Color GetNoteColor(string colorStr)

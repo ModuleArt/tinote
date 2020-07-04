@@ -38,6 +38,7 @@
 			this.copyrightBtn = new System.Windows.Forms.Label();
 			this.developerBtn = new System.Windows.Forms.Button();
 			this.infoToolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.donateBtn = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -47,7 +48,7 @@
 			this.titleLabel.Location = new System.Drawing.Point(9, 169);
 			this.titleLabel.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
 			this.titleLabel.Name = "titleLabel";
-			this.titleLabel.Size = new System.Drawing.Size(238, 21);
+			this.titleLabel.Size = new System.Drawing.Size(239, 21);
 			this.titleLabel.TabIndex = 13;
 			this.titleLabel.Text = "Tinote";
 			this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -59,7 +60,7 @@
 			this.versionLabel.Location = new System.Drawing.Point(9, 199);
 			this.versionLabel.Margin = new System.Windows.Forms.Padding(0, 0, 0, 9);
 			this.versionLabel.Name = "versionLabel";
-			this.versionLabel.Size = new System.Drawing.Size(238, 17);
+			this.versionLabel.Size = new System.Drawing.Size(239, 17);
 			this.versionLabel.TabIndex = 14;
 			this.versionLabel.Text = "Sticky Notes v{0}";
 			this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,19 +68,20 @@
 			// 
 			// githubBtn
 			// 
+			this.githubBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(192)))), ((int)(((byte)(52)))));
 			this.githubBtn.FlatAppearance.BorderSize = 0;
 			this.githubBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.githubBtn.Image = global::quick_sticky_notes.Properties.Resources.black_github;
 			this.githubBtn.Location = new System.Drawing.Point(9, 257);
-			this.githubBtn.Margin = new System.Windows.Forms.Padding(0, 32, 0, 9);
+			this.githubBtn.Margin = new System.Windows.Forms.Padding(0, 32, 0, 0);
 			this.githubBtn.Name = "githubBtn";
-			this.githubBtn.Size = new System.Drawing.Size(118, 32);
+			this.githubBtn.Size = new System.Drawing.Size(115, 32);
 			this.githubBtn.TabIndex = 15;
 			this.githubBtn.Text = " Contribute";
 			this.githubBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.githubBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.infoToolTip.SetToolTip(this.githubBtn, "Open GitHub repository of this application");
-			this.githubBtn.UseVisualStyleBackColor = true;
+			this.githubBtn.UseVisualStyleBackColor = false;
 			this.githubBtn.Click += new System.EventHandler(this.githubBtn_Click);
 			// 
 			// pictureBox1
@@ -88,7 +90,7 @@
 			this.pictureBox1.Location = new System.Drawing.Point(9, 32);
 			this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(238, 128);
+			this.pictureBox1.Size = new System.Drawing.Size(239, 128);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
 			this.pictureBox1.TabIndex = 12;
 			this.pictureBox1.TabStop = false;
@@ -102,7 +104,7 @@
 			this.closeBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
 			this.closeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.closeBtn.Image = global::quick_sticky_notes.Properties.Resources.black_close;
-			this.closeBtn.Location = new System.Drawing.Point(224, 0);
+			this.closeBtn.Location = new System.Drawing.Point(225, 0);
 			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.closeBtn.Name = "closeBtn";
 			this.closeBtn.Size = new System.Drawing.Size(32, 32);
@@ -116,10 +118,10 @@
 			// copyrightBtn
 			// 
 			this.copyrightBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(106)))), ((int)(((byte)(29)))));
-			this.copyrightBtn.Location = new System.Drawing.Point(9, 307);
+			this.copyrightBtn.Location = new System.Drawing.Point(9, 348);
 			this.copyrightBtn.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
 			this.copyrightBtn.Name = "copyrightBtn";
-			this.copyrightBtn.Size = new System.Drawing.Size(238, 17);
+			this.copyrightBtn.Size = new System.Drawing.Size(239, 17);
 			this.copyrightBtn.TabIndex = 16;
 			this.copyrightBtn.Text = "© 2020 Module Art";
 			this.copyrightBtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -127,27 +129,47 @@
 			// 
 			// developerBtn
 			// 
+			this.developerBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(192)))), ((int)(((byte)(52)))));
 			this.developerBtn.FlatAppearance.BorderSize = 0;
 			this.developerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.developerBtn.Image = ((System.Drawing.Image)(resources.GetObject("developerBtn.Image")));
-			this.developerBtn.Location = new System.Drawing.Point(129, 257);
-			this.developerBtn.Margin = new System.Windows.Forms.Padding(0, 32, 0, 9);
+			this.developerBtn.Location = new System.Drawing.Point(133, 257);
+			this.developerBtn.Margin = new System.Windows.Forms.Padding(0, 32, 0, 0);
 			this.developerBtn.Name = "developerBtn";
-			this.developerBtn.Size = new System.Drawing.Size(118, 32);
+			this.developerBtn.Size = new System.Drawing.Size(115, 32);
 			this.developerBtn.TabIndex = 17;
 			this.developerBtn.Text = " Module Art";
 			this.developerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.developerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.infoToolTip.SetToolTip(this.developerBtn, "Open Module Art website");
-			this.developerBtn.UseVisualStyleBackColor = true;
+			this.developerBtn.UseVisualStyleBackColor = false;
 			this.developerBtn.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// donateBtn
+			// 
+			this.donateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(192)))), ((int)(((byte)(52)))));
+			this.donateBtn.FlatAppearance.BorderSize = 0;
+			this.donateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.donateBtn.Image = global::quick_sticky_notes.Properties.Resources.black_donate;
+			this.donateBtn.Location = new System.Drawing.Point(130, 298);
+			this.donateBtn.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
+			this.donateBtn.Name = "donateBtn";
+			this.donateBtn.Size = new System.Drawing.Size(118, 32);
+			this.donateBtn.TabIndex = 18;
+			this.donateBtn.Text = " Donate";
+			this.donateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.donateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+			this.infoToolTip.SetToolTip(this.donateBtn, "Buy me a coffe");
+			this.donateBtn.UseVisualStyleBackColor = false;
+			this.donateBtn.Click += new System.EventHandler(this.donateBtn_Click);
 			// 
 			// AboutForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(205)))), ((int)(((byte)(56)))));
-			this.ClientSize = new System.Drawing.Size(256, 342);
+			this.ClientSize = new System.Drawing.Size(257, 383);
+			this.Controls.Add(this.donateBtn);
 			this.Controls.Add(this.closeBtn);
 			this.Controls.Add(this.developerBtn);
 			this.Controls.Add(this.copyrightBtn);
@@ -179,5 +201,6 @@
 		private System.Windows.Forms.Label copyrightBtn;
 		private System.Windows.Forms.Button developerBtn;
 		private System.Windows.Forms.ToolTip infoToolTip;
+		private System.Windows.Forms.Button donateBtn;
 	}
 }

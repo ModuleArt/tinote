@@ -88,14 +88,16 @@ namespace quick_sticky_notes
 
         private void Note_FolderChanged(object sender, EventArgs e)
         {
-            notesListBox.Items.Clear();
-            List<Note> ln = noteManager.SearchFor();
-            for (int i = 0; i < ln.Count; i++)
-            {
-                notesListBox.Items.Add(ln[i]);
-            }
+            notesListBox.Invoke((MethodInvoker)(() => {
+                notesListBox.Items.Clear();
+                List<Note> ln = noteManager.SearchFor();
+                for (int i = 0; i < ln.Count; i++)
+                {
+                    notesListBox.Items.Add(ln[i]);
+                }
 
-            noteManager.SaveNoteToDisk(sender as Note);
+                noteManager.SaveNoteToDisk(sender as Note);
+            }));
         }
 
         private void Note_ColorChanged(object sender, ColorChangedEventArgs e)
@@ -121,16 +123,7 @@ namespace quick_sticky_notes
         {
             Note note = sender as Note;
 
-            //if (notesListBox.Items.Contains(note))
-            //{
-            //    notesListBox.Items.Remove(note);
-            //}
-
-            //fm.RemoveNote(note.uniqueId);
-            //noteManager.RemoveNote(note);
-
             note.ChangeFolder(noteManager.trashFolderId);
-            //note.Hide();
 
             notesListBox.Invalidate();
         }
@@ -222,23 +215,33 @@ namespace quick_sticky_notes
         {
             if (e.Button == MouseButtons.Right)
             {
-                int index = notesListBox.IndexFromPoint(e.Location);
-                if (index != ListBox.NoMatches)
+                if (!searchTextBox.Focused)
                 {
-                    notesListBox.SelectedIndex = index;
+                    int index = notesListBox.IndexFromPoint(e.Location);
 
                     if (noteManager.currentFolder == noteManager.trashFolderId)
                     {
                         trashListItemContext.Show(Cursor.Position);
+
+                        if (index != ListBox.NoMatches)
+                        {
+                            notesListBox.SelectedIndex = index;
+                        }
+                        restoreToolStripMenuItem.Enabled = index != ListBox.NoMatches;
+                        deleteForeverToolStripMenuItem.Enabled = index != ListBox.NoMatches;
                     }
                     else
                     {
-                        notesListItemContext.Show(Cursor.Position);
+                        if (index != ListBox.NoMatches)
+                        {
+                            notesListBox.SelectedIndex = index;
+                            notesListItemContext.Show(Cursor.Position);
+                        }
+                        else
+                        {
+                            notesListEmptyContext.Show(Cursor.Position);
+                        }
                     }
-                }
-                else
-                {
-                    notesListEmptyContext.Show(Cursor.Position);
                 }
             }
         }
@@ -260,14 +263,6 @@ namespace quick_sticky_notes
             if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
             {
                 Note note = notesListBox.SelectedItem as Note;
-
-                //if (notesListBox.Items.Contains(note))
-                //{
-                //    notesListBox.Items.Remove(note);
-                //}
-
-                //fm.RemoveNote(note.uniqueId);
-                //noteManager.RemoveNote(note);
 
                 note.Hide();
                 note.ChangeFolder(noteManager.trashFolderId);
@@ -661,6 +656,47 @@ namespace quick_sticky_notes
                 Note note = notesListBox.SelectedItem as Note;
 
                 note.ChangeFolder(noteManager.noFolderId);
+
+                notesListBox.Invalidate();
+            }
+        }
+
+        private void emptyTrashToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (notesListBox.Items.Count > 0)
+            {
+                for (int i = 0; i < notesListBox.Items.Count; i++)
+                {
+                    Note note = notesListBox.Items[i] as Note;
+
+                    if (notesListBox.Items.Contains(note))
+                    {
+                        notesListBox.Items.Remove(note);
+                    }
+
+                    noteManager.RemoveNote(note);
+                    fm.RemoveNote(note.uniqueId);
+
+                    i--;
+                }
+
+                notesListBox.Invalidate();
+            }
+        }
+
+        private void deleteForewerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (notesListBox.Items.Count > 0 && notesListBox.SelectedItem != null)
+            {
+                Note note = notesListBox.SelectedItem as Note;
+
+                if (notesListBox.Items.Contains(note))
+                {
+                    notesListBox.Items.Remove(note);
+                }
+
+                noteManager.RemoveNote(note);
+                fm.RemoveNote(note.uniqueId);
 
                 notesListBox.Invalidate();
             }
