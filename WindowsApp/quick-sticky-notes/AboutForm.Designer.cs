@@ -72,15 +72,15 @@
 			this.githubBtn.FlatAppearance.BorderSize = 0;
 			this.githubBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.githubBtn.Image = global::quick_sticky_notes.Properties.Resources.black_github;
-			this.githubBtn.Location = new System.Drawing.Point(9, 257);
-			this.githubBtn.Margin = new System.Windows.Forms.Padding(0, 32, 0, 0);
+			this.githubBtn.Location = new System.Drawing.Point(9, 234);
+			this.githubBtn.Margin = new System.Windows.Forms.Padding(0, 9, 0, 0);
 			this.githubBtn.Name = "githubBtn";
 			this.githubBtn.Size = new System.Drawing.Size(115, 32);
-			this.githubBtn.TabIndex = 15;
+			this.githubBtn.TabIndex = 1;
 			this.githubBtn.Text = " Contribute";
 			this.githubBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.githubBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.infoToolTip.SetToolTip(this.githubBtn, "Open GitHub repository of this application");
+			this.infoToolTip.SetToolTip(this.githubBtn, "Open GitHub repository of this app");
 			this.githubBtn.UseVisualStyleBackColor = false;
 			this.githubBtn.Click += new System.EventHandler(this.githubBtn_Click);
 			// 
@@ -108,7 +108,7 @@
 			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.closeBtn.Name = "closeBtn";
 			this.closeBtn.Size = new System.Drawing.Size(32, 32);
-			this.closeBtn.TabIndex = 5;
+			this.closeBtn.TabIndex = 0;
 			this.infoToolTip.SetToolTip(this.closeBtn, "Close (Alt+F4)");
 			this.closeBtn.UseVisualStyleBackColor = true;
 			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -118,7 +118,7 @@
 			// copyrightBtn
 			// 
 			this.copyrightBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(106)))), ((int)(((byte)(29)))));
-			this.copyrightBtn.Location = new System.Drawing.Point(9, 348);
+			this.copyrightBtn.Location = new System.Drawing.Point(9, 325);
 			this.copyrightBtn.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
 			this.copyrightBtn.Name = "copyrightBtn";
 			this.copyrightBtn.Size = new System.Drawing.Size(239, 17);
@@ -133,11 +133,11 @@
 			this.developerBtn.FlatAppearance.BorderSize = 0;
 			this.developerBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.developerBtn.Image = ((System.Drawing.Image)(resources.GetObject("developerBtn.Image")));
-			this.developerBtn.Location = new System.Drawing.Point(133, 257);
-			this.developerBtn.Margin = new System.Windows.Forms.Padding(0, 32, 0, 0);
+			this.developerBtn.Location = new System.Drawing.Point(133, 234);
+			this.developerBtn.Margin = new System.Windows.Forms.Padding(0, 9, 0, 0);
 			this.developerBtn.Name = "developerBtn";
 			this.developerBtn.Size = new System.Drawing.Size(115, 32);
-			this.developerBtn.TabIndex = 17;
+			this.developerBtn.TabIndex = 2;
 			this.developerBtn.Text = " Module Art";
 			this.developerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.developerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -151,15 +151,15 @@
 			this.donateBtn.FlatAppearance.BorderSize = 0;
 			this.donateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.donateBtn.Image = global::quick_sticky_notes.Properties.Resources.black_donate;
-			this.donateBtn.Location = new System.Drawing.Point(130, 298);
+			this.donateBtn.Location = new System.Drawing.Point(130, 275);
 			this.donateBtn.Margin = new System.Windows.Forms.Padding(0, 9, 0, 9);
 			this.donateBtn.Name = "donateBtn";
 			this.donateBtn.Size = new System.Drawing.Size(118, 32);
-			this.donateBtn.TabIndex = 18;
+			this.donateBtn.TabIndex = 3;
 			this.donateBtn.Text = " Donate";
 			this.donateBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.donateBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-			this.infoToolTip.SetToolTip(this.donateBtn, "Buy me a coffe");
+			this.infoToolTip.SetToolTip(this.donateBtn, "Buy me a coffe (Patreon)");
 			this.donateBtn.UseVisualStyleBackColor = false;
 			this.donateBtn.Click += new System.EventHandler(this.donateBtn_Click);
 			// 
@@ -168,7 +168,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(205)))), ((int)(((byte)(56)))));
-			this.ClientSize = new System.Drawing.Size(257, 383);
+			this.ClientSize = new System.Drawing.Size(257, 360);
 			this.Controls.Add(this.donateBtn);
 			this.Controls.Add(this.closeBtn);
 			this.Controls.Add(this.developerBtn);

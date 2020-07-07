@@ -17,9 +17,9 @@ namespace quick_sticky_notes
         {
             get
             {
-                const int CS_DROPSHADOW = 0x20000;
                 CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
+                cp.Style = NativeMethodsManager.WS_SYSMENU;
+                cp.ClassStyle |= NativeMethodsManager.CS_DROPSHADOW;
                 return cp;
             }
         }
@@ -221,14 +221,15 @@ namespace quick_sticky_notes
 
                     if (noteManager.currentFolder == noteManager.trashFolderId)
                     {
-                        trashListItemContext.Show(Cursor.Position);
-
                         if (index != ListBox.NoMatches)
                         {
                             notesListBox.SelectedIndex = index;
+                            trashListItemContext.Show(Cursor.Position);
                         }
-                        restoreToolStripMenuItem.Enabled = index != ListBox.NoMatches;
-                        deleteForeverToolStripMenuItem.Enabled = index != ListBox.NoMatches;
+                        else
+                        {
+                            trashListEmptyContext.Show(Cursor.Position);
+                        }
                     }
                     else
                     {
@@ -384,8 +385,23 @@ namespace quick_sticky_notes
                     e.Bounds.Height - 17
                 ));
 
-                e.Graphics.DrawString(note.title, e.Font, darkBrush, e.Bounds.X + 16, e.Bounds.Y + 21);
-                e.Graphics.DrawString(Regex.Replace(note.contentText, @"\t|\n|\r", " "), e.Font, middleBrush, e.Bounds.X + 16, e.Bounds.Y + 39);
+                if (note.title.Length > 100)
+                {
+                    e.Graphics.DrawString(note.title.Substring(0, 100), e.Font, darkBrush, e.Bounds.X + 16, e.Bounds.Y + 21);
+                }
+                else
+                {
+                    e.Graphics.DrawString(note.title, e.Font, darkBrush, e.Bounds.X + 16, e.Bounds.Y + 21);
+                }
+                
+                if (note.contentText.Length > 100)
+                {
+                    e.Graphics.DrawString(Regex.Replace(note.contentText.Substring(0, 100), @"\t|\n|\r", " "), e.Font, middleBrush, e.Bounds.X + 16, e.Bounds.Y + 39);
+                }
+                else
+                {
+                    e.Graphics.DrawString(Regex.Replace(note.contentText, @"\t|\n|\r", " "), e.Font, middleBrush, e.Bounds.X + 16, e.Bounds.Y + 39);
+                }
 
                 e.Graphics.FillRectangle(backBrush, new RectangleF(
                     e.Bounds.X + e.Bounds.Width - 9,
@@ -472,6 +488,10 @@ namespace quick_sticky_notes
                     if (e.KeyCode == Keys.P)
                     {
                         profileBtn.PerformClick();
+                    }
+                    else if (e.KeyCode == Keys.T)
+                    {
+                        emptyTrashToolStripMenuItem.PerformClick();
                     }
                 }
                 else
@@ -583,7 +603,7 @@ namespace quick_sticky_notes
         {
             notesListBox.Focus();
 
-            titlePanel.BackColor = Color.FromArgb(227, 227, 225);
+            titlePanel.BackColor = ColorManager.UIColor3;
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -593,7 +613,7 @@ namespace quick_sticky_notes
 
         private void MainForm_Activated(object sender, EventArgs e)
         {
-            titlePanel.BackColor = Color.FromArgb(214, 213, 210);
+            titlePanel.BackColor = ColorManager.UIColor4;
         }
 
         private void aboutBtn_Click(object sender, EventArgs e)
@@ -663,6 +683,8 @@ namespace quick_sticky_notes
 
         private void emptyTrashToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            trashBtn.PerformClick();
+
             if (notesListBox.Items.Count > 0)
             {
                 for (int i = 0; i < notesListBox.Items.Count; i++)

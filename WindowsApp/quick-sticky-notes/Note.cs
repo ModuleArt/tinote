@@ -11,6 +11,7 @@ namespace quick_sticky_notes
 		public string contentText = "Take a note...";
 		public bool visible = false;
 		public DateTime dateCreated;
+		public DateTime syncDate;
 		public int x = -1;
 		public int y = -1;
 		public int width = -1;
@@ -102,6 +103,11 @@ namespace quick_sticky_notes
 				noteForm.PerformSync += NoteForm_PerformSync;
 				noteForm.ShowNotesList += NoteForm_ShowNotesList;
 				noteForm.ColorChanged += NoteForm_ColorChanged;
+
+				if (syncDate != DateTime.MinValue)
+				{
+					noteForm.SetSyncDate(syncDate);
+				}
 			}
 
 			visible = true;
@@ -119,6 +125,21 @@ namespace quick_sticky_notes
 			if (width != -1)
 			{
 				noteForm.Size = new System.Drawing.Size(width, height);
+			}
+		}
+
+		public void SetSyncDate(DateTime syncDate)
+		{
+			if (syncDate != this.syncDate)
+			{
+				this.syncDate = syncDate;
+				if (noteForm != null && !noteForm.IsDisposed)
+				{
+					noteForm.Invoke((MethodInvoker)(() =>
+					{
+						noteForm.SetSyncDate(syncDate);
+					}));
+				}
 			}
 		}
 

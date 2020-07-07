@@ -88,7 +88,7 @@
 			this.loginBtn.Margin = new System.Windows.Forms.Padding(9);
 			this.loginBtn.Name = "loginBtn";
 			this.loginBtn.Size = new System.Drawing.Size(96, 27);
-			this.loginBtn.TabIndex = 11;
+			this.loginBtn.TabIndex = 2;
 			this.loginBtn.Text = "Sign in";
 			this.loginBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.loginBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -101,7 +101,7 @@
 			this.loginPassTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.loginPassTextBox.Name = "loginPassTextBox";
 			this.loginPassTextBox.Size = new System.Drawing.Size(280, 25);
-			this.loginPassTextBox.TabIndex = 10;
+			this.loginPassTextBox.TabIndex = 1;
 			// 
 			// loginPassLabel
 			// 
@@ -129,7 +129,7 @@
 			this.loginMailTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.loginMailTextBox.Name = "loginMailTextBox";
 			this.loginMailTextBox.Size = new System.Drawing.Size(280, 25);
-			this.loginMailTextBox.TabIndex = 7;
+			this.loginMailTextBox.TabIndex = 0;
 			// 
 			// registrationPage
 			// 
@@ -156,7 +156,7 @@
 			this.regNameTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.regNameTextBox.Name = "regNameTextBox";
 			this.regNameTextBox.Size = new System.Drawing.Size(280, 25);
-			this.regNameTextBox.TabIndex = 8;
+			this.regNameTextBox.TabIndex = 0;
 			// 
 			// regNameLabel
 			// 
@@ -178,7 +178,7 @@
 			this.registerBtn.Margin = new System.Windows.Forms.Padding(9);
 			this.registerBtn.Name = "registerBtn";
 			this.registerBtn.Size = new System.Drawing.Size(96, 27);
-			this.registerBtn.TabIndex = 6;
+			this.registerBtn.TabIndex = 4;
 			this.registerBtn.Text = "Sign up";
 			this.registerBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.registerBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -191,7 +191,7 @@
 			this.regCpassTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.regCpassTextBox.Name = "regCpassTextBox";
 			this.regCpassTextBox.Size = new System.Drawing.Size(280, 25);
-			this.regCpassTextBox.TabIndex = 5;
+			this.regCpassTextBox.TabIndex = 3;
 			// 
 			// regCpassLabel
 			// 
@@ -209,7 +209,7 @@
 			this.regPassTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.regPassTextBox.Name = "regPassTextBox";
 			this.regPassTextBox.Size = new System.Drawing.Size(277, 25);
-			this.regPassTextBox.TabIndex = 3;
+			this.regPassTextBox.TabIndex = 2;
 			// 
 			// regPassLabel
 			// 
@@ -237,7 +237,7 @@
 			this.regMailTextBox.Margin = new System.Windows.Forms.Padding(9, 0, 9, 0);
 			this.regMailTextBox.Name = "regMailTextBox";
 			this.regMailTextBox.Size = new System.Drawing.Size(280, 25);
-			this.regMailTextBox.TabIndex = 0;
+			this.regMailTextBox.TabIndex = 1;
 			// 
 			// LoginForm
 			// 

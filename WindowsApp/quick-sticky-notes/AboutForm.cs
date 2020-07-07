@@ -11,9 +11,9 @@ namespace quick_sticky_notes
 		{
 			get
 			{
-				const int CS_DROPSHADOW = 0x20000;
 				CreateParams cp = base.CreateParams;
-				cp.ClassStyle |= CS_DROPSHADOW;
+				cp.Style = NativeMethodsManager.WS_SYSMENU;
+				cp.ClassStyle |= NativeMethodsManager.CS_DROPSHADOW;
 				return cp;
 			}
 		}

@@ -19,9 +19,9 @@ namespace quick_sticky_notes
 		{
 			get
 			{
-				const int CS_DROPSHADOW = 0x20000;
 				CreateParams cp = base.CreateParams;
-				cp.ClassStyle |= CS_DROPSHADOW;
+				cp.Style = NativeMethodsManager.WS_SYSMENU;
+				cp.ClassStyle |= NativeMethodsManager.CS_DROPSHADOW;
 				return cp;
 			}
 		}
@@ -56,6 +56,11 @@ namespace quick_sticky_notes
 			subscriptToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Plus";
 		}
 
+		public void SetSyncDate(DateTime syncDate)
+		{
+			syncedToolStripMenuItem2.Text = "Synced: " + syncDate.ToString();
+		}
+
 		private void resizeTimer_Elapsed(object sender, ElapsedEventArgs e)
 		{
 			this.Invoke((MethodInvoker)(() => {
@@ -75,7 +80,14 @@ namespace quick_sticky_notes
 
 		public void SetContent(string rtf)
 		{
-			richTextBox1.Rtf = rtf;
+			try
+			{
+				richTextBox1.Rtf = rtf;
+			}
+			catch
+			{
+				richTextBox1.Text = rtf;
+			}
 		}
 
 		public void SetColor(string colorStr)
@@ -391,10 +403,13 @@ namespace quick_sticky_notes
 
 		private void toggleBulletsToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			int firstLine = richTextBox1.GetLineFromCharIndex(richTextBox1.SelectionStart);
-			int lastLine = richTextBox1.GetLineFromCharIndex(richTextBox1.SelectionStart + richTextBox1.SelectionLength) + 1;
+			int cursorPos = richTextBox1.SelectionStart;
+			int cursorLen = richTextBox1.SelectionLength;
 
-			for (int i = firstLine; i < lastLine; i++)
+			int firstLine = richTextBox1.GetLineFromCharIndex(richTextBox1.SelectionStart);
+			int lastLine = richTextBox1.GetLineFromCharIndex(richTextBox1.SelectionStart + richTextBox1.SelectionLength - 1);
+
+			for (int i = firstLine; i <= lastLine; i++)
 			{
 				richTextBox1.Select(richTextBox1.GetFirstCharIndexFromLine(i), richTextBox1.GetFirstCharIndexFromLine(i) + richTextBox1.Lines[i].Length);
 
@@ -411,6 +426,9 @@ namespace quick_sticky_notes
 					richTextBox1.SelectedText = "○ " + richTextBox1.SelectedText;
 				}
 			}
+
+			richTextBox1.SelectionStart = cursorPos;
+			richTextBox1.SelectionLength = cursorLen;
 		}
 
 		private void cutToolStripMenuItem_Click(object sender, EventArgs e)

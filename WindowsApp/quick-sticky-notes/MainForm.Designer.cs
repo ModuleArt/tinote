@@ -66,6 +66,8 @@
 			this.allNotesBtn = new System.Windows.Forms.Button();
 			this.pinnedNotesBtn = new System.Windows.Forms.Button();
 			this.trashBtn = new System.Windows.Forms.Button();
+			this.trashListEmptyContext = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
 			this.sidebarToolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.trashListItemContext = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +82,7 @@
 			this.titlePanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
 			this.sidePanel.SuspendLayout();
+			this.trashListEmptyContext.SuspendLayout();
 			this.trashListItemContext.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -95,8 +98,8 @@
 			this.notesListBox.Location = new System.Drawing.Point(32, 64);
 			this.notesListBox.Margin = new System.Windows.Forms.Padding(0);
 			this.notesListBox.Name = "notesListBox";
-			this.notesListBox.Size = new System.Drawing.Size(247, 325);
-			this.notesListBox.TabIndex = 2;
+			this.notesListBox.Size = new System.Drawing.Size(247, 329);
+			this.notesListBox.TabIndex = 12;
 			this.notesListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.notesListBox_DrawItem);
 			this.notesListBox.DoubleClick += new System.EventHandler(this.notesListBox_DoubleClick_1);
 			this.notesListBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.notesListBox_MouseUp);
@@ -211,13 +214,14 @@
 			this.notesListEmptyContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNoteToolStripMenuItem});
 			this.notesListEmptyContext.Name = "notesListContext";
-			this.notesListEmptyContext.Size = new System.Drawing.Size(124, 26);
+			this.notesListEmptyContext.Size = new System.Drawing.Size(167, 26);
 			// 
 			// addNoteToolStripMenuItem
 			// 
 			this.addNoteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("addNoteToolStripMenuItem.Image")));
 			this.addNoteToolStripMenuItem.Name = "addNoteToolStripMenuItem";
-			this.addNoteToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.addNoteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+			this.addNoteToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
 			this.addNoteToolStripMenuItem.Text = "Add note";
 			this.addNoteToolStripMenuItem.Click += new System.EventHandler(this.addNoteToolStripMenuItem_Click);
 			// 
@@ -277,7 +281,7 @@
 			this.searchTextBox.Margin = new System.Windows.Forms.Padding(0);
 			this.searchTextBox.Name = "searchTextBox";
 			this.searchTextBox.Size = new System.Drawing.Size(182, 18);
-			this.searchTextBox.TabIndex = 4;
+			this.searchTextBox.TabIndex = 10;
 			this.searchTextBox.Text = "Search your notes...";
 			this.searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
@@ -295,7 +299,7 @@
 			this.searchPanel.Margin = new System.Windows.Forms.Padding(0);
 			this.searchPanel.Name = "searchPanel";
 			this.searchPanel.Size = new System.Drawing.Size(247, 32);
-			this.searchPanel.TabIndex = 5;
+			this.searchPanel.TabIndex = 8;
 			// 
 			// profileBtn
 			// 
@@ -306,13 +310,14 @@
 			this.profileBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.profileBtn.Name = "profileBtn";
 			this.profileBtn.Size = new System.Drawing.Size(32, 32);
-			this.profileBtn.TabIndex = 1;
+			this.profileBtn.TabIndex = 9;
 			this.infoToolTip.SetToolTip(this.profileBtn, "Profile (Ctrl+Shift+P)");
 			this.profileBtn.UseVisualStyleBackColor = true;
 			this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
 			// 
 			// newNoteBtn
 			// 
+			this.newNoteBtn.ContextMenuStrip = this.notesListEmptyContext;
 			this.newNoteBtn.FlatAppearance.BorderSize = 0;
 			this.newNoteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.newNoteBtn.Image = ((System.Drawing.Image)(resources.GetObject("newNoteBtn.Image")));
@@ -320,7 +325,7 @@
 			this.newNoteBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.newNoteBtn.Name = "newNoteBtn";
 			this.newNoteBtn.Size = new System.Drawing.Size(32, 32);
-			this.newNoteBtn.TabIndex = 0;
+			this.newNoteBtn.TabIndex = 11;
 			this.infoToolTip.SetToolTip(this.newNoteBtn, "New note (Ctrl+N)");
 			this.newNoteBtn.UseVisualStyleBackColor = true;
 			this.newNoteBtn.Click += new System.EventHandler(this.newNoteBtn_Click);
@@ -329,12 +334,12 @@
 			// 
 			this.aboutBtn.FlatAppearance.BorderSize = 0;
 			this.aboutBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.aboutBtn.Image = global::quick_sticky_notes.Properties.Resources.black_about;
-			this.aboutBtn.Location = new System.Drawing.Point(0, 293);
+			this.aboutBtn.Image = ((System.Drawing.Image)(resources.GetObject("aboutBtn.Image")));
+			this.aboutBtn.Location = new System.Drawing.Point(0, 297);
 			this.aboutBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.aboutBtn.Name = "aboutBtn";
 			this.aboutBtn.Size = new System.Drawing.Size(32, 32);
-			this.aboutBtn.TabIndex = 13;
+			this.aboutBtn.TabIndex = 6;
 			this.infoToolTip.SetToolTip(this.aboutBtn, "About (F1)");
 			this.aboutBtn.UseVisualStyleBackColor = true;
 			this.aboutBtn.Click += new System.EventHandler(this.aboutBtn_Click);
@@ -345,11 +350,11 @@
 			this.settingsBtn.FlatAppearance.BorderSize = 0;
 			this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.settingsBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingsBtn.Image")));
-			this.settingsBtn.Location = new System.Drawing.Point(0, 325);
+			this.settingsBtn.Location = new System.Drawing.Point(0, 329);
 			this.settingsBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.settingsBtn.Name = "settingsBtn";
 			this.settingsBtn.Size = new System.Drawing.Size(32, 32);
-			this.settingsBtn.TabIndex = 6;
+			this.settingsBtn.TabIndex = 7;
 			this.infoToolTip.SetToolTip(this.settingsBtn, "Settings (Ctrl+Comma)");
 			this.settingsBtn.UseVisualStyleBackColor = true;
 			// 
@@ -364,7 +369,7 @@
 			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.closeBtn.Name = "closeBtn";
 			this.closeBtn.Size = new System.Drawing.Size(32, 32);
-			this.closeBtn.TabIndex = 5;
+			this.closeBtn.TabIndex = 1;
 			this.infoToolTip.SetToolTip(this.closeBtn, "Hide window (Alt+F4)");
 			this.closeBtn.UseVisualStyleBackColor = true;
 			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -383,7 +388,7 @@
 			// 
 			// titlePanel
 			// 
-			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+			this.titlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
 			this.titlePanel.Controls.Add(this.logoPictureBox);
 			this.titlePanel.Controls.Add(this.closeBtn);
 			this.titlePanel.Controls.Add(this.titleLabel);
@@ -391,7 +396,7 @@
 			this.titlePanel.Margin = new System.Windows.Forms.Padding(0);
 			this.titlePanel.Name = "titlePanel";
 			this.titlePanel.Size = new System.Drawing.Size(279, 32);
-			this.titlePanel.TabIndex = 10;
+			this.titlePanel.TabIndex = 0;
 			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
 			// 
 			// logoPictureBox
@@ -417,11 +422,11 @@
 			this.sidePanel.Margin = new System.Windows.Forms.Padding(0);
 			this.sidePanel.Name = "sidePanel";
 			this.sidePanel.Size = new System.Drawing.Size(32, 418);
-			this.sidePanel.TabIndex = 13;
+			this.sidePanel.TabIndex = 2;
 			// 
 			// allNotesBtn
 			// 
-			this.allNotesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+			this.allNotesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
 			this.allNotesBtn.FlatAppearance.BorderSize = 0;
 			this.allNotesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.allNotesBtn.Image = global::quick_sticky_notes.Properties.Resources.black_notes;
@@ -429,7 +434,7 @@
 			this.allNotesBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.allNotesBtn.Name = "allNotesBtn";
 			this.allNotesBtn.Size = new System.Drawing.Size(32, 32);
-			this.allNotesBtn.TabIndex = 7;
+			this.allNotesBtn.TabIndex = 3;
 			this.sidebarToolTip.SetToolTip(this.allNotesBtn, "Ungrouped notes (Ctrl+U)");
 			this.allNotesBtn.UseVisualStyleBackColor = false;
 			this.allNotesBtn.Click += new System.EventHandler(this.allNotesBtn_Click);
@@ -444,12 +449,13 @@
 			this.pinnedNotesBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.pinnedNotesBtn.Name = "pinnedNotesBtn";
 			this.pinnedNotesBtn.Size = new System.Drawing.Size(32, 32);
-			this.pinnedNotesBtn.TabIndex = 11;
+			this.pinnedNotesBtn.TabIndex = 4;
 			this.sidebarToolTip.SetToolTip(this.pinnedNotesBtn, "Pinned notes (Ctrl+P)");
 			this.pinnedNotesBtn.UseVisualStyleBackColor = true;
 			// 
 			// trashBtn
 			// 
+			this.trashBtn.ContextMenuStrip = this.trashListEmptyContext;
 			this.trashBtn.FlatAppearance.BorderSize = 0;
 			this.trashBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.trashBtn.Image = global::quick_sticky_notes.Properties.Resources.black_trash;
@@ -457,15 +463,34 @@
 			this.trashBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.trashBtn.Name = "trashBtn";
 			this.trashBtn.Size = new System.Drawing.Size(32, 32);
-			this.trashBtn.TabIndex = 12;
+			this.trashBtn.TabIndex = 5;
 			this.sidebarToolTip.SetToolTip(this.trashBtn, "Trash (Ctrl+T)");
 			this.trashBtn.UseVisualStyleBackColor = true;
 			this.trashBtn.Click += new System.EventHandler(this.trashBtn_Click);
+			// 
+			// trashListEmptyContext
+			// 
+			this.trashListEmptyContext.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem3});
+			this.trashListEmptyContext.Name = "notesListContext";
+			this.trashListEmptyContext.Size = new System.Drawing.Size(210, 26);
+			// 
+			// toolStripMenuItem3
+			// 
+			this.toolStripMenuItem3.Image = global::quick_sticky_notes.Properties.Resources.black_emptytrash;
+			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+			this.toolStripMenuItem3.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.T)));
+			this.toolStripMenuItem3.Size = new System.Drawing.Size(209, 22);
+			this.toolStripMenuItem3.Text = "Empty trash";
+			this.toolStripMenuItem3.Click += new System.EventHandler(this.emptyTrashToolStripMenuItem_Click);
 			// 
 			// sidebarToolTip
 			// 
 			this.sidebarToolTip.AutomaticDelay = 0;
 			this.sidebarToolTip.AutoPopDelay = 0;
+			this.sidebarToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(128)))));
+			this.sidebarToolTip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(115)))), ((int)(((byte)(64)))));
 			this.sidebarToolTip.InitialDelay = 0;
 			this.sidebarToolTip.ReshowDelay = 0;
 			this.sidebarToolTip.ToolTipTitle = "Group";
@@ -479,41 +504,41 @@
             this.toolStripSeparator4,
             this.emptyTrashToolStripMenuItem});
 			this.trashListItemContext.Name = "notesListContext";
-			this.trashListItemContext.Size = new System.Drawing.Size(148, 82);
+			this.trashListItemContext.Size = new System.Drawing.Size(210, 82);
 			// 
 			// restoreToolStripMenuItem
 			// 
-			this.restoreToolStripMenuItem.Enabled = false;
 			this.restoreToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("restoreToolStripMenuItem.Image")));
 			this.restoreToolStripMenuItem.Name = "restoreToolStripMenuItem";
-			this.restoreToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+			this.restoreToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
 			this.restoreToolStripMenuItem.Text = "Restore note";
 			this.restoreToolStripMenuItem.Click += new System.EventHandler(this.restoreToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator5
 			// 
 			this.toolStripSeparator5.Name = "toolStripSeparator5";
-			this.toolStripSeparator5.Size = new System.Drawing.Size(144, 6);
+			this.toolStripSeparator5.Size = new System.Drawing.Size(206, 6);
 			// 
 			// deleteForeverToolStripMenuItem
 			// 
-			this.deleteForeverToolStripMenuItem.Enabled = false;
-			this.deleteForeverToolStripMenuItem.Image = global::quick_sticky_notes.Properties.Resources.black_trash;
+			this.deleteForeverToolStripMenuItem.Image = global::quick_sticky_notes.Properties.Resources.black_erase;
 			this.deleteForeverToolStripMenuItem.Name = "deleteForeverToolStripMenuItem";
-			this.deleteForeverToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+			this.deleteForeverToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
 			this.deleteForeverToolStripMenuItem.Text = "Delete forever";
 			this.deleteForeverToolStripMenuItem.Click += new System.EventHandler(this.deleteForewerToolStripMenuItem_Click);
 			// 
 			// toolStripSeparator4
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(144, 6);
+			this.toolStripSeparator4.Size = new System.Drawing.Size(206, 6);
 			// 
 			// emptyTrashToolStripMenuItem
 			// 
-			this.emptyTrashToolStripMenuItem.Image = global::quick_sticky_notes.Properties.Resources.black_broom;
+			this.emptyTrashToolStripMenuItem.Image = global::quick_sticky_notes.Properties.Resources.black_emptytrash;
 			this.emptyTrashToolStripMenuItem.Name = "emptyTrashToolStripMenuItem";
-			this.emptyTrashToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+			this.emptyTrashToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.T)));
+			this.emptyTrashToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
 			this.emptyTrashToolStripMenuItem.Text = "Empty trash";
 			this.emptyTrashToolStripMenuItem.Click += new System.EventHandler(this.emptyTrashToolStripMenuItem_Click);
 			// 
@@ -522,7 +547,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(226)))), ((int)(((byte)(229)))));
-			this.ClientSize = new System.Drawing.Size(278, 389);
+			this.ClientSize = new System.Drawing.Size(278, 393);
 			this.Controls.Add(this.sidePanel);
 			this.Controls.Add(this.titlePanel);
 			this.Controls.Add(this.notesListBox);
@@ -551,6 +576,7 @@
 			this.titlePanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
 			this.sidePanel.ResumeLayout(false);
+			this.trashListEmptyContext.ResumeLayout(false);
 			this.trashListItemContext.ResumeLayout(false);
 			this.ResumeLayout(false);
 
@@ -600,6 +626,8 @@
 		private System.Windows.Forms.ToolStripMenuItem emptyTrashToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
 		private System.Windows.Forms.ToolStripMenuItem deleteForeverToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip trashListEmptyContext;
+		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
 	}
 }
 

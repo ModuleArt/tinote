@@ -114,6 +114,11 @@ namespace quick_sticky_notes
 					notes[i].SetContent(data.t);
 					notes[i].ChangeFolder(data.f);
 
+					DateTime dt = DateTime.FromBinary(long.Parse(data.s));
+					notes[i].SetSyncDate(dt);
+
+					SaveNoteToDisk(notes[i]);
+
 					noteExists = true;
 				}
 			}

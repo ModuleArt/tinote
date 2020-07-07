@@ -43,6 +43,7 @@
 			this.whiteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.createdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.syncedToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.closeBtn = new System.Windows.Forms.Button();
@@ -91,7 +92,7 @@
 			this.titleTextBox.Margin = new System.Windows.Forms.Padding(0);
 			this.titleTextBox.Name = "titleTextBox";
 			this.titleTextBox.Size = new System.Drawing.Size(154, 18);
-			this.titleTextBox.TabIndex = 0;
+			this.titleTextBox.TabIndex = 2;
 			this.titleTextBox.Text = "Title";
 			this.titleTextBox.Visible = false;
 			this.titleTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.titleTextBox_KeyDown);
@@ -112,7 +113,7 @@
 			this.titlePanel.Margin = new System.Windows.Forms.Padding(0);
 			this.titlePanel.Name = "titlePanel";
 			this.titlePanel.Size = new System.Drawing.Size(256, 32);
-			this.titlePanel.TabIndex = 6;
+			this.titlePanel.TabIndex = 0;
 			this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
 			// 
 			// headerContext
@@ -122,10 +123,11 @@
             this.changeColorToolStripMenuItem,
             this.toolStripSeparator3,
             this.createdToolStripMenuItem,
+            this.syncedToolStripMenuItem2,
             this.toolStripSeparator5,
             this.deleteToolStripMenuItem});
 			this.headerContext.Name = "headerContext";
-			this.headerContext.Size = new System.Drawing.Size(191, 104);
+			this.headerContext.Size = new System.Drawing.Size(191, 126);
 			// 
 			// renameToolStripMenuItem
 			// 
@@ -217,6 +219,13 @@
 			this.createdToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
 			this.createdToolStripMenuItem.Text = "Created";
 			// 
+			// syncedToolStripMenuItem2
+			// 
+			this.syncedToolStripMenuItem2.Enabled = false;
+			this.syncedToolStripMenuItem2.Name = "syncedToolStripMenuItem2";
+			this.syncedToolStripMenuItem2.Size = new System.Drawing.Size(190, 22);
+			this.syncedToolStripMenuItem2.Text = "Synced: Never";
+			// 
 			// toolStripSeparator5
 			// 
 			this.toolStripSeparator5.Name = "toolStripSeparator5";
@@ -240,7 +249,7 @@
 			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.closeBtn.Name = "closeBtn";
 			this.closeBtn.Size = new System.Drawing.Size(32, 32);
-			this.closeBtn.TabIndex = 6;
+			this.closeBtn.TabIndex = 4;
 			this.infoToolTip.SetToolTip(this.closeBtn, "Hide note (Alt+F4)");
 			this.closeBtn.UseVisualStyleBackColor = true;
 			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -255,7 +264,7 @@
 			this.notesListBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.notesListBtn.Name = "notesListBtn";
 			this.notesListBtn.Size = new System.Drawing.Size(32, 32);
-			this.notesListBtn.TabIndex = 10;
+			this.notesListBtn.TabIndex = 3;
 			this.infoToolTip.SetToolTip(this.notesListBtn, "Show notes list (Ctrl+Shift+N)");
 			this.notesListBtn.UseVisualStyleBackColor = true;
 			this.notesListBtn.Click += new System.EventHandler(this.notesListBtn_Click);
@@ -281,7 +290,7 @@
 			this.newNoteBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.newNoteBtn.Name = "newNoteBtn";
 			this.newNoteBtn.Size = new System.Drawing.Size(32, 32);
-			this.newNoteBtn.TabIndex = 9;
+			this.newNoteBtn.TabIndex = 1;
 			this.infoToolTip.SetToolTip(this.newNoteBtn, "New note (Ctrl+N)");
 			this.newNoteBtn.UseVisualStyleBackColor = true;
 			this.newNoteBtn.Click += new System.EventHandler(this.newNoteBtn_Click);
@@ -528,7 +537,7 @@
 			this.richTextBox1.Name = "richTextBox1";
 			this.richTextBox1.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
 			this.richTextBox1.Size = new System.Drawing.Size(241, 190);
-			this.richTextBox1.TabIndex = 0;
+			this.richTextBox1.TabIndex = 5;
 			this.richTextBox1.Text = "";
 			this.richTextBox1.ContentsResized += new System.Windows.Forms.ContentsResizedEventHandler(this.richTextBox1_ContentsResized);
 			this.richTextBox1.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox1_LinkClicked);
@@ -642,5 +651,6 @@
 		private System.Windows.Forms.ToolStripMenuItem purpleToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem whiteToolStripMenuItem;
 		private CustomScrollbar customScrollbar1;
+		private System.Windows.Forms.ToolStripMenuItem syncedToolStripMenuItem2;
 	}
 }

@@ -5,6 +5,17 @@ namespace quick_sticky_notes
 {
 	public partial class LoginForm : Form
 	{
+		protected override CreateParams CreateParams
+		{
+			get
+			{
+				CreateParams cp = base.CreateParams;
+				cp.Style = NativeMethodsManager.WS_SYSMENU;
+				cp.ClassStyle |= NativeMethodsManager.CS_DROPSHADOW;
+				return cp;
+			}
+		}
+
 		public LoginForm()
 		{
 			InitializeComponent();

@@ -48,7 +48,7 @@
 			this.logoutBtn.Margin = new System.Windows.Forms.Padding(0, 32, 0, 0);
 			this.logoutBtn.Name = "logoutBtn";
 			this.logoutBtn.Size = new System.Drawing.Size(118, 30);
-			this.logoutBtn.TabIndex = 0;
+			this.logoutBtn.TabIndex = 1;
 			this.logoutBtn.Text = "Sign out";
 			this.logoutBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.logoutBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -115,7 +115,7 @@
 			this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
 			this.closeBtn.Name = "closeBtn";
 			this.closeBtn.Size = new System.Drawing.Size(32, 32);
-			this.closeBtn.TabIndex = 6;
+			this.closeBtn.TabIndex = 0;
 			this.closeBtn.UseVisualStyleBackColor = true;
 			this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
 			this.closeBtn.MouseEnter += new System.EventHandler(this.closeBtn_MouseEnter);

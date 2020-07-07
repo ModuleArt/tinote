@@ -188,6 +188,8 @@
     <None Include="resources\imgs\note-scrollbar\yellow\sb-thumbmiddle-y.png" />
     <None Include="resources\imgs\dark\black-donate.png" />
     <None Include="resources\imgs\dark\black-broom.png" />
+    <None Include="resources\imgs\dark\black-emptytrash.png" />
+    <None Include="resources\imgs\dark\black-erase.png" />
     <Content Include="tinote.ico" />
     <None Include="resources\imgs\dark\black-close.png" />
     <None Include="resources\imgs\light\white-close.png" />
